@@ -1,0 +1,126 @@
+/*
+THEME NAME: plaintxtBlog
+THEME URI: http://www.plaintxt.org/themes/plaintxtblog/
+DESCRIPTION: Your blog, but simplified. A minimalist theme. Clutter-free, fluid 3-column layout with Widgets support. For WordPress 2.0.x and 2.1.
+VERSION: 3.0 RC5
+AUTHOR: Scott Allan Wallick
+AUTHOR URI: http://scottwallick.com/
+*/
+a,a:link{color:#059;outline:none;}
+div.sidebar a:visited{color:#059;}
+div.sidebar ul li ul li.current-cat a,div.sidebar ul li ul li.current-cat a:link,div.sidebar ul li ul li.current-cat a:visited,div.sidebar ul li ul li.current_page_item a,div.sidebar ul li ul li.current_page_item a:link,div.sidebar ul li ul li.current_page_item a:visited{background:#80abcd;color:#fff;padding:1px 2px;}
+div.sidebar a,div.sidebar a:link,div.sidebar ul li ul li.current-cat ul li a,div.sidebar ul li ul li.current-cat ul li a:link,div.sidebar ul li ul li.current-cat ul li a:visited,div.sidebar ul li ul li.current_page_item ul li a,div.sidebar ul li ul li.current_page_item ul li a:link,div.sidebar ul li ul li.current_page_item ul li a:visited{background:#fff;color:#059;padding:1px 2px;text-decoration:none;}
+div#content .entry-title a,div#content .entry-title a:link,div.navigation a,div.navigation a:link{text-decoration:none;}
+div#footer a,div#footer a:link{color:#aaa;}
+div#header h1 a,div#header h1 a:link{border-bottom:1px solid #ccc;text-decoration:none;}
+a:visited{color:#059;text-decoration:none;}
+a:hover,div#footer a:hover{color:#c30;text-decoration:none;}
+div#header h1 a:hover{border-bottom:1px solid #059;}
+div.sidebar a:hover{background:#059;color:#fff;padding:1px 2px;}
+a:active{color:#ccc;}
+body{background:#fff;border:1px solid #000;color:#111;font-family:verdana, geneva, sans-serif;line-height:150%;margin:20px;padding:20px;}
+body div#container{width:100%;}
+body div#content div.entry-content div.contactleft, body div#content div.entry-content div.contactright{display:block;padding:0;text-align:left;}
+body div#content div.entry-content div.contactleft{clear:none;float:left;margin:0;width:10em;}
+body div#content div.entry-content div.contactright{clear:left;float:none;margin:0 0 1em;width:auto;}
+body div#footer{clear:both;color:#aaa;font-size:0.9em;padding:5em 0 0;width:100%;}
+body div.sidebar{overflow:hidden;width:120px;}
+body p.access,body div#globalnav{display:none;}
+body.archive .page-title,body.search .page-title{font-size:1.1em;font-weight:400;margin:0 0 0.3em;}
+body.archive div#content div.p1,body.search div#content div.p1{margin:2em 0 0;}
+body.attachment div.post-parent{font-size:0.9em;font-style:italic;}
+body.attachment p.attachment-name,body.attachment p.smallattachment-name{color:#666;font-size:1.1em;font-style:italic;margin:-0.5em 0 1em;}
+body.single div.entry-content div.page-link,body.page div.entry-content div.page-link{display:block;margin:1em auto;text-align:center;width:10em;}
+body.single div.entry-meta{background:#f6f6f6;font-size:0.9em;font-style:normal;margin:2em auto;padding:1em;text-align:center;width:70%;}
+body.single span.entry-comments a{background:url(images/comments.png) no-repeat center left;}
+body.single span.entry-comments a,body.single span.entry-trackbacks a,body.single span.entry-commentslink a{padding:0 0 0 13px;}
+body.single span.entry-comments,body.single span.entry-trackbacks,body.single span.entry-commentslink{font-weight:700;text-transform:uppercase;}
+body.single span.entry-commentslink{display:block;margin:0.2em 0;}
+body.single span.entry-commentslink a{background:url(images/feed.png) no-repeat center left;}
+body.single span.entry-trackbacks a{background:url(images/trackbacks.png) no-repeat center left;}
+div#content .entry-title{background:#eee;font-size:0.9em;margin:0;text-transform:uppercase;}
+div#content abbr{border-bottom:1px dotted #006;cursor:help;}
+div#content blockquote{background:#f6f6f6;border-left:5px solid #eee;margin:0;padding:0;}
+div#content blockquote blockquote{background:#eee;border-left:5px solid #fff;margin:0 1em;}
+div#content blockquote p{margin:0.5em;padding:0.5em;}
+div#content cite{border-bottom:1px dotted #bbb;cursor:help;}
+div#content code,div#content pre{color:#006;font:1em/133% "courier new", courier, monospace;}
+div#content del{background:#eee;color:#999;}
+div#content div.entry-content a.doc{background:url(images/file-doc.png) no-repeat center right;}
+div#content div.entry-content a.doc,div#content div.entry-content a.html,div#content div.entry-content a.pdf,div#content div.entry-content a.zip{padding:2px 19px 2px 0;}
+div#content div.entry-content a.html{background:url(images/file-html.png) no-repeat center right;}
+div#content div.entry-content a.pdf{background:url(images/file-pdf.png) no-repeat center right;}
+div#content div.entry-content a.xfn-colleague{background:url(images/xfn-colleague.png) no-repeat center right;}
+div#content div.entry-content a.xfn-colleague-met{background:url(images/xfn-colleague-met.png) no-repeat center right;}
+div#content div.entry-content a.xfn-colleague-met,div#content div.entry-content a.xfn-sweetheart-met,div#content div.entry-content a.xfn-friend-met{line-height:200%;padding:2px 26px 2px 0;}
+div#content div.entry-content a.xfn-friend{background:url(images/xfn-friend.png) no-repeat center right;}
+div#content div.entry-content a.xfn-friend-met{background:url(images/xfn-friend-met.png) no-repeat center right;}
+div#content div.entry-content a.xfn-me{background:url(images/xfn-me.png) no-repeat center right;}
+div#content div.entry-content a.xfn-me,div#content div.entry-content a.xfn-colleague,div#content div.entry-content a.xfn-sweetheart,div#content div.entry-content a.xfn-friend{padding:2px 21px 2px 0;}
+div#content div.entry-content a.xfn-sweetheart{background:url(images/xfn-sweetheart.png) no-repeat center right;}
+div#content div.entry-content a.xfn-sweetheart-met{background:url(images/xfn-sweetheart-met.png) no-repeat center right;}
+div#content div.entry-content a.zip{background:url(images/file-zip.png) no-repeat center right;}
+div#content em{font-style:normal;font-weight:700;}
+div#content ins{background:#f5f5dc;font-style:italic;text-decoration:none;}
+div#content span.caps{font-size:1.1em;font-variant:small-caps;}
+div#content strong{text-transform:uppercase;}
+div#header h1#blog-title{font-size:1.3em;margin:0 0 0.3em;}
+div.comments form#commentform div{margin:0 0 0.5em;}
+div.comments form#commentform div#comment-notes{margin:-0.5em 0 0.7em;}
+div.comments form#commentform div#loggedin,div.comments form#commentform div#comment-notes,div.comments div#mustlogin{font-style:italic;margin:-0.8em 0 0.5em;}
+div.comments form#commentform div.form-input input{border:1px inset #111;}
+div.comments form#commentform div.form-input input,div.comments form#commentform div.form-textarea textarea{clear:left;float:left;max-width:35em;width:66%;}
+div.comments form#commentform div.form-input input,div.comments form#commentform div.form-textarea textarea,body.page div.contactform input#wpcf_your_name,body.page div.contactform input#wpcf_email,body.page div.contactform input#wpcf_website,body.page div.contactform textarea#wpcf_msg{background:#f6f6f6;border:1px inset #999;font:1em/133% verdana, geneva, sans-serif;padding:0.3em;}
+div.comments form#commentform div.form-input,div.comments form#commentform div.form-textarea{margin:1em 0 0;}
+div.comments form#commentform div.form-label label,body.page div.contactform div.contactleft{color:#666;font-weight:700;line-height:200%;margin:0 0 0 0.3em;}
+div.comments form#commentform div.form-submit input,body.page div.contactform input#contactsubmit{background:#ccc;border:1px outset #999;color:#333;font:bold 1em/133% verdana, geneva, sans-serif;padding:0.4em;}
+div.comments form#commentform div.form-textarea textarea{margin-bottom:1em;overflow:auto;}
+div.comments h3{font-size:1em;margin:4em 0 1em;}
+div.comments ol#pingbacks li p strong{text-transform:none;}
+div.comments ol.commentlist{margin:0 0 0 1.8em;padding:0;}
+div.comments ol.commentlist li{background:#f6f6f6;margin:0 0 1em;padding:0.5em 0.8em;}
+div.comments ol.commentlist li p{margin:0.5em 0;}
+div.comments ol.commentlist li.alt{background:#eee;}
+div.comments span.req-field{color:#c30;}
+div.content-column{float:left;margin:0 3% 0 0;width:40%;}
+div.entry-content a img.alignleft,div.entry-content a img.alignright,div.entry-content a img.center,div.entry-content a:link img.alignleft,div.entry-content a:link img.alignright,div.entry-content a:link img.center,div.entry-content a:visited img.alignleft,div.entry-content a:visited img.alignright,div.entry-content a:visited img.center{border:1px solid #059;}
+div.entry-content a:hover img.alignleft,div.entry-content a:hover img.alignright,div.entry-content a:hover img.center{border:1px solid #c30;}
+div.entry-content div.page-link,div#content div.nopassword{background:#f5f5df;border-bottom:1px solid #ddd;border-top:1px solid #ddd;display:inline;margin:0 0 1em;padding:0.2em 0.4em;}
+div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h4,div.entry-content h5,div.entry-content h6{font-size:1em;margin:2em 0 -0.8em;text-transform:uppercase;}
+div.entry-content h2{color:#333;}
+div.entry-content h3{color:#555;}
+div.entry-content h4{color:#777;}
+div.entry-content h5{color:#999;}
+div.entry-content h6{color:#bbb;}
+div.entry-content img.alignleft{float:left;margin:0.5em 1em 0.5em 0;}
+div.entry-content img.alignright{float:right;margin:0.5em 0 0.5em 1em;}
+div.entry-content img.center{display:block;margin:1em auto;text-align:center;}
+div.entry-content p{margin:1em 0;}
+div.entry-content ul.page-list li{list-style:none;margin:0 0 2em;padding:0;}
+div.entry-content ul.page-list li h3{font-size:1em;}
+div.entry-content ul.page-list li ul li ul{font-style:italic;margin:0 0 0.3em 1.5em;}
+div.entry-header{background:#eee;clear:both;padding:1px 4px;text-align:right;text-transform:uppercase;}
+div.entry-header abbr.published{font-size:0.9em;}
+div.entry-meta{font-style:italic;margin:1em 0 2.5em;text-align:right;}
+div.navigation{background:#eee;font-size:0.8em;font-weight:700;padding:1px 5px;text-align:center;width:99%;}
+div.navigation div.nav-next{float:right;}
+div.sidebar ul li{list-style:none;margin:0 0 1em;padding:0;}
+div.sidebar ul li h3{color:#444;font-size:1em;margin:0;padding:1px 2px;}
+div.sidebar ul li ul li ul{font-size:0.9em;font-style:italic;margin:0 0 0.2em;}
+div.sidebar ul li table#wp-calendar caption,div.sidebar ul li form#gsearch{text-align:right;}
+div.sidebar ul li form#searchform input#s,div.sidebar ul li form#gsearch input{background:#f6f6f6;border:1px inset #999;margin:0 0 0.3em;padding:2px;width:7em;}
+div.sidebar ul li form#searchform input#s,div.sidebar ul li form#searchform input#searchsubmit,div.sidebar ul li form#gsearch input{font:1em/133% verdana, geneva, sans-serif;}
+div.sidebar ul li form#searchform input#searchsubmit,body div.sidebar ul li form#gsearch input[type=submit]{background:#ccc;border:1px outset #999;color:#333;font-weight:700;padding:1px 2px;width:7.5em;}
+div.sidebar ul li#rss-links a,div#content ul li#rss-links a{background:url(images/feed.png) no-repeat center right;padding:0 14px 0 0;}
+div.sidebar ul li#rss-links a:hover{background:url(images/feed.png) #059 no-repeat center right;padding:1px 14px 1px 2px;}
+body div#content abbr.published,body img{border:none;}
+body div#header,div.comments{margin:0 0 3em;}
+body.archive .page-title span,body.search .page-title span,div#header div#blog-description,div.comments ol#pingbacks li div.comment-meta a,div.comments ol.commentlist div.comment-author span.fn{font-weight:700;}
+body.archive div.archive-meta,div#content q,div.comments ol#comments li div.comment-meta,span.pingback-datetime,div.sidebar ul li table#wp-calendar caption{font-style:italic;}
+body.archive div.archive-meta p,div.sidebar ul li ul li{margin:0;}
+body.attachment div.entry-content,div.clearer,div.comments form#commentform div.form-submit,body.page div.entry-content div.contactform form{clear:both;}
+body.single .entry-title,body.page h2.entry-title,div#content div#post-0 h2.entry-title{padding:1px 4px;}
+div.comments form#commentform div.form-input input:focus,div.comments form#commentform div.form-textarea textarea:focus,body.page div.contactform input#wpcf_your_name:focus,body.page div.contactform input#wpcf_email:focus,body.page div.contactform input#wpcf_website:focus,body.page div.contactform textarea#wpcf_msg:focus,div.sidebar ul li form#searchform input#s:focus,div.sidebar ul li form#gsearch input:focus{background:#fff;}
+div.comments form#commentform div.form-submit input:active,body.page div.contactform input#contactsubmit:active,div.sidebar ul li form#searchform input#searchsubmit:active,body div.sidebar ul li form#gsearch input[type=submit]:active{background:#ddd;border:1px inset #999;color:#000;}
+div.comments form#commentform,div.sidebar ul li form#searchform,div.sidebar ul li form#gsearch,body.page div.entry-content div.contactform form,div.entry-content ul.page-list li ul,div.entry-content ul.page-list,div.entry-content ul.page-list li h3,div.entry-content ul.page-list li ul li,div.sidebar ul{margin:0;padding:0;}
+div.entry-header .entry-title,div.navigation div.nav-previous{float:left;}
