@@ -7,10 +7,15 @@ function plaintxtblog_globalnav() {
 	echo "</ul></div>\n";
 }
 
-function plaintxtblog_admin_hcard() {
+function plaintxtblog_admin_hCard() {
 	global $wpdb, $user_info;
 	$user_info = get_userdata(1);
 	echo '<span class="vcard"><a class="url fn n" href="' . $user_info->user_url . '"><span class="given-name">' . $user_info->first_name . '</span> <span class="family-name">' . $user_info->last_name . '</span></a></span>';
+}
+
+function plaintxtblog_author_hCard() {
+	global $wpdb, $authordata;
+	echo '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 }
 
 function plaintxtblog_body_class( $print = true ) {
