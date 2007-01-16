@@ -47,16 +47,16 @@ div#content cite{border-bottom:1px dotted #bbb;cursor:help;}
 div#content code,div#content pre{color:#006;font:1em/133% "courier new", courier, monospace;}
 div#content del{background:#eee;color:#999;}
 div#content div.entry-content a.doc{background:url(images/file-doc.png) no-repeat center right;}
-div#content div.entry-content a.doc,div#content div.entry-content a.html,div#content div.entry-content a.pdf,div#content div.entry-content a.zip{padding:2px 19px 2px 0;}
+div#content div.entry-content a.doc,div#content div.entry-content a.html,div#content div.entry-content a.pdf,div#content div.entry-content a.zip{padding:2px 19px 2px 0;margin-right:2px;}
 div#content div.entry-content a.html{background:url(images/file-html.png) no-repeat center right;}
 div#content div.entry-content a.pdf{background:url(images/file-pdf.png) no-repeat center right;}
 div#content div.entry-content a.xfn-colleague{background:url(images/xfn-colleague.png) no-repeat center right;}
 div#content div.entry-content a.xfn-colleague-met{background:url(images/xfn-colleague-met.png) no-repeat center right;}
-div#content div.entry-content a.xfn-colleague-met,div#content div.entry-content a.xfn-sweetheart-met,div#content div.entry-content a.xfn-friend-met{line-height:200%;padding:2px 26px 2px 0;}
+div#content div.entry-content a.xfn-colleague-met,div#content div.entry-content a.xfn-sweetheart-met,div#content div.entry-content a.xfn-friend-met{padding:2px 26px 2px 0;margin-right:2px;}
 div#content div.entry-content a.xfn-friend{background:url(images/xfn-friend.png) no-repeat center right;}
 div#content div.entry-content a.xfn-friend-met{background:url(images/xfn-friend-met.png) no-repeat center right;}
 div#content div.entry-content a.xfn-me{background:url(images/xfn-me.png) no-repeat center right;}
-div#content div.entry-content a.xfn-me,div#content div.entry-content a.xfn-colleague,div#content div.entry-content a.xfn-sweetheart,div#content div.entry-content a.xfn-friend{padding:2px 21px 2px 0;}
+div#content div.entry-content a.xfn-me,div#content div.entry-content a.xfn-colleague,div#content div.entry-content a.xfn-sweetheart,div#content div.entry-content a.xfn-friend{padding:2px 21px 2px 0;margin-right:2px;}
 div#content div.entry-content a.xfn-sweetheart{background:url(images/xfn-sweetheart.png) no-repeat center right;}
 div#content div.entry-content a.xfn-sweetheart-met{background:url(images/xfn-sweetheart-met.png) no-repeat center right;}
 div#content div.entry-content a.zip{background:url(images/file-zip.png) no-repeat center right;}
