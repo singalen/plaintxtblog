@@ -1,3 +1,4 @@
+<?php header("HTTP/1.1 404 Not Found"); ?>
 <?php get_header() ?>
 
 	<div id="container">
