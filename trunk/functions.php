@@ -126,10 +126,10 @@ function plaintxtblog_comment_class( $print = true ) {
 
 function plaintxtblog_date_classes($t, &$c, $p = '') {
 	$t = $t + (get_settings('gmt_offset') * 3600);
-	$c[] = $p . 'y' . gmdate('Y', $t); // Year
-	$c[] = $p . 'm' . gmdate('m', $t); // Month
-	$c[] = $p . 'd' . gmdate('d', $t); // Day
-	$c[] = $p . 'h' . gmdate('h', $t); // Hour
+	$c[] = $p . 'y' . gmdate('Y', $t);
+	$c[] = $p . 'm' . gmdate('m', $t);
+	$c[] = $p . 'd' . gmdate('d', $t);
+	$c[] = $p . 'h' . gmdate('h', $t);
 }
 
 function plaintxtblog_cats_meow($glue) {
@@ -367,8 +367,8 @@ a.xfn-me:hover{background:url(<?php echo get_template_directory_uri(); ?>/images
 }
 
 function plaintxtblog_admin() {
-	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><strong><?php printf(__('plaintxtBlog options saved. <a href="%s">View site &raquo;</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></strong></p></div><?php }
-	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><strong><?php _e('plaintxtBlog options reset.', 'plaintxtblog'); ?></strong></p></div><?php } ?>
+	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><strong><?php printf(__('PlaintxtBlog theme options saved. <a href="%s">View site &raquo;</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></strong></p></div><?php }
+	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><strong><?php _e('PlaintxtBlog theme options reset.', 'plaintxtblog'); ?></strong></p></div><?php } ?>
 
 <div class="wrap">
 
