@@ -9,7 +9,9 @@
 	<link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php bloginfo('name') ?> Comments RSS 2.0 Feed" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
 	<link rel="start" href="<?php echo get_settings('home') ?>/" title="<?php bloginfo('name') ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" title="plaintxtBlog" media="all" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('stylesheet_url'); ?>" title="plaintxtBlog" />
+	<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css" />
+
 <?php wp_head() ?>
 
 </head>
