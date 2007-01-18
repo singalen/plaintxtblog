@@ -82,7 +82,7 @@ div.comments ol.commentlist li{background:#f6f6f6;margin:0 0 1em;padding:0.5em 0
 div.comments ol.commentlist li p{margin:0.5em 0;}
 div.comments ol.commentlist li.alt{background:#eee;}
 div.comments ol.commentlist li.bypostauthor{border: 2px solid #ddd;background:#fff;}
-div.comments span.req-field{color:#c30;}
+div.comments span.req-field,div.comments span.unapproved{color:#c30;}
 div.content-column{float:left;margin:0 3% 0 0;width:40%;}
 div.entry-content a img.alignleft,div.entry-content a img.alignright,div.entry-content a img.center,div.entry-content a:link img.alignleft,div.entry-content a:link img.alignright,div.entry-content a:link img.center,div.entry-content a:visited img.alignleft,div.entry-content a:visited img.alignright,div.entry-content a:visited img.center{border:1px solid #059;}
 div.entry-content a:hover img.alignleft,div.entry-content a:hover img.alignright,div.entry-content a:hover img.center{border:1px solid #c30;}
