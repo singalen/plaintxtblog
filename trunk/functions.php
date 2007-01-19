@@ -350,7 +350,10 @@ function plaintxtblog_admin_head() {
 div.wrap table.editform tr td input.radio{background:#fff;border:none;margin-right:3px;}
 div.wrap table.editform tr td input.text{text-align:center;width:5em;}
 div.wrap table.editform tr td select.dropdown option{margin-right:10px;}
+div.wrap table.editform th h3{font:normal 2em/133% georgia,times,serif;margin:1em 0 0.3em;color#222;}
+div.wrap table.editform td.important span {background:#f5f5df;padding:0.1em 0.2em;font:85%/175% georgia,times,serif;}
 span.info{color:#555;display:block;font-size:90%;margin:3px 0 9px;}
+span.info span{font-weight:bold;}
 a.xfn-me:hover{background:url(<?php echo get_template_directory_uri(); ?>/images/xfn-me.png) no-repeat top right;padding-right:18px;}
 .arial{font-family:arial,helvetica,sans-serif;}
 .courier{font-family:'courier new',courier,monospace;}
