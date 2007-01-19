@@ -3,26 +3,33 @@
 <head profile="http://gmpg.org/xfn/11">
 <title>plaintxtBlog &middot; An explanation</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta name="description" content="plaintxtBlog is a content-centered theme for WordPress: a theme about letters, words, and sentences" />
+<meta name="description" content="plaintxtBlog: Your content, but simplified." />
 <meta name="keywords" content="plaintxtBlog, theme, wordpress, plaintxt.org, semantics, widgets, hatom, hcard, xfn" />
 <style type="text/css" media="screen">
 /*<![CDATA[*/
-body{font:80%/150% verdana,geneva,sans-serif;margin:2em auto;padding:0;}
-body blockquote{background:#f5f5f5;font:1em/150% georgia,times,serif;padding:0.5em 1em;text-indent:2em;}
-body blockquote p{margin:0.5em 0;}
+body{color:#222;font:82%/150% arial,helvetica,sans-serif;margin:2em auto;padding:0;}
+body blockquote{background:#eee;font-size:1em;padding:0.5em 1em;text-indent:2em;}
+body blockquote p{margin:0.5em 0;line-height:150%;}
+body blockquote,body h3,body h4,dl dt.def-head,body div.readme-subtitle{color:#000;font-family:georgia,times,serif;}
 body code{font:1em/133% "courier new",courier,monospace;}
-body div.readme{margin:0 auto 10em auto;width:32em;}
-body h2{font:normal 3em/133% verdana,geneva,sans-serif;letter-spacing:3px;margin:0;text-align:center;}
-body h3{font-size:1.2em;line-height:133%;font-weight:bold;margin:2em 0 -0.5em;}
-body h4{font:italic bold 1.1em/133% arial,helvetica,sans-serif;margin:2em 0 -0.5em;}
+body div.readme{margin:0 auto 10em;width:40em;}
+body div.readme-subtitle{color:#000;line-height:150%;margin:0 25%;padding:1em 0;}
+body div.readme-version{color:#888;}
+body h2{color:#059;font:normal 3em/150% verdana,geneva,sans-serif;letter-spacing:2px;margin:0;text-align:center;}
+body h3{font:1.7em/133% georgia,times,serif;margin:2em 0 -0.5em;}
+body h4{font-size:1.4em;font-style:italic;font-weight:400;line-height:150%;margin:1em 0 -0.5em;}
+body ol#toc h3{margin-bottom:0;}
 body p{margin:1em 0;}
-div#theme-meta{font:0.9em/133% verdana,geneva,sans-serif;letter-spacing:2px;text-align:center;}
-dl{background:#eeeeee;margin:1em 0 2em 0;padding:1em;}
+body p.rubric{margin:1em 0 0.2em;}
+body ul li{list-style:square;}
+body ul li ul li{list-style:circle;}
+div.readme-meta{font-size:0.9em;letter-spacing:2px;line-height:133%;text-align:center;}
+dl{background:#eee;margin:1em 0 2em;padding:1em;}
 dl dd{margin:0;padding:0;}
-dl dd code{color:#666666;font:0.8em/normal verdana,geneva,sans-serif;}
+dl dd code{color:#666;font-size:0.9em;}
 dl dd.example{margin-left:1em;}
 dl dt code{display:block;font-size:1.1em;margin-top:0.5em;}
-dl dt.def-head{border-bottom:2px solid #ffffff;font-size:1em;font-weight:bold;line-height:133%;margin-left:-1em;margin-right:-1em;padding:0 1em 0.5em 1em;}
+dl dt.def-head{border-bottom:2px solid #fff;font-size:1.2em;line-height:150%;margin-left:-1em;margin-right:-1em;padding:0 1em 0.5em;}
 dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 /*]]>*/
 </style>
@@ -30,326 +37,260 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 /*<![CDATA[*/
 body blockquote strong{text-transform:uppercase;}
 body div.readme p#friends span.family-name{display:none;}
-dl#emphasis dd em{font-style:normal;font-weight:bold;}
+body ol#toc{list-style:lower-roman;}
+div#theme-meta span{display:block;margin:0.2em 0;}
+dl#emphasis dd em{font-style:normal;font-weight:700;}
 dl#emphasis dd strong{font-size:0.9em;letter-spacing:0.4px;text-transform:uppercase;}
 dl#file dd a.doc{background:url(images/doc.png) no-repeat center right;padding-right:20px;}
 dl#file dd a.pdf{background:url(images/pdf.png) no-repeat center right;padding-right:20px;}
-div#theme-meta span{display:block;margin:0.2em 0;}
+dl#misc dd span.caps{font-variant:small-caps;}
 dl#xfn dd a.xfn-friend{background:url(images/xfn-friend.png) no-repeat center right;padding-right:20px;}
 dl#xfn dd a.xfn-me{background:url(images/xfn-me.png) no-repeat center right;padding-right:20px;}
 dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
-dl#misc dd span.caps{font-variant:small-caps;}
 /*]]>*/
 </style>
 </head>
-<body id="content">
-
+<body>
 <div class="readme">
-
-	<h2 id="rm-title">plaintxtBlog</h2>
-
-	<div id="theme-meta">
-		<span class="version">Version 3.0</span>
-		<span class="subtitle">Your content, but simplified.</span>
-		<span class="updated">Updated 09-Jan-2007</span>
+	<h2 id="readme-title">plaintxtBlog</h2>
+	<div class="readme-meta">
+		<div class="readme-version">Version 3.0</div>
+		<div class="readme-subtitle">Your blog, but simplified.</div>
 	</div>
-
-	<h3 id="toc">Table of contents</h3>
-
-	<ol class="menu">
-		<li><a href="#about" title="About plaintxtBlog">About plaintxtBlog</a></li>
-		<li><a href="#installing" title="Installing the theme">Installing the theme files</a></li>
-		<li><a href="#enabling" title="Enabling comments on pages">Enabling comments on pages</a></li>
-		<li><a href="#using" title="Using page templates">Using page templates</a></li>
-		<li><a href="#customizing" title="Customizing the sidebar">Customizing the sidebar</a></li>
-		<li><a href="#special" title="Special classes and styled elements">Special classes and styled elements</a></li>
-		<li><a href="#standards" title="Standards compliance">Standards compliance</a></li>
-		<li><a href="#license" title="License information">License information</a></li>
-		<li><a href="#credits" title="Credits &amp; thanks">Credits &amp; thanks</a></li>
-	</ol>
-
-	<h3 id="about"><span>1.</span> About plaintxtBlog</h3>
-
-	<p><a href="http://www.plaintxt.org/themes/plaintxtBlog/" title="plaintxtBlog for WordPress">plaintxtBlog</a> is a simple yet robust theme for <a href="http://wordpress.org/" title="WordPress">WordPress</a>. Its minimal sidebars and systematic approach to delivering content give it the feel of a CMS by providing consistent navigation indicators.</p>
-
-	<p style="margin-bottom:-0.7em;">The plaintxtBlog theme features:</p>
-
-	<ul id="features" class="instructions">
-		<li>a theme options menu, which allows
-			<ul>
-				<li>control over fonts and text size</li>
-				<li>control over the layout, alignment, etc.</li>
-			</ul>
+	<ol id="toc">
+		<li>
+			<h3>Table of contents</h3>
+			<ol class="readme-menu">
+				<li><a href="#about" title="About plaintxtBlog">About plaintxtBlog</a></li>
+				<li><a href="#installing" title="Installing the theme">Installing the theme files</a></li>
+				<li><a href="#enabling" title="Enabling comments on pages">Enabling comments on pages</a></li>
+				<li><a href="#using" title="Using page templates">Using page templates</a></li>
+				<li><a href="#customizing" title="Customizing the sidebar">Customizing the sidebar</a></li>
+				<li><a href="#special" title="Special classes and styled elements">Special classes and styled elements</a></li>
+				<li><a href="#standards" title="Standards compliance">Standards compliance</a></li>
+				<li><a href="#license" title="License information">License information</a></li>
+				<li><a href="#development" title="Development and help">Development and help</a></li>
+				<li><a href="#credits" title="Credits and thanks">Credits and thanks</a></li>
+			</ol>
 		</li>
-		<li><a href="http://en.wikipedia.org/wiki/Web_standards" title="Web standards on Wikipedia">standards compliance</a> with
-			<ul>
-				<li><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="CSS on Wikipedia">CSS</a> 2.1</li>
-				<li><a href="http://microformats.org/wiki/hatom" title="hAtom microformat">hAtom 0.1</a></li>
-				<li><a href="http://microformats.org/wiki/hcard" title="hCard microformat">hCard</a></li>
-				<li><a href="http://en.wikipedia.org/wiki/XHTML" title="XHTML">XHTML</a> 1.0 Transitional</li>
+	</ol>
+	<ol id="readme-content">
+		<li id="about">
+			<h3>About plaintxtBlog</h3>
+			<p><a href="http://www.plaintxt.org/themes/plaintxtBlog/" title="plaintxtBlog for WordPress">plaintxtBlog</a> is an exceptionally clean, content-centered theme for <a href="http://wordpress.org/" title="WordPress">WordPress</a>. While it is simple in appearence, it is robust in its functionality, offering many features alongside a thoughtful design.</p>
+			<p>PlaintxtBlog v3.0 is fully compatible with WordPress versions 2.0.x and 2.1.</p>
+			<p class="rubric">The plaintxtBlog theme features:</p>
+			<ul id="features">
+				<li>a theme options menu, which allows
+					<ul>
+						<li>control over fonts and text size</li>
+						<li>control over the layout and alignment</li>
+					</ul>
+				</li>
+				<li><a href="http://en.wikipedia.org/wiki/Web_standards" title="Web standards on Wikipedia">standards compliance</a> with
+					<ul>
+						<li><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="CSS on Wikipedia">CSS</a> 2.1</li>
+						<li><a href="http://microformats.org/wiki/hatom" title="hAtom microformat">hAtom 0.1</a></li>
+						<li><a href="http://microformats.org/wiki/hcard" title="hCard microformat">hCard</a></li>
+						<li><a href="http://en.wikipedia.org/wiki/XHTML" title="XHTML">XHTML</a> 1.0 Transitional</li>
+					</ul>
+				</li>
+				<li>option for enabling comments on pages</li>
+				<li>a robust stylesheet and separate print stylesheet</li>
+				<li>highly <a href="http://en.wikipedia.org/wiki/Semantic_web" title="Semantic web on Wikipedia">semantic markup</a></li>
+				<li><a href="http://automattic.com/code/widgets/" title="Widgets plugin for WordPress">Widgets plugin</a> ready</li>
 			</ul>
+			<p>PlaintxtBlog 3.0 is completely reworked from version 2, building on my experiences developing the <a href="htt://www.plaintxt.org/themes/sandbox/" title="Sandbox theme for WordPress">Sandbox</a>.</p>
+			<p>Version 3.0 of plaintxtBlog allows for translation (including the theme options menu). If you have translated plaintxtBlog into another language, please let me know. Thanks.</p>
 		</li>
-		<li>a robust, thorough stylesheet</li>
-		<li>highly <a href="http://en.wikipedia.org/wiki/Semantic_web" title="Semantic web on Wikipedia">semantic markup</a></li>
-		<li><a href="http://automattic.com/code/widgets/" title="Widgets plugin for WordPress">Widgets plugin</a> ready</li>
-		<li>option for enabling comments on pages</li>
-	</ul>
-
-	<p>Yet the heart of plaintxtBlog is simplicity, minimalism. Here is a theme that compliments content, not one that distracts from it.</p>
-
-	<p>plaintxtBlog 3.0 is completely reworked from version 2, building on my experiences developing the <a href="htt://www.plaintxt.org/themes/sandbox/" title="Sandbox theme for WordPress">Sandbox</a>.</p>
-
-	<p>Version 3.0 of plaintxtBlog allows for translation (including the theme options menu). If you have translated plaintxtBlog into another language, please let me know. Thanks.</p>
-
-	<h3 id="installing"><span>2.</span> Installing the theme files</h3>
-
-	<p>The theme is installed just like any other WordPress theme. You can read more detailed installation instructions on the <a href="http://codex.wordpress.org/Using_Themes#Adding_New_Themes" title="Adding new themes - WordPress Codex">WordPress Codex</a>.</p>
-
-	<p class="instructions" style="margin-bottom:-0.7em;">To install the theme:</p>
-
-	<ol>
-		<li>Download <a href="http://www.plaintxt.org/themes/plaintxtBlog/" title="plaintxtBlog for WordPress">plaintxtBlog</a></li>
-		<li>Extract the <code>/plaintxtBlog/</code> folder from the archive</li>
-		<li>Upload this folder to <code>/wp-contents/themes/</code> subdirectory</li>
-		<li>Active the theme in the <i>Dashboard &rsaquo; Presentation</i> menu</li>
-		<li>After activating, you can change the theme options in <i>Presentation &rsaquo; plaintxtBlog Options</i></li>
-		<li>Enjoy. And then consider donating.</li>
-	</ol>
-
-	<p>If you would like to donate, just visit <a class="xfn-me" href="http://www.plaintxt.org/about/2/#donate" title="plaintxt.org" rel="me">plaintxt.org</a> and you can donate with Paypal. Your support is appreciated. Plus it's a nice way of saying "Thanks."</p>
-
-	<h3 id="enabling"><span>3.</span> Enabling comments on pages</h3>
-
-	<p>Comments are displayed on posts as is the norm, but some users like to have comments enabled on pages as well. <a href="http://codex.wordpress.org/Pages" title="Pages - WordPress Codex">Pages</a> are usually considered "static" and therefore do not allow commenting by default. This theme allows you to enable comments on a per page basis.</p>
-
-	<p class="instructions" style="margin-bottom:-0.7em;">To enable comments on a page:</p>
-
-	<ol>
-		<li>In the <i>Write &rsaquo; Page</i> menu, expand the <a href="http://codex.wordpress.org/Using_Custom_Fields" title="Custom Fields - WordPress Codex">Custom Fields</a> box</li>
-		<li>In the Custom Fields box, add a new key with the text <code>comments</code></li>
-		<li>Add any text for a value (some text must be included for the key to save)</li>
-		<li>Click <i>Add Custom Field</i> to save the key/value</li>
-		<li>The key and the value you added should be visible and comments enabled</li>
-	</ol>
-
-	<p>Enabling comments simply adds the <code>comments.php</code> file to the page. You can turn off comments on a page by deleting the <code>comments</code> key/value. This does not delete any exisiting comments, but simply disables them from loading with the page.</p>
-
-	<h3 id="using"><span>4.</span> Using page templates</h3>
-
-	<p>There are two <a href="http://codex.wordpress.org/Pages#Page_Templates" title="Page templates - WordPress Codex">page templates</a> included with the plaintxtBlog theme: Links Page (links.php) and Archives Page (archives.php). You can add a title, text, and enable comments (see above) to both of these templates. The text will appear above the actual template contents.</p>
-
-	<p class="instructions" style="margin-bottom:-0.7em;">To use the page templates:</p>
-
-	<ol>
-		<li>In the <i>Write &rsaquo; Page</i> menu, expand the Page Templates box</li>
-		<li>From the drop-down, select the page template to use</li>
-		<li>Add a title and text (optional) for the page</li>
-		<li>Click <i>Create New Page / Save</i></li>
-	</ol>
-
-	<p>The Archive Page displays archives by month and category archives with a link to each category RSS feed. The Links Page displays all the links by link category.</p>
-
-	<h3 id="customizing"><span>5.</span> Customizing the sidebar</h3>
-
-	<p>For complete control over the sidebar without needing to edit the theme files, use the <a href="http://automattic.com/code/widgets/" title="Widgets plugin by Automattic">Widgets plugin</a> by Automattic. This plugin gives complete control over the sidebar content from the <i>Presentation &rsaquo; Sidebar Widgets</i> menu, which will appear after the plugin has been activated.</p>
-
-	<p>The plaintxtBlog theme will correctly display all of the widgets included with the Widgets plugin; however, there are <a href="http://widgets.wordpress.com/" title="Widgets on WordPress.com">hundreds of widgets available</a> that do all sorts of things; therefore. some widgets will require additional CSS declarations to be added to the <code>style.css</code> file.</p>
-
-	<p>Unforunately I can't write <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="CSS on Wikipedia">CSS</a> for every widget/plugin available, but if I'm able to help, I will.</p>
-
-	<p>The plaintxtBlog theme automatically replaces a few of the default widgets that come with the Widgets plugin, e.g., Meta, Links, Search, with ones that match the default plaintxtBlog sidebar. Similarly the theme also automatically loads some of its own widgets, e.g., RSS Links, Home Link. This allows the default plaintxtBlog sidebar to be completely replicated using the Widgets plugin.</p>
-
-	<p style="margin-bottom:-0.7em;">For help learning CSS, visit:</p>
-
-	<ul>
-		<li><a href="http://www.cssbasics.com/" title="CSS Basics.com">CSS Basics.com</a></li>
-		<li><a href="http://www.htmldog.com/guides/cssbeginner/" title="HTML Dog's CSS Beginner Tutorial">HTML Dog's CSS Beginner Tutorial</a></li>
-		<li><a href="http://www.html.net/tutorials/css/" title="HTML.net's CSS Tutorial">HTML.net's CSS Tutorial</a></li>
-		<li><a href="http://www.w3schools.com/css/default.asp" title="W3's CSS School">W3's CSS School</a></li>
-		<li><a href="http://www.stylegala.com/features/css-reference/" title="Stylegala's CSS Reference">Stylegala's CSS Reference</a></li>
-	</ul>
-
-	<h3 id="special"><span>6.</span> Special classes and styled elements</h3>
-
-	<p>The plaintxtBlog theme stylesheet (the <code>/plaintxtBlog/style.css</code> file) includes specific styles for some special classes and most all HTML elements. Some explanation may be helpful for some of the styled HTML elements.</p>
-
-	<p>Note that these classes and elements won't work correctly when entered into the <a href="http://codex.wordpress.org/Your_Profile_SubPanel" title="Your profile - WordPress Codex">visual rich editor</a>. I highly recommend disabling the visual rich editor feature (in the <i>User &rsaquo; Your Profile</i> submenu, uncheck "Use the visual rich editor when writing").</p>
-
-	<h4>Styled elements</h4>
-
-	<p>The plaintxtBlog theme includes information for many, many HTML elements (e.g., <code>&lt;strong&gt;</code>, <code>&lt;blockquote&gt;</code>, etc.) but it may be useful to note how the plaintxtBlog stylesheet is set to display two particular HTML elements: <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code>.</p>
-
-	<p>I would like to promote semantic markup in blogging. It helps make the content more accessible, consistent, and future-friendly. This theme considers <code>&lt;em&gt;</code> (emphasis) different from <code>&lt;i&gt;</code> (italics), and <code>&lt;strong&gt;</code> (strong emphasis) different from <code>&lt;b&gt;</code> (bold).</p>
-
-	<p>Bold and italics refer to the appearance of the text, whereas <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> refer to levels of <a href="http://www.thefreedictionary.com/emphasis" title="Emphasis on freedictionary.com">emphasis</a> put on the word(s). It's the difference between presentation (<code>&lt;b&gt;</code>/<code>&lt;i&gt;</code>) and meaning/context (<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code>).</p>
-
-	<ol style="list-style:lower-alpha;">
-		<li>I shouted <code>&lt;strong&gt;</code><strong>stop doing that!!</strong><code>&lt;/strong&gt;</code></li>
-		<li>Did you read the <code>&lt;b&gt;</code><b>readme.html</b><code>&lt;/b&gt;</code> file?</li>
-	</ol>
-
-	<p>In item a, the <code>&lt;strong&gt;</code> element denotes strong emphasis and adds meaning/context to the words. In item b, the <code>&lt;b&gt;</code> element simply bolds the text and is purely cosmetic.</p>
-
-	<p>Imagine if someone were reading your blog aloud. You would want them to shout "stop doing that!" but not to shout "readme.html!" right?</p>
-
-	<p>Below are examples of how the <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code> and <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code> elements have been styled for plaintxtBlog:</p>
-
-	<dl id="emphasis">
-		<dt class="def-head">Emphasis</dt>
-
-		<dt><code>em</code></dt>
-		<dd>Used to indicate emphasis</dd>
-		<dd class="example">You <code>&lt;em&gt;</code><em>should not</em><code>&lt;/em&gt;</code> be late.</dd>
-
-		<dt><code>strong</code></dt>
-		<dd>Used to indicate stronger emphasis</dd>
-		<dd class="example">He shouted <code>&lt;strong&gt;</code><strong>You're fired!</strong><code>&lt;/strong&gt;</code></dd>
-	</dl>
-
-	<dl id="presentation">
-		<dt class="def-head">Presentation</dt>
-
-		<dt><code>b</code></dt>
-		<dd>Used to bold text</dd>
-		<dd class="example">Find the word <code>&lt;b&gt;</code><b>happy</b><code>&lt;/b&gt;</code> in the glossary.</dd>
-
-		<dt><code>i</code></dt>
-		<dd>Used to italicize text</dd>
-		<dd class="example">Go to the <code>&lt;i&gt;</code><i>Presentation</i><code>&lt;/i&gt;</code> subpanel.</dd>
-	</dl>
-
-	<p style="margin-bottom:-0.7em;">For more information on how to write semantic markup in your blog, visit:</p>
-
-	<ul>
-		<li><a href="http://brainstormsandraves.com/articles/semantics/structure/" title="Semantics, XHTML, and Structure">Brainstorms &amp; Raves: Semantics, XHTML, and Structure</a></li>
-		<li><a href="http://www.mezzoblue.com/downloads/markupguide/" title="mezzoblue &sect; markup guide">mezzoblue &sect; markup guide</a></li>
-	</ul>
-
-	<h4>Headings</h4>
-
-	<p>Finally for styled elements, headings for the content area have been styled to display correctly: with more space above than below. Headings help create an outline of the content on your page. They guide the reader and also help machines understand the structure of content.</p>
-
-	<p>While there are no hard-and-fast rules regarding this, I believe the headings should follow a logical progression, e.g., <i>h1 &rsaquo; h2 &rsaquo; h3 &rsaquo; h4 &rsaquo; h3 &rsaquo; h3 &rsaquo; h4 &hellip; </i>. There should not be two h1-level headings on a single page. Therefore, since post and page titles are h2-level, the only headings that should be used in the content area are h3&ndash;h6.</p>
-
-	<h4>Special classes</h4>
-
-	<p>There are certain conventions amongst many WordPress themes for special classes. Notably common are the image classes. Some new ones (e.g., the XFN link classes) have also been included with plaintxtBlog.</p>
-
-	<p>Again, these won't work correctly if entered directly into the visual rich editor. I also suggest that you first have at least a basic understanding of HTML. I won't be able to help you <em>learn</em> HTML. I can, however, help you <em>use</em> HTML.</p>
-
-	<dl id="images">
-		<dt class="def-head">Images classes</dt>
-
-		<dt><code>&lt;img class=&quot;<b>alignleft</b>&quot; &hellip; /&gt;</code></dt>
-		<dd>Floats images to the left</dd>
-		<dd><pre>	XXXXXXX
+		<li id="installing">
+			<h3>Installing the theme files</h3>
+			<p>The theme is installed just like any other WordPress theme. You can read more detailed installation instructions on the <a href="http://codex.wordpress.org/Using_Themes#Adding_New_Themes" title="Adding new themes - WordPress Codex">WordPress Codex</a>.</p>
+			<p class="rubric">To install the theme:</p>
+			<ol>
+				<li>Download <a href="http://www.plaintxt.org/themes/plaintxtblog/" title="plaintxtBlog for WordPress">plaintxtBlog</a></li>
+				<li>Extract the <code>/plaintxtblog/</code> folder from the archive</li>
+				<li>Upload this folder to the <code>&hellip;/wp-contents/themes/</code> directory</li>
+				<li>Activate the theme in the <i>Dashboard &rsaquo; Presentation</i> menu</li>
+				<li>After activating, you can change the theme options in <i>Presentation &rsaquo; plaintxtBlog Options</i></li>
+				<li>Enjoy. And then consider donating.</li>
+			</ol>
+			<p>If you would like to donate, just visit <a class="xfn-me" href="http://www.plaintxt.org/about/2/#donate" title="plaintxt.org" rel="me">plaintxt.org</a> and you can donate with Paypal. Your support is appreciated. Plus it's a nice way of saying "Thanks."</p>
+		</li>
+		<li id="enabling">
+			<h3>Enabling comments on pages</h3>
+			<p><a href="http://codex.wordpress.org/Pages" title="Pages - WordPress Codex">Pages</a> are usually considered static in blogging and different from posts, which are what make a blog a blog. Comments are not displayed on pages by default; however, you can enable this features with this theme. You can enabled comments on a per page basis by adding a key/value with the text "comments."</p>
+			<p class="rubric">To enable comments on a page:</p>
+			<ol>
+				<li>In the <i>Write &rsaquo; Page</i> menu, expand the <a href="http://codex.wordpress.org/Using_Custom_Fields" title="Custom Fields - WordPress Codex">Custom Fields</a> box</li>
+				<li>In the Custom Fields box, add a new key with the exact text: <code>comments</code></li>
+				<li>Add any text for a value (some text must be included for the key to save)</li>
+				<li>Click <i>Add Custom Field</i> to save the key/value</li>
+				<li>Comments should now be enabled on that page</li>
+			</ol>
+			<p>Enabling comments simply attaches the <code>comments.php</code> file to the page. You can turn off comments on a page by deleting the <code>comments</code> key/value. This does not delete any exisiting comments, but simply disables them from loading with the page.</p>
+		</li>
+		<li id="using">
+			<h3>Using page templates</h3>
+			<p>There are two <a href="http://codex.wordpress.org/Pages#Page_Templates" title="Page templates - WordPress Codex">page templates</a> included with the plaintxtBlog theme: Links Page (links.php) and Archives Page (archives.php). You can add a title, text, and enable comments and/or an author byline (see above) with both of these page templates. The text will appear above the actual template contents.</p>
+			<p class="rubric">To use the page templates:</p>
+			<ol>
+				<li>In the <i>Write &rsaquo; Page</i> menu, expand the Page Templates box</li>
+				<li>From the drop-down, select the page template to use</li>
+				<li>Add a title and text (optional) for the page</li>
+				<li>Click <i>Create New Page / Save</i> to publish the page</li>
+			</ol>
+			<p>The Archive Page displays archives by month and category archives with a link to each category RSS feed. The Links Page displays all the links by link category.</p>
+		</li>
+		<li id="customizing">
+			<h3>Customizing the sidebar</h3>
+			<p>For complete control over the sidebar without editing the theme files, use the <a href="http://automattic.com/code/widgets/" title="Widgets plugin by Automattic">Widgets plugin</a> by Automattic. This plugin gives complete control over the sidebar content from the <i>Presentation &rsaquo; Sidebar Widgets</i> menu, which will appear after the plugin has been activated.</p>
+			<p>The plaintxtBlog theme will correctly display all of the widgets included with the Widgets plugin. There are, however, <a href="http://widgets.wordpress.com/" title="Widgets on WordPress.com">hundreds of other widgets</a> available that do all sorts of things; therefore. some widgets will require additional CSS declarations to be added to the <code>style.css</code> file.</p>
+			<p>Unforunately I can't write <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="CSS on Wikipedia">CSS</a> for other widgets/plugins. I can't help you <em>learn</em> CSS, but I can help you <em>use</em> CSS.</p>
+			<p class="rubric">For help learning CSS, visit:</p>
+			<ul>
+				<li><a href="http://www.cssbasics.com/" title="CSS Basics.com">CSS Basics.com</a></li>
+				<li><a href="http://www.htmldog.com/guides/cssbeginner/" title="HTML Dog's CSS Beginner Tutorial">HTML Dog's CSS Beginner Tutorial</a></li>
+				<li><a href="http://www.html.net/tutorials/css/" title="HTML.net's CSS Tutorial">HTML.net's CSS Tutorial</a></li>
+				<li><a href="http://www.w3schools.com/css/default.asp" title="W3's CSS School">W3's CSS School</a></li>
+				<li><a href="http://www.stylegala.com/features/css-reference/" title="Stylegala's CSS Reference">Stylegala's CSS Reference</a></li>
+			</ul>
+			<p>The plaintxtBlog theme automatically replaces a few of the default widgets that come with the Widgets plugin, e.g., Meta, Links, Search, with ones that match the default plaintxtBlog sidebar style.</p>
+			<p>Similarly the theme also automatically loads some of its own widgets, e.g., RSS Links, Home Link. This allows the default plaintxtBlog sidebar to be completely replicated using the Widgets plugin.</p>
+		</li>
+		<li id="special">
+			<h3>Special classes and styled elements</h3>
+			<p>The plaintxtBlog theme stylesheet (the <code>/plaintxtblog/style.css</code> file) includes specific styles for some special classes and many HTML elements. Some explanation may be helpful for some of the styled HTML elements.</p>
+			<p>Note that these classes and elements won't work correctly when entered into the <a href="http://codex.wordpress.org/Your_Profile_SubPanel" title="Your profile - WordPress Codex">visual rich editor</a>. I highly recommend disabling the visual rich editor feature (in the <i>User &rsaquo; Your Profile</i> submenu, uncheck "Use the visual rich editor when writing").</p>
+			<h4>Styled elements</h4>
+			<p>The plaintxtBlog theme includes information for many, many HTML elements (e.g., <code>&lt;blockquote&gt;</code>, <code>&lt;q&gt;</code>, <code>&lt;ins&gt;</code>, <code>&lt;del&gt;</code>) but it may be useful to note how plaintxtBlog handles two particular HTML elements: <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code>.</p>
+			<p>I would like to promote semantic markup in blogging. It helps make the content more accessible, consistent, and future-friendly. This theme considers <code>&lt;em&gt;</code> (emphasis) different from <code>&lt;i&gt;</code> (italics), and <code>&lt;strong&gt;</code> (strong emphasis) different from <code>&lt;b&gt;</code> (bold).</p>
+			<p>Bold and italics refer to the appearance of the text, whereas <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> refer to levels of <a href="http://www.thefreedictionary.com/emphasis" title="Emphasis on freedictionary.com">emphasis</a> put on the word(s). It's the difference between presentation (<code>&lt;b&gt;</code>/<code>&lt;i&gt;</code>) and meaning/context (<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code>).</p>
+			<ol class="item-examples">
+				<li>I shouted <code>&lt;strong&gt;</code><strong>stop doing that!!</strong><code>&lt;/strong&gt;</code></li>
+				<li>Did you read the <code>&lt;b&gt;</code><b>readme.html</b><code>&lt;/b&gt;</code> file?</li>
+			</ol>
+			<p>In item a, the <code>&lt;strong&gt;</code> element denotes strong emphasis and adds meaning/context to the words. In item b, the <code>&lt;b&gt;</code> element simply bolds the text and is purely cosmetic.</p>
+			<p>Imagine if someone were reading your blog aloud. You would want them to shout "stop doing that!" but not to shout "readme.html!" right?</p>
+			<p>Below are examples of how the <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code> and <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code> elements have been styled for plaintxtBlog:</p>
+			<dl id="emphasis">
+				<dt class="def-head">Emphasis</dt>
+				<dt><code>em</code></dt>
+				<dd>Used to indicate emphasis</dd>
+				<dd class="example">You <code>&lt;em&gt;</code><em>should not</em><code>&lt;/em&gt;</code> be late.</dd>
+				<dt><code>strong</code></dt>
+				<dd>Used to indicate stronger emphasis</dd>
+				<dd class="example">He shouted <code>&lt;strong&gt;</code><strong>You're fired!</strong><code>&lt;/strong&gt;</code></dd>
+			</dl>
+			<dl id="presentation">
+				<dt class="def-head">Presentation</dt>
+				<dt><code>b</code></dt>
+				<dd>Used to bold text</dd>
+				<dd class="example">Find the word <code>&lt;b&gt;</code><b>happy</b><code>&lt;/b&gt;</code> in the glossary.</dd>
+				<dt><code>i</code></dt>
+				<dd>Used to italicize text</dd>
+				<dd class="example">Go to the <code>&lt;i&gt;</code><i>Presentation</i><code>&lt;/i&gt;</code> subpanel.</dd>
+			</dl>
+			<p class="rubric">For more information on how to write semantic markup in your blog, visit:</p>
+			<ul>
+				<li><a href="http://brainstormsandraves.com/articles/semantics/structure/" title="Semantics, XHTML, and Structure">Brainstorms &amp; Raves: Semantics, XHTML, and Structure</a></li>
+				<li><a href="http://www.mezzoblue.com/downloads/markupguide/" title="mezzoblue &sect; markup guide">mezzoblue &sect; markup guide</a></li>
+			</ul>
+			<h4>Headings</h4>
+			<p>Finally for styled elements, headings for the content area have been styled to display correctly: with more space above than below as content must logically follow headings. Headings help create an outline of the content on your page. They guide the reader and also help machines understand the structure of content.</p>
+			<p>While there are no hard-and-fast rules regarding this, I believe the headings should follow a logical progression, e.g., <i>h1 &rsaquo; h2 &rsaquo; h3 &rsaquo; h4 &rsaquo; h3 &rsaquo; h3 &rsaquo; h4 &hellip; </i>. There should not be two h1-level headings on a single page. Therefore, since post and page titles are h2-level, the only headings that should be used in the content area are h3&ndash;h6.</p>
+			<h4>Special classes</h4>
+			<p>There are certain conventions amongst many WordPress themes for special classes. Notably common are the image classes. Some new ones (e.g., the XFN link classes) have also been included with plaintxtBlog.</p>
+			<p>Again, these won't work correctly if entered directly into the visual rich editor. You should have a basic understanding of HTML before using these classes. I won't be able to help you <em>learn</em> HTML. I can, however, help you <em>use</em> HTML.</p>
+			<dl id="images">
+				<dt class="def-head">Images classes</dt>
+				<dt><code>&lt;img class=&quot;<b>alignleft</b>&quot; &hellip; /&gt;</code></dt>
+				<dd>Floats images to the left</dd>
+				<dd><pre>	XXXXXXX
 	&#8968;&#175;&#8969; XXX
 	&#8970;_&#8971; XXX
 	XXXXXXX</pre></dd>
-		<dd class="example"><code>&lt;img <b>class=&quot;alignleft&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
-
-		<dt><code>alignright</code></dt>
-		<dd>Floats images to the right</dd>
-		<dd><pre>	XXXXXXX
+				<dd class="example"><code>&lt;img <b>class=&quot;alignleft&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
+				<dt><code>alignright</code></dt>
+				<dd>Floats images to the right</dd>
+				<dd><pre>	XXXXXXX
 	XXX &#8968;&#175;&#8969;
 	XXX &#8970;_&#8971;
 	XXXXXXX</pre></dd>
-		<dd class="example"><code>&lt;img <b>class=&quot;alignright&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
-
-		<dt><code>center</code></dt>
-		<dd>Centers images as a block</dd>
-		<dd><pre>	XXXXXXX
+				<dd class="example"><code>&lt;img <b>class=&quot;alignright&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
+				<dt><code>center</code></dt>
+				<dd>Centers images as a block</dd>
+				<dd><pre>	XXXXXXX
 	  &#8968;&#175;&#8969;  
 	  &#8970;_&#8971;  
 	XXXXXXX</pre></dd>
-		<dd class="example"><code>&lt;img <b>class=&quot;center&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
-	</dl>
-
-	<dl id="file">
-		<dt class="def-head">File link classes</dt>
-
-		<dt class="classes"><code>&lt;a class="<b>doc</b>" &hellip; &gt;</code> <code>html</code> <code>pdf</code> <code>zip</code></dt>
-		<dd>Adds a appropriate <a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icons by Fam Fam Fam">Silk icon</a> to link; to be used when linking to one of the above file types</dd>
-		<dd><a class="doc" href="http://www.example.com/example.doc" title="example.doc">example.doc</a></dd>
-		<dd class="example"><code>&lt;a <b>class=&quot;doc&quot;</b> href=&quot;http://www.example.com/example.doc&quot; title=&quot;Example&quot;&gt;example.doc&lt;/a&gt;</code></dd>
-		<dd><a class="pdf" href="http://www.example.com/example.pdf" title="example.pdf">example.pdf</a></dd>
-		<dd class="example"><code>&lt;a <b>class=&quot;pdf&quot;</b> href=&quot;http://www.example.com/example.pdf&quot; title=&quot;Example&quot;&gt;example.pdf&lt;/a&gt;</code></dd>
-	</dl>
-
-	<dl id="xfn">
-		<dt class="def-head"><a href="http://gmpg.org/xfn/" title="eXtensible Friend Networks">XFN</a> link classes</dt>
-
-		<dt class="classes"><code>&lt;a class="<b>xfn-me</b>" &hellip; &gt;</code> <code>xfn-friend / xfn-friend-met</code> <code>xfn-colleague / xfn-colleague-met</code> <code>xfn-sweetheart / xfn-sweetheart-met</code></dt>
-		<dd>Adds corresponding <a href="http://www.factorycity.net/projects/microformats-icons/" title="XFN icons">XFN icons</a> to links (Note: these classes should only be used with links with the appropriate <a href="http://gmpg.org/xfn/11" title="XFN specification 1.1">XFN rel attributes</a>)</dd>
-		<dd><a class="xfn-me" href="http://www.mysite.com/" title="My site" rel="me">My site</a></dd>
-		<dd class="example"><code>&lt;a <b>class=&quot;xfn-me&quot;</b> href=&quot;http://www.mysite.com/&quot; title=&quot;My site&quot; <i>rel=&quot;me&quot;</i>&gt;My site&lt;/a&gt;</code></dd>
-		<dd><a class="xfn-friend" href="http://www.myfriend.com/" title="My friend" rel="friend">My friend</a></dd>
-		<dd class="example"><code>&lt;a <b>class=&quot;xfn-friend&quot;</b> href=&quot;http://www.myfriend.com/&quot; title=&quot;My friend&quot; <i>rel=&quot;friend&quot;</i>&gt;My friend&lt;/a&gt;</code></dd>
-	</dl>
-
-	<dl id="misc">
-		<dt class="def-head">Micellaneous classes</dt>
-
-		<dt><code>&lt;span class="<b>caps</b>"&gt;</code></dt>
-		<dd>Used to format text in small-caps (Should be used with a <code>&lt;span&gt;</code>)</dd>
-		<dd class="example">He works at <code>&lt;span class=&quot;caps&quot;&gt;</code><span class="caps">Ini-Tech</span><code>&lt;/span&gt;</code> in Dallas.</dd>
-	</dl>
-
-	<h3 id="standards"><span>7.</span> Standards compliance</h3>
-
-	<p>The plaintxtBlog theme is compliant with both XHTML and CSS standards. What does this mean? An explanation of web standards from <cite title="Web Standards Project"><a href="http://webstandards.org" title="Web Standards Project">The Web Standards Project</a></cite>:</p>
-
-	<blockquote cite="http://webstandards.org/learn/faq/" title="What are web standards and why should I use them?">
-
-		<p>Complying with web standards can give your web pages greater visibility in web searches. The structural information present in compliant documents makes it easy for search engines to access and evaluate the information in those documents, and they get indexed more accurately.</p>
-
-		<p>Accessibility is an important idea behind many web standards. Not only does this mean allowing the web to be used by people with disabilities, but also allowing web pages to be understood by people using browsers other than the usual ones &mdash; including voice browsers that read web pages aloud to people with sight impairments, Braille browsers, hand-held browsers, teletext displays, and other unusual output devices.</p>
-
-	</blockquote>
-
-	<p>You can read more about developing with web standards at <a href="http://www.456bereastreet.com/lab/developing_with_web_standards/webstandards/" title="Developing with web standards">456 Berea Street</a>.</p>
-
-	<h4>hAtom microformat</h4>
-
-	<p>In addition to XHTML and CSS web standards, version 3 of the plaintxtBlog theme uses the <a href="http://microformats.org/wiki/hatom" title="hAtom - Microformats">hAtom 0.1</a> microformat. <a href="http://microformats.org/" title="Microformats">Microformats</a> are markup that express semantic information in webpages. Programs can extract information from webpages marked up in a microformat much like feed readers extract information from Atom or RSS syndicated feeds.</p>
-
-	<p>For a thorough discussion of the significance of hAtom in blogging, read the <a href="http://wordpress.com/forums/topic.php?id=3329" title="Challenge to geeks: Explain hAtom">WordPress.com hAtom support thread</a>.</p>
-
-	<h4>hCard microformat</h4>
-
-	<p><a href="http://microformats.org/wiki/hcard" title="hCard - Microformats">hCard</a> is a microformat that expresses basic contact information much like a <a href="http://en.wikipedia.org/wiki/VCard" title="vCard - Wikipedia">vCard</a>.</p>
-
-	<p>The first name, last name, and website information for the <i>admin</i> user (as set in the <i>Users &rsaquo; Your Profile</i> submenu) is automatically used to create an hCard that is placed in the footer following the copyright information (with the function <code>&lt;?php plaintxtBlog_admin_hcard(); ?&gt;</code>).</p>
-
-	<p>Basically hAtom and hCard are ways of making your blog <a href="http://kitchen.technorati.com/search/" title="Technorati Microformats Search">more accessible</a>.</p>
-
-	<h3 id="license"><span>8.</span> License information</h3>
-
-	<p>The plaintxtBlog theme, &copy; 2006 <span class="vcard"><a class="url fn n" href="http://scottwallick.com/"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></a></span>, is licensed under the <cite title="GNU General Public License"><a href="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License" rel="license">GNU General Public License</a></cite>:</p>
-
-	<blockquote cite="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License">
-
-		<p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
-
-		<p>This program is distributed in the hope that it will be useful, but <strong>without any warranty</strong>; without even the implied warranty of <strong>merchantability</strong> or <strong>fitness for a particular purpose</strong>. See the GNU General Public License for more details.</p>
-
-	</blockquote>
-
-	<p>Please feel free to alter the plaintxtBlog theme in any way that pleases you. All I ask is that you allow my original design credit to remain.</p>
-
-	<h3 id="credits"><span>9.</span> Credits &amp; thanks</h3>
-
-	<p id="friends">A special thanks goes to <span class="vcard"><a class="url fn n" href="http://andy.wordpress.com/" rel="colleague friend"><span class="given-name">Andy</span><span class="family-name"> Skelton</span></a></span>, who taught me heaps. Andy I collaborated to create the <a href="http://www.plaintxt.org/themes/sandbox/" title="Sandbox theme for WordPress">Sandbox</a>. Thanks to <span class="vcard"><a class="url fn n" href="http://www.mackrick.co.uk/" rel="colleague friend"><span class="given-name">Rick</span><span class="family-name"> Lee</span></a></span> for his thoughtful feedback. And to <span class="vcard"><a class="url fn n" href="http://archgfx.net/" rel="colleague friend"><span class="given-name">Adam</span><span class="family-name"> Freetly</span></a></span> for helping me see 20 things I had to fix.</p>
-
-	<h4>Icons</h4>
-
-	<p>The XFN icons are from the <a href="http://www.factorycity.net/projects/microformats-icons/" title="Microformats Icons -- Wolfgang Bartelme">Microformats Icons</a> collection, designed by <span class="vcard"><a class="url fn n" href="http://bartelme.at/"><span class="given-name">Wolfgang</span> <span class="family-name">Bartelme</span></a></span> and based on an idea by <span class="vcard"><a class="url fn n" href="http://factoryjoe.com/blog/"><span class="given-name">Chris</span> <span class="family-name">Messina</span></a></span>.</p>
-
-	<p>The file icons are from the <a href="http://www.famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> collection by <span class="vcard"><a class="url fn n" href="http://www.famfamfam.com/"><span class="given-name">Mark</span> <span class="family-name">James</span></a></span>.</p>
-
-	<p>The feed icon from the <a href="http://www.feedicons.com/">Feed Icons</a> collection by <span class="vcard"><a class="url fn n" href="http://mattbrett.com/"><span class="given-name">Matt</span> <span class="family-name">Brett</span></a></span>.</p>
-
+				<dd class="example"><code>&lt;img <b>class=&quot;center&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
+			</dl>
+			<dl id="file">
+				<dt class="def-head">File link classes</dt>
+				<dt class="classes"><code>&lt;a class="<b>doc</b>" &hellip; &gt;</code> <code>html</code> <code>pdf</code> <code>zip</code></dt>
+				<dd>Adds a appropriate <a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icons by Fam Fam Fam">Silk icon</a> to link; to be used when linking to one of the above file types</dd>
+				<dd><a class="doc" href="http://www.example.com/example.doc" title="example.doc">example.doc</a></dd>
+				<dd class="example"><code>&lt;a <b>class=&quot;doc&quot;</b> href=&quot;http://www.example.com/example.doc&quot; title=&quot;Example&quot;&gt;example.doc&lt;/a&gt;</code></dd>
+				<dd><a class="pdf" href="http://www.example.com/example.pdf" title="example.pdf">example.pdf</a></dd>
+				<dd class="example"><code>&lt;a <b>class=&quot;pdf&quot;</b> href=&quot;http://www.example.com/example.pdf&quot; title=&quot;Example&quot;&gt;example.pdf&lt;/a&gt;</code></dd>
+			</dl>
+			<dl id="xfn">
+				<dt class="def-head"><a href="http://gmpg.org/xfn/" title="eXtensible Friend Networks">XFN</a> link classes</dt>
+				<dt class="classes"><code>&lt;a class="<b>xfn-me</b>" &hellip; &gt;</code> <code>xfn-friend</code> <code>xfn-friend-met</code> <code>xfn-colleague</code> <code>xfn-colleague-met</code> <code>xfn-sweetheart</code> <code>xfn-sweetheart-met</code></dt>
+				<dd>Adds corresponding <a href="http://www.factorycity.net/projects/microformats-icons/" title="XFN icons">XFN icons</a> to links (Note: these classes should only be used with links with appropriate <a href="http://gmpg.org/xfn/11" title="XFN specification 1.1">XFN rel attributes</a>)</dd>
+				<dd><a class="xfn-me" href="http://www.mysite.com/" title="My site" rel="me">My site</a></dd>
+				<dd class="example"><code>&lt;a <b>class=&quot;xfn-me&quot;</b> href=&quot;http://www.mysite.com/&quot; title=&quot;My site&quot; <i>rel=&quot;me&quot;</i>&gt;My site&lt;/a&gt;</code></dd>
+				<dd><a class="xfn-friend" href="http://www.myfriend.com/" title="My friend" rel="friend">My friend</a></dd>
+				<dd class="example"><code>&lt;a <b>class=&quot;xfn-friend&quot;</b> href=&quot;http://www.myfriend.com/&quot; title=&quot;My friend&quot; <i>rel=&quot;friend&quot;</i>&gt;My friend&lt;/a&gt;</code></dd>
+			</dl>
+			<dl id="misc">
+				<dt class="def-head">Micellaneous classes</dt>
+				<dt><code>&lt;span class="<b>caps</b>"&gt;</code></dt>
+				<dd>Used to format text in small-caps (Used with <code>&lt;span&gt;</code>)</dd>
+				<dd class="example">He works at <code>&lt;span class=&quot;caps&quot;&gt;</code><span class="caps">Ini-Tech</span><code>&lt;/span&gt;</code> in Dallas.</dd>
+			</dl>
+		</li>
+		<li id="standards">
+			<h3>Standards compliance</h3>
+			<p>The plaintxtBlog theme is compliant with both XHTML and CSS standards. What does this mean? An explanation of web standards from <cite title="Web Standards Project"><a href="http://webstandards.org" title="Web Standards Project">The Web Standards Project</a></cite>:</p>
+			<blockquote cite="http://webstandards.org/learn/faq/" title="What are web standards and why should I use them?">
+				<p>Complying with web standards can give your web pages greater visibility in web searches. The structural information present in compliant documents makes it easy for search engines to access and evaluate the information in those documents, and they get indexed more accurately.</p>
+				<p>Accessibility is an important idea behind many web standards. Not only does this mean allowing the web to be used by people with disabilities, but also allowing web pages to be understood by people using browsers other than the usual ones &mdash; including voice browsers that read web pages aloud to people with sight impairments, Braille browsers, hand-held browsers, teletext displays, and other unusual output devices.</p>
+			</blockquote>
+			<p>You can read more about developing with web standards at <a href="http://www.456bereastreet.com/lab/developing_with_web_standards/webstandards/" title="Developing with web standards">456 Berea Street</a>.</p>
+			<h4>hAtom microformat</h4>
+			<p>In addition to XHTML and CSS web standards, version 3 of the plaintxtBlog theme implements the <a href="http://microformats.org/wiki/hatom" title="hAtom - Microformats">hAtom 0.1</a> microformat. <a href="http://microformats.org/" title="Microformats">Microformats</a> are markup that express semantic information in webpages. Programs can extract information from webpages marked up in a microformat much like feed readers extract information from Atom or RSS syndicated feeds.</p>
+			<p>For a thorough discussion of the significance of hAtom in blogging, read the <a href="http://wordpress.com/forums/topic.php?id=3329" title="Challenge to geeks: Explain hAtom">WordPress.com hAtom support thread</a>.</p>
+			<h4>hCard microformat</h4>
+			<p><a href="http://microformats.org/wiki/hcard" title="hCard - Microformats">hCard</a> is a microformat that expresses basic contact information much like a <a href="http://en.wikipedia.org/wiki/VCard" title="vCard - Wikipedia">vCard</a>, except within your blog itself. Basically this is done by using <code>&lt;span&gt;</code>'s with certain class attributes.</p>
+			<p>The first name, last name, and website information for the <i>admin</i> user (as set in the <i>Users &rsaquo; Your Profile</i> submenu) is automatically used to create an hCard that is placed in the footer following the copyright information (with the function <code>plaintxtblog_admin_hCard() </code>).</p>
+			<p>The hCard microformat is used throughout the theme, actually, for author links, bylines, and comment authors. You don't need to do anything, as basically hAtom and hCard are ways of making your blog <a href="http://kitchen.technorati.com/search/" title="Technorati Microformats Search">more accessible</a>.</p>
+		</li>
+		<li id="license">
+			<h3>License information</h3>
+			<p>The plaintxtBlog theme, &copy; 2006 <span class="vcard"><a class="url fn n" href="http://scottwallick.com/"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></a></span>, is licensed under the <cite title="GNU General Public License"><a href="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License" rel="license">GNU General Public License</a></cite>:</p>
+			<blockquote cite="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License">
+				<p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+				<p>This program is distributed in the hope that it will be useful, but <strong>without any warranty</strong>; without even the implied warranty of <strong>merchantability</strong> or <strong>fitness for a particular purpose</strong>. See the GNU General Public License for more details.</p>
+			</blockquote>
+			<p>Please feel free to alter the plaintxtBlog theme in any way that pleases you. All I ask is that you allow my original design credit to remain.</p>
+		</li>
+		<li id="development">
+			<h3>Development and help</h3>
+			<p>If something isn't working correctly with this theme, please visit <a href="http://code.google.com/p/plaintxtblog/" title="plaintxtBlog - Google Code">plaintxtBlog on Google Code</a> to file issues, report problems, help create documentation, etc., because the more everyone shares, the better things can be.</p>
+			<p>You can also access the plaintxtBlog <a href="http://en.wikipedia.org/wiki/Subversion" title="Subversion - Wikipedia">Subversion</a> repo, which hosts pre-release fixes and allows changes to be tracked. If you would like to directly assist in the development of plaintxtBlog <em>and</em> are familiar with Subversion, just let me know.</p>
+			<p>Please feel free to send me an <a href="http://www.plaintxt.org/contact/" title="Contact Scott">email</a> if you're having a problem; however, I will ask that you start an issue on the plaintxtBlog development website before I start problem solving. Thanks.</p>
+		</li>
+		<li id="credits">
+			<h3>Credits and thanks</h3>
+			<p id="friends">A special thanks goes to <span class="vcard"><a class="url fn n" href="http://andy.wordpress.com/" rel="colleague friend"><span class="given-name">Andy</span><span class="family-name"> Skelton</span></a></span>, who taught me heaps. Andy I collaborated to create the <a href="http://www.plaintxt.org/themes/sandbox/" title="Sandbox theme for WordPress">Sandbox</a>. Thanks to <span class="vcard"><a class="url fn n" href="http://www.mackrick.co.uk/" rel="colleague friend"><span class="given-name">Rick</span><span class="family-name"> Lee</span></a></span> for his thoughtful feedback. And to <span class="vcard"><a class="url fn n" href="http://archgfx.net/" rel="colleague friend"><span class="given-name">Adam</span><span class="family-name"> Freetly</span></a></span> for helping me see 20 things I had to fix.</p>
+			<h4>Icons</h4>
+			<p>The XFN icons are from the <a href="http://www.factorycity.net/projects/microformats-icons/" title="Microformats Icons -- Wolfgang Bartelme">Microformats Icons</a> collection, designed by <span class="vcard"><a class="url fn n" href="http://bartelme.at/"><span class="given-name">Wolfgang</span> <span class="family-name">Bartelme</span></a></span> and based on an idea by <span class="vcard"><a class="url fn n" href="http://factoryjoe.com/blog/"><span class="given-name">Chris</span> <span class="family-name">Messina</span></a></span>.</p>
+			<p>The file icons are from the <a href="http://www.famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> collection by <span class="vcard"><a class="url fn n" href="http://www.famfamfam.com/"><span class="given-name">Mark</span> <span class="family-name">James</span></a></span>.</p>
+			<p>The feed icon is from the <a href="http://www.feedicons.com/">Feed Icons</a> collection by <span class="vcard"><a class="url fn n" href="http://mattbrett.com/"><span class="given-name">Matt</span> <span class="family-name">Brett</span></a></span>.</p>
+		</li>
+	</ol>
 </div>
-
 </body>
 </html>
