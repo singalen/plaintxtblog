@@ -1,22 +1,23 @@
 /*
 THEME NAME: plaintxtBlog
 THEME URI: http://www.plaintxt.org/themes/plaintxtblog/
-DESCRIPTION: Your blog, but simplified. A minimalist theme. Clutter-free, fluid 3-column layout with Widgets support. For WordPress 2.0.x and 2.1.
+DESCRIPTION: Your blog, but simplified. Clutter-free, fluid 3-column layout with Widgets support. For WordPress 2.0.x and 2.1.
 VERSION: 3.0 RC8
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
 */
 a,a:link{color:#059;outline:none;}
-div.sidebar ul li ul li.current-cat a,div.sidebar ul li ul li.current_page_item a,div.sidebar ul li ul li.current-cat a:link,div.sidebar ul li ul li.current_page_item a:link,div.sidebar ul li ul li.current-cat a:visited,div.sidebar ul li ul li.current_page_item a:visited{background:#80abcd;color:#fff;padding:1px 2px;}
-div.sidebar a,div.sidebar ul li ul li.current-cat ul li a,div.sidebar ul li ul li.current_page_item ul li a,div.sidebar a:link,div.sidebar ul li ul li.current-cat ul li a:link,div.sidebar ul li ul li.current_page_item ul li a:link,div.sidebar a:visited,div.sidebar ul li ul li.current-cat ul li a:visited,div.sidebar ul li ul li.current_page_item ul li a:visited{background:#fff;color:#059;padding:1px 2px;text-decoration:none;}
-div#content .entry-title a,div#content .entry-title a:link,div.navigation a,div.navigation a:link{text-decoration:none;}
-div#footer a,div#footer a:link{color:#aaa;}
-div#header h1 a,div#header h1 a:link{border-bottom:1px solid #ccc;text-decoration:none;}
-a:visited{color:#059;text-decoration:none;}
-a:hover,div#footer a:hover{color:#c30;text-decoration:none;}
+div#header h1 a,div#header h1 a:link,div#header h1 a:visited{border-bottom:1px solid #ccc;text-decoration:none;}
+div#content .entry-title a,div#content .entry-title a:link,div#content .entry-title a:visited,div.navigation a,div.navigation a:link,div.navigation a:visited{text-decoration:none;}
+div#footer a,div#footer a:link,div#footer a:visited{color:#aaa;}
+a:visited{color:#059;}
 div#header h1 a:hover{border-bottom:1px solid #059;}
-div.sidebar a:hover{background:#059;color:#fff;padding:1px 2px;}
-a:active{color:#ccc;}
+a:hover,div#footer a:hover{color:#c30;text-decoration:none;}
+a:active{color:#80abcd;}
+div.sidebar a,div.sidebar a:link,div.sidebar a:visited,div.sidebar ul li ul li.current_page_item li.page_item a,div.sidebar ul li ul li.current-cat ul.children li a{background:#fff;color:#059;padding:1px 2px;text-decoration:none;}
+div.sidebar ul li ul li.current_page_item a,div.sidebar ul li ul li.current-cat a{background:#80abcd;color:#fff;padding:1px 2px;}
+div.sidebar ul li a:hover,div.sidebar ul li.current_page_item li.page_item a:hover,div.sidebar ul li.current-cat ul.children li a:hover{background:#059;color:#fff;padding:1px 2px;}
+div.sidebar ul li a:active{background:#80abcd;color:#fff;}
 body{background:#fff;border:1px solid #000;color:#111;font-family:verdana, geneva, sans-serif;line-height:150%;margin:20px;padding:20px;}
 body div#container{width:100%;}
 body div#content div.entry-content div.contactleft, body div#content div.entry-content div.contactright{display:block;padding:0;text-align:left;}
