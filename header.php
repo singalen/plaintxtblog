@@ -24,6 +24,8 @@
 		<div id="blog-description"><?php bloginfo('description') ?></div>
 	</div>
 	
-	<p class="access"><a href="#content" title="<?php _e('Skip navigation to the content', 'plaintxtblog'); ?>"><?php _e('Skip navigation', 'plaintxtblog'); ?></a></p>
+	<div class="access">
+		<span class="content-access"><a href="#content" title="<?php _e('Skip to content', 'plaintxtblog'); ?>"><?php _e('Skip to content', 'plaintxtblog'); ?></a></span>
+	</div>
 
 <?php plaintxtblog_globalnav() ?>

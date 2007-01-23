@@ -42,13 +42,13 @@
 			<ul>
 <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : ?>
 <?php if ( wp_list_pages("child_of=".$post->ID."&echo=0") ) { ?>
-			<li id="subpagenav">
-				<h3><?php _e('Subpages', 'plaintxtblog') ?></h3>
-				<ul>
+				<li id="subpagenav">
+					<h3><?php _e('Subpages', 'plaintxtblog') ?></h3>
+					<ul>
 <?php wp_list_pages("title_li=&child_of=".$post->ID."&sort_column=menu_order&show_date=modified&date_format=$date_format"); ?>
 
-				</ul>
-			</li>
+					</ul>
+				</li>
 <?php } ?>
 				<li id="categories">
 					<h3><?php _e('Categories', 'plaintxtblog'); ?></h3>
