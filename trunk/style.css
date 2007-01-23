@@ -25,7 +25,7 @@ body div#content div.entry-content div.contactleft{clear:none;float:left;margin:
 body div#content div.entry-content div.contactright{clear:left;float:none;margin:0 0 1em;width:auto;}
 body div#footer{clear:both;color:#aaa;font-size:0.9em;padding:5em 0 0;width:100%;}
 body div.sidebar{overflow:hidden;width:120px;}
-body p.access,body div#globalnav,span#theme-link span.additional-name,span#theme-link span.family-name{display:none;}
+body div.access,body div#globalnav,span#theme-link span.additional-name,span#theme-link span.family-name{display:none;}
 body.archive .page-title,body.search .page-title{font-size:1.1em;font-weight:400;margin:0 0 0.3em;}
 body.archive div#content div.p1,body.search div#content div.p1{margin:2em 0 0;}
 body.attachment div.post-parent{font-size:0.9em;font-style:italic;}
