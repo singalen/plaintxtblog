@@ -2,7 +2,7 @@
 THEME NAME: plaintxtBlog
 THEME URI: http://www.plaintxt.org/themes/plaintxtblog/
 DESCRIPTION: Your blog, but simplified. Clutter-free, fluid 3-column layout with Widgets support. For WordPress 2.0.x and 2.1.
-VERSION: 3.0 RC8
+VERSION: 3.0 RC9
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
 */
@@ -20,6 +20,7 @@ div.sidebar ul li a:hover,div.sidebar ul li.current_page_item li.page_item a:hov
 div.sidebar ul li a:active{background:#80abcd;color:#fff;}
 body{background:#fff;border:1px solid #000;color:#111;font-family:verdana, geneva, sans-serif;line-height:150%;margin:20px;padding:20px;}
 body div#container{width:100%;}
+div#wrapper{overflow:auto;}
 body div#content div.entry-content div.contactleft, body div#content div.entry-content div.contactright{display:block;padding:0;text-align:left;}
 body div#content div.entry-content div.contactleft{clear:none;float:left;margin:0;width:10em;}
 body div#content div.entry-content div.contactright{clear:left;float:none;margin:0 0 1em;width:auto;}
@@ -46,10 +47,12 @@ div#content blockquote p{margin:0.5em;padding:0.5em;}
 div#content cite{border-bottom:1px dotted #bbb;cursor:help;}
 div#content code,div#content pre{color:#006;font:1em/133% "courier new", courier, monospace;}
 div#content del{background:#eee;color:#999;}
-div#content div.entry-content a.doc{background:url(images/file-doc.png) no-repeat center right;}
-div#content div.entry-content a.doc,div#content div.entry-content a.html,div#content div.entry-content a.pdf,div#content div.entry-content a.zip{padding:2px 19px 2px 0;margin-right:2px;}
-div#content div.entry-content a.html{background:url(images/file-html.png) no-repeat center right;}
-div#content div.entry-content a.pdf{background:url(images/file-pdf.png) no-repeat center right;}
+div#content div.entry-content .html,div#content div.entry-content .download, div#content div.entry-content .pdf,div#content div.entry-content .zip{margin-left:2px;padding:2px 0 2px 19px;}
+div#content .important{background:#f5f5dc url(images/important.png) no-repeat 0.5em center;border-top:1px solid #d0d0bb;border-bottom:1px solid #d0d0bb;padding:0.3em 0.5em 0.3em 2.3em;}
+div#content div.entry-content .download{background:url(images/file-download.png) no-repeat center left;}
+div#content div.entry-content .html{background:url(images/file-html.png) no-repeat center left;}
+div#content div.entry-content .pdf{background:url(images/file-pdf.png) no-repeat center left;}
+div#content div.entry-content .zip{background:url(images/file-zip.png) no-repeat center left;}
 div#content div.entry-content a.xfn-colleague{background:url(images/xfn-colleague.png) no-repeat center right;}
 div#content div.entry-content a.xfn-colleague-met{background:url(images/xfn-colleague-met.png) no-repeat center right;}
 div#content div.entry-content a.xfn-colleague-met,div#content div.entry-content a.xfn-sweetheart-met,div#content div.entry-content a.xfn-friend-met{padding:2px 26px 2px 0;margin-right:2px;}
@@ -59,10 +62,9 @@ div#content div.entry-content a.xfn-me{background:url(images/xfn-me.png) no-repe
 div#content div.entry-content a.xfn-me,div#content div.entry-content a.xfn-colleague,div#content div.entry-content a.xfn-sweetheart,div#content div.entry-content a.xfn-friend{padding:2px 21px 2px 0;margin-right:2px;}
 div#content div.entry-content a.xfn-sweetheart{background:url(images/xfn-sweetheart.png) no-repeat center right;}
 div#content div.entry-content a.xfn-sweetheart-met{background:url(images/xfn-sweetheart-met.png) no-repeat center right;}
-div#content div.entry-content a.zip{background:url(images/file-zip.png) no-repeat center right;}
 div#content em{font-style:normal;font-weight:700;}
 div#content ins{background:#f5f5dc;font-style:italic;text-decoration:none;}
-div#content span.caps{font-size:1.1em;font-variant:small-caps;}
+div#content .caps{font-size:1.1em;font-variant:small-caps;}
 div#content strong{text-transform:uppercase;}
 div#header h1#blog-title{font-size:1.3em;margin:0 0 0.3em;}
 div.comments form#commentform div{margin:0 0 0.5em;}
@@ -83,7 +85,6 @@ div.comments ol.commentlist li p{margin:0.5em 0;}
 div.comments ol.commentlist li.alt{background:#eee;}
 div.comments ol.commentlist li.bypostauthor{border: 2px solid #ddd;background:#fff;}
 div.comments span.req-field,div.comments span.unapproved{color:#c30;}
-div.content-column{float:left;margin:0 3% 0 0;width:40%;}
 div.entry-content a img.alignleft,div.entry-content a img.alignright,div.entry-content a img.center,div.entry-content a:link img.alignleft,div.entry-content a:link img.alignright,div.entry-content a:link img.center,div.entry-content a:visited img.alignleft,div.entry-content a:visited img.alignright,div.entry-content a:visited img.center{border:1px solid #059;}
 div.entry-content a:hover img.alignleft,div.entry-content a:hover img.alignright,div.entry-content a:hover img.center{border:1px solid #c30;}
 div.entry-content div.page-link,div#content div.nopassword{background:#f5f5df;border-bottom:1px solid #ddd;border-top:1px solid #ddd;display:inline;margin:0 0 1em;padding:0.2em 0.4em;}
@@ -93,9 +94,12 @@ div.entry-content h3{color:#555;}
 div.entry-content h4{color:#777;}
 div.entry-content h5{color:#999;}
 div.entry-content h6{color:#bbb;}
-div.entry-content img.alignleft{float:left;margin:0.5em 1em 0.5em 0;}
-div.entry-content img.alignright{float:right;margin:0.5em 0 0.5em 1em;}
-div.entry-content img.center{display:block;margin:1em auto;text-align:center;}
+div.entry-content img{max-width:99%;}
+div.entry-content .alignleft{float:left;margin:0.5em 1em 0.5em 0;}
+div.entry-content .alignright{float:right;margin:0.5em 0 0.5em 1em;}
+div.entry-content .center{display:block;margin:1em auto;text-align:center;}
+div.entry-content .clearer{clear:both;width:99%;}
+div.entry-content .content-column{float:left;margin:0 3% 0 0;width:40%;}
 div.entry-content p{margin:1em 0;}
 div.entry-content ul.page-list li{list-style:none;margin:0 0 2em;padding:0;}
 div.entry-content ul.page-list li h3{font-size:1em;}
