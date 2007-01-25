@@ -132,7 +132,7 @@ function plaintxtblog_date_classes($t, &$c, $p = '') {
 	$c[] = $p . 'h' . gmdate('h', $t);
 }
 
-function plaintxtblog_cats_meow($glue) {
+function plaintxtblog_other_cats($glue) {
 	$current_cat = single_cat_title('', false);
 	$separator = "\n";
 	$cats = explode($separator, get_the_category_list($separator));

@@ -22,13 +22,13 @@
 				</div>
 				<div class="entry-meta">
 <?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) : // COMMENTS & PINGS OPEN ?>
-					<?php printf(__('<span class="entry-comments"><a href="#respond" title="Post a comment">Post a comment</a></span> <span class="metasep">&mdash;</span> <span class="entry-trackbacks"><a href="%s" rel="trackback" title="Trackback URI for your post">Trackback URI</a></span>', 'plaintxtblog'), get_trackback_url()) ?>
+					<?php printf(__('<span class="entry-comments"><a href="#respond" title="Post a comment">Post a comment</a></span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks"><a href="%s" rel="trackback" title="Trackback URI for your post">Trackback URI</a></span>', 'plaintxtblog'), get_trackback_url()) ?>
 <?php elseif (!('open' == $post-> comment_status) && ('open' == $post->ping_status)) : // PINGS ONLY OPEN ?>
-					<?php printf(__('<span class="entry-comments">Comments closed</span> <span class="metasep">&mdash;</span> <span class="entry-trackbacks"><a href="%s" rel="trackback" title="Trackback URL for your post">Trackback URI</a></span>', 'plaintxtblog'), get_trackback_url()) ?>
+					<?php printf(__('<span class="entry-comments">Comments closed</span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks"><a href="%s" rel="trackback" title="Trackback URL for your post">Trackback URI</a></span>', 'plaintxtblog'), get_trackback_url()) ?>
 <?php elseif (('open' == $post-> comment_status) && !('open' == $post->ping_status)) : // COMMENTS OPEN ?>
-					<?php printf(__('<span class="entry-comments"><a href="#respond" title="Post a comment">Post a comment</a></span> <span class="metasep">&mdash;</span> <span class="entry-trackbacks">Trackbacks closed</span>', 'plaintxtblog')) ?>
+					<?php printf(__('<span class="entry-comments"><a href="#respond" title="Post a comment">Post a comment</a></span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks">Trackbacks closed</span>', 'plaintxtblog')) ?>
 <?php elseif (!('open' == $post-> comment_status) && !('open' == $post->ping_status)) : // NOTHING OPEN ?>
-					<?php _e('<span class="entry-comments">Comments closed</span> <span class="metasep">&mdash;</span> <span class="entry-trackbacks">Trackbacks closed</span>', 'plaintxtblog') ?>
+					<?php _e('<span class="entry-comments">Comments closed</span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks">Trackbacks closed</span>', 'plaintxtblog') ?>
 <?php endif; ?>
 
 					<span class="entry-commentslink"><?php printf(__('<a href="%1$s" title="%2$s comments RSS feed" rel="alternate" type="application/rss+xml">RSS 2.0 feed</a> for these comments', 'plaintxtblog'),

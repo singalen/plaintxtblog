@@ -33,7 +33,7 @@ foreach ( $comments as $comment )
 			<?php if ($comment->comment_approved == '0') : ?><span class="unapproved"><?php _e('Your comment is awaiting moderation.', 'plaintxtblog') ?></span><?php endif; ?>
 			<?php comment_text() ?>
 			<div class="comment-meta">
-				<?php printf(__('<span class="comment-datetime">Posted on %1$s at %2$s</span> <span class="metasep">|</span> <span class="comment-permalink"><a href="%3$s" title="Permalink to this comment">Permalink</a></span>', 'plaintxtblog'),
+				<?php printf(__('<span class="comment-datetime">Posted on %1$s at %2$s</span> <span class="meta-sep">|</span> <span class="comment-permalink"><a href="%3$s" title="Permalink to this comment">Permalink</a></span>', 'plaintxtblog'),
 						get_comment_date('d-M-y'),
 						get_comment_time(),
 						'#comment-' . get_comment_ID() );

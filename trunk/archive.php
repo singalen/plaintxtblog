@@ -12,10 +12,11 @@
 <?php elseif ( is_year() ) : ?>
 			<h2 class="page-title"><?php printf(__('Yearly Archives: <span>%s</span>', 'plaintxtblog'), get_the_time(__('Y', 'plaintxtblog'))) ?></h2>
 <?php elseif ( is_author() ) : ?>
-			<h2 class="page-title"><?php $curauth = plaintxtblog_get_author(); printf(__('Author Archives: <span class="vcard"><span class="fn n">%s</span></span>', 'plaintxtblog'),  $curauth->display_name) ?></h2>
+			<h2 class="page-title"><?php _e('Author Archives: ', 'plaintxtblog'); plaintxtblog_author_hCard(); ?></h2>
+			<div class="archive-meta"><?php if ( !(''== $authordata->user_description) ) : echo apply_filters('archive_meta', $authordata->user_description); endif; ?></div>
 <?php elseif ( is_category() ) : ?>
 			<h2 class="page-title"><?php _e('Category Archives:', 'plaintxtblog') ?> <span class="page-cat"><?php echo single_cat_title(); ?></span></h2>
-			<div class="archive-meta"><?php echo apply_filters('archive_meta', category_description()); ?></div>
+			<div class="archive-meta"><?php if ( !(''== category_description()) ) : echo apply_filters('archive_meta', category_description()); endif; ?></div>
 <?php elseif ( isset($_GET['paged']) && !empty($_GET['paged']) ) : ?>
 			<h2 class="page-title"><?php _e('Blog Archives', 'plaintxtblog') ?></h2>
 <?php endif; ?>
@@ -35,8 +36,8 @@
 				</div>
 				<div class="entry-meta">
 					<span class="entry-category"><?php printf(__('Filed in %s', 'plaintxtblog'), get_the_category_list(', ')) ?></span>
-					<span class="metasep">|</span>
-<?php edit_post_link(__('Edit', 'plaintxtblog'), "\t\t\t\t\t<span class='entry-edit'>", "</span>\n\t\t\t\t\t<span class='metasep'>|</span>\n"); ?>
+					<span class="meta-sep">|</span>
+<?php edit_post_link(__('Edit', 'plaintxtblog'), "\t\t\t\t\t<span class='entry-edit'>", "</span>\n\t\t\t\t\t<span class='meta-sep'>|</span>\n"); ?>
 					<span class="entry-comments"><?php comments_popup_link(__('Comments (0) &raquo;', 'plaintxtblog'), __('Comments (1) &raquo;', 'plaintxtblog'), __('Comments (%) &raquo;', 'plaintxtblog')) ?></span>
 				</div>
 			</div>
