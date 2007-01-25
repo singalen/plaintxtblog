@@ -16,7 +16,7 @@ Template Name: Archives Page
 <?php the_content(); ?>
 
 				<div class="clearer"></div>
-				<div class="content-column">
+				<div class="alignleft content-column">
 					<ul class="page-list">
 						<li class="category-archives">
 							<h3>Category Archives</h3>
@@ -27,7 +27,7 @@ Template Name: Archives Page
 					</ul>
 				</div>
 
-				<div class="content-column">
+				<div class="alignleft content-column">
 					<ul class="page-list">
 						<li class="monthly-archives">
 							<h3>Monthly Archives</h3>

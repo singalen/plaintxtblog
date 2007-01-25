@@ -18,12 +18,9 @@ div.sidebar a,div.sidebar a:link,div.sidebar a:visited,div.sidebar ul li ul li.c
 div.sidebar ul li ul li.current_page_item a,div.sidebar ul li ul li.current-cat a{background:#80abcd;color:#fff;padding:1px 2px;}
 div.sidebar ul li a:hover,div.sidebar ul li.current_page_item li.page_item a:hover,div.sidebar ul li.current-cat ul.children li a:hover{background:#059;color:#fff;padding:1px 2px;}
 div.sidebar ul li a:active{background:#80abcd;color:#fff;}
-body{background:#fff;border:1px solid #000;color:#111;font-family:verdana, geneva, sans-serif;line-height:150%;margin:20px;padding:20px;}
+body{background:#fff;border:1px solid #000;color:#111;font-family:verdana,geneva,sans-serif;line-height:150%;margin:20px;padding:20px;}
 body div#container{width:100%;}
-div#wrapper{overflow:auto;}
-body div#content div.entry-content div.contactleft, body div#content div.entry-content div.contactright{display:block;padding:0;text-align:left;}
-body div#content div.entry-content div.contactleft{clear:none;float:left;margin:0;width:10em;}
-body div#content div.entry-content div.contactright{clear:left;float:none;margin:0 0 1em;width:auto;}
+div#wrapper{overflow:hidden;}
 body div#footer{clear:both;color:#aaa;font-size:0.9em;padding:5em 0 0;width:100%;}
 body div.sidebar{overflow:hidden;width:120px;}
 body div.access,body div#globalnav,span#theme-link span.additional-name,span#theme-link span.family-name{display:none;}
@@ -40,32 +37,23 @@ body.single span.entry-commentslink{display:block;margin:0.2em 0;}
 body.single span.entry-commentslink a{background:url(images/feed.png) no-repeat center left;}
 body.single span.entry-trackbacks a{background:url(images/trackbacks.png) no-repeat center left;}
 div#content .entry-title{background:#eee;font-size:0.9em;margin:0;text-transform:uppercase;}
-div#content abbr{border-bottom:1px dotted #006;cursor:help;}
-div#content blockquote{background:#f6f6f6;border-left:5px solid #eee;margin:0;padding:0;}
-div#content blockquote blockquote{background:#eee;border-left:5px solid #fff;margin:0 1em;}
-div#content blockquote p{margin:0.5em;padding:0.5em;}
-div#content cite{border-bottom:1px dotted #bbb;cursor:help;}
-div#content code,div#content pre{color:#006;font:1em/133% "courier new", courier, monospace;}
-div#content del{background:#eee;color:#999;}
-div#content div.entry-content .html,div#content div.entry-content .download, div#content div.entry-content .pdf,div#content div.entry-content .zip{margin-left:2px;padding:2px 0 2px 19px;}
-div#content .important{background:#f5f5dc url(images/important.png) no-repeat 0.5em center;border-top:1px solid #d0d0bb;border-bottom:1px solid #d0d0bb;padding:0.3em 0.5em 0.3em 2.3em;}
-div#content div.entry-content .download{background:url(images/file-download.png) no-repeat center left;}
-div#content div.entry-content .html{background:url(images/file-html.png) no-repeat center left;}
-div#content div.entry-content .pdf{background:url(images/file-pdf.png) no-repeat center left;}
-div#content div.entry-content .zip{background:url(images/file-zip.png) no-repeat center left;}
-div#content div.entry-content a.xfn-colleague{background:url(images/xfn-colleague.png) no-repeat center right;}
-div#content div.entry-content a.xfn-colleague-met{background:url(images/xfn-colleague-met.png) no-repeat center right;}
-div#content div.entry-content a.xfn-colleague-met,div#content div.entry-content a.xfn-sweetheart-met,div#content div.entry-content a.xfn-friend-met{padding:2px 26px 2px 0;margin-right:2px;}
-div#content div.entry-content a.xfn-friend{background:url(images/xfn-friend.png) no-repeat center right;}
-div#content div.entry-content a.xfn-friend-met{background:url(images/xfn-friend-met.png) no-repeat center right;}
-div#content div.entry-content a.xfn-me{background:url(images/xfn-me.png) no-repeat center right;}
-div#content div.entry-content a.xfn-me,div#content div.entry-content a.xfn-colleague,div#content div.entry-content a.xfn-sweetheart,div#content div.entry-content a.xfn-friend{padding:2px 21px 2px 0;margin-right:2px;}
-div#content div.entry-content a.xfn-sweetheart{background:url(images/xfn-sweetheart.png) no-repeat center right;}
-div#content div.entry-content a.xfn-sweetheart-met{background:url(images/xfn-sweetheart-met.png) no-repeat center right;}
-div#content em{font-style:normal;font-weight:700;}
-div#content ins{background:#f5f5dc;font-style:italic;text-decoration:none;}
-div#content .caps{font-size:1.1em;font-variant:small-caps;}
-div#content strong{text-transform:uppercase;}
+div.entry-content abbr,div.comments ol.commentlist abbr{border-bottom:1px dotted #006;cursor:help;}
+div.entry-content blockquote,div.comments ol.commentlist blockquote{background:#f6f6f6;border-left:5px solid #eee;margin:0;padding:0;}
+div.entry-content blockquote blockquote,div.comments ol.commentlist blockquote blockquote{background:#eee;border-left:5px solid #fff;margin:0 1em;}
+div.entry-content blockquote p,div.comments ol.commentlist blockquote p{margin:0.5em;padding:0.5em;}
+div.entry-content cite,div.comments ol.commentlist cite{border-bottom:1px dotted #bbb;cursor:help;}
+div.entry-content code,div.entry-content pre,div.comments ol.commentlist code,div.comments ol.commentlist pre{color:#006;font:1em/133% "courier new", courier, monospace;}
+div.entry-content del,div.comments ol.commentlist del{background:#eee;color:#999;}
+div.entry-content em,div.comments ol.commentlist em{font-style:normal;font-weight:700;}
+div.entry-content ins,div.comments ol.commentlist ins{background:#f5f5dc;font-style:italic;text-decoration:none;}
+div.entry-content .caps,div.comments ol.commentlist .caps{font-size:1.1em;font-variant:small-caps;}
+div.entry-content strong,div.comments ol.commentlist strong{text-transform:uppercase;}
+div#wrapper .html,div#wrapper .download,div#wrapper .pdf,div#wrapper .zip{margin-left:2px;padding:2px 0 2px 19px;}
+div#wrapper .important{background:#f5f5dc url(images/important.png) no-repeat 0.5em center;border-bottom:1px solid #d0d0bb;border-top:1px solid #d0d0bb;padding:0.3em 0.5em 0.3em 2.3em;}
+div#wrapper .download{background:url(images/file-download.png) no-repeat center left;}
+div#wrapper .html{background:url(images/file-html.png) no-repeat center left;}
+div#wrapper .pdf{background:url(images/file-pdf.png) no-repeat center left;}
+div#wrapper .zip{background:url(images/file-zip.png) no-repeat center left;}
 div#header h1#blog-title{font-size:1.3em;margin:0 0 0.3em;}
 div.comments form#commentform div{margin:0 0 0.5em;}
 div.comments form#commentform div#comment-notes{margin:-0.5em 0 0.7em;}
@@ -83,11 +71,13 @@ div.comments ol.commentlist{margin:0 0 0 1.8em;padding:0;}
 div.comments ol.commentlist li{background:#f6f6f6;margin:0 0 1em;padding:0.5em 0.8em;}
 div.comments ol.commentlist li p{margin:0.5em 0;}
 div.comments ol.commentlist li.alt{background:#eee;}
-div.comments ol.commentlist li.bypostauthor{border: 2px solid #ddd;background:#fff;}
+div.comments ol.commentlist li.bypostauthor{background:#fff;border:2px solid #ddd;}
 div.comments span.req-field,div.comments span.unapproved{color:#c30;}
 div.entry-content a img.alignleft,div.entry-content a img.alignright,div.entry-content a img.center,div.entry-content a:link img.alignleft,div.entry-content a:link img.alignright,div.entry-content a:link img.center,div.entry-content a:visited img.alignleft,div.entry-content a:visited img.alignright,div.entry-content a:visited img.center{border:1px solid #059;}
 div.entry-content a:hover img.alignleft,div.entry-content a:hover img.alignright,div.entry-content a:hover img.center{border:1px solid #c30;}
-div.entry-content div.page-link,div#content div.nopassword{background:#f5f5df;border-bottom:1px solid #ddd;border-top:1px solid #ddd;display:inline;margin:0 0 1em;padding:0.2em 0.4em;}
+div.entry-content div.page-link,div#content div.nopassword{display:inline;margin:0 0 1em;padding:0.2em 0.4em;}
+div.entry-content div.page-link{background:#eee;border-left:5px solid #ddd;border-right:5px solid #ddd;font-size:0.9em;font-weight:700;text-transform:uppercase;}
+div#content div.nopassword{background:#f5f5df;border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
 div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h4,div.entry-content h5,div.entry-content h6{font-size:1em;margin:2em 0 -0.8em;text-transform:uppercase;}
 div.entry-content h2{color:#333;}
 div.entry-content h3{color:#555;}
@@ -98,8 +88,8 @@ div.entry-content img{max-width:99%;}
 div.entry-content .alignleft{float:left;margin:0.5em 1em 0.5em 0;}
 div.entry-content .alignright{float:right;margin:0.5em 0 0.5em 1em;}
 div.entry-content .center{display:block;margin:1em auto;text-align:center;}
-div.entry-content .clearer{clear:both;width:99%;}
-div.entry-content .content-column{float:left;margin:0 3% 0 0;width:40%;}
+div#wrapper .clearer{clear:both;width:99%;}
+div.entry-content .content-column{width:40%;}
 div.entry-content p{margin:1em 0;}
 div.entry-content ul.page-list li{list-style:none;margin:0 0 2em;padding:0;}
 div.entry-content ul.page-list li h3{font-size:1em;}
@@ -114,11 +104,11 @@ div.sidebar ul li h3{color:#444;font-size:1em;margin:0;padding:1px 2px;}
 div.sidebar ul li ul li ul{font-size:0.9em;font-style:italic;margin:0 0 0.2em;}
 div.sidebar ul li table#wp-calendar caption,div.sidebar ul li form#gsearch{text-align:right;}
 div.sidebar ul li form#searchform input#s,div.sidebar ul li form#gsearch input{background:#f6f6f6;border:1px inset #999;margin:0 0 0.3em;padding:2px;width:7em;}
-div.sidebar ul li form#searchform input#s,div.sidebar ul li form#searchform input#searchsubmit,div.sidebar ul li form#gsearch input{font:1em/133% verdana, geneva, sans-serif;}
-div.sidebar ul li form#searchform input#searchsubmit,body div.sidebar ul li form#gsearch input[type=submit]{background:#ccc;border:1px outset #999;color:#333;font-weight:700;padding:1px 2px;width:7.5em;}
+div.sidebar ul li form#searchform input#s,div.sidebar ul li form#searchform input#searchsubmit{font:1em/133% verdana, geneva, sans-serif;}
+div.sidebar ul li form#searchform input#searchsubmit{background:#ccc;border:1px outset #999;color:#333;font-weight:700;padding:1px 2px;width:7.5em;}
 div.sidebar ul li#rss-links a,div#content ul li#rss-links a{background:url(images/feed.png) no-repeat center right;padding:0 14px 0 0;}
 div.sidebar ul li#rss-links a:hover{background:url(images/feed.png) #059 no-repeat center right;padding:1px 14px 1px 2px;}
-body div#content abbr.published,body img{border:none;}
+abbr.published,body img{border:none;}
 body div#header,div.comments{margin:0 0 3em;}
 body.archive .page-title span,body.search .page-title span,div#header div#blog-description,div.comments ol#pingbacks li div.comment-meta a,div.comments ol.commentlist div.comment-author span.fn{font-weight:700;}
 body.archive div.archive-meta,div#content q,div.comments ol#comments li div.comment-meta,span.pingback-datetime,div.sidebar ul li table#wp-calendar caption{font-style:italic;}
@@ -126,6 +116,6 @@ body.archive div.archive-meta p,div.sidebar ul li ul li{margin:0;}
 body.attachment div.entry-content,div.clearer,div.comments form#commentform div.form-submit,body.page div.entry-content div.contactform form{clear:both;}
 body.single .entry-title,body.page h2.entry-title,div#content div#post-0 h2.entry-title{padding:1px 4px;}
 div.comments form#commentform div.form-input input:focus,div.comments form#commentform div.form-textarea textarea:focus,body.page div.contactform input#wpcf_your_name:focus,body.page div.contactform input#wpcf_email:focus,body.page div.contactform input#wpcf_website:focus,body.page div.contactform textarea#wpcf_msg:focus,div.sidebar ul li form#searchform input#s:focus,div.sidebar ul li form#gsearch input:focus{background:#fff;}
-div.comments form#commentform div.form-submit input:active,body.page div.contactform input#contactsubmit:active,div.sidebar ul li form#searchform input#searchsubmit:active,body div.sidebar ul li form#gsearch input[type=submit]:active{background:#ddd;border:1px inset #999;color:#000;}
+div.comments form#commentform div.form-submit input:active,body.page div.contactform input#contactsubmit:active,div.sidebar ul li form#searchform input#searchsubmit:active{background:#ddd;border:1px inset #999;color:#000;}
 div.comments form#commentform,div.sidebar ul li form#searchform,div.sidebar ul li form#gsearch,body.page div.entry-content div.contactform form,div.entry-content ul.page-list li ul,div.entry-content ul.page-list,div.entry-content ul.page-list li h3,div.entry-content ul.page-list li ul li,div.sidebar ul{margin:0;padding:0;}
 div.entry-header .entry-title,div.navigation div.nav-previous{float:left;}

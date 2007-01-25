@@ -21,16 +21,15 @@ body h4{font-size:1.4em;font-style:italic;font-weight:400;line-height:150%;margi
 body ol#toc h3{margin-bottom:0;}
 body p{margin:1em 0;}
 body p.rubric{margin:1em 0 0.2em;}
-body ul li{list-style:square;}
-body ul li ul li{list-style:circle;}
 div.readme-meta{font-size:0.9em;letter-spacing:2px;line-height:133%;text-align:center;}
-dl{background:#eee;margin:1em 0 2em;padding:1em;}
+dl{background:#eee;padding:1em;}
 dl dd{margin:0;padding:0;}
 dl dd code{color:#666;font-size:0.9em;}
-dl dd.example{margin-left:1em;}
-dl dt code{display:block;font-size:1.1em;margin-top:0.5em;}
-dl dt.def-head{border-bottom:2px solid #fff;font-size:1.2em;line-height:150%;margin-left:-1em;margin-right:-1em;padding:0 1em 0.5em;}
-dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
+dl dd.example{margin-left:1em;margin-bottom:2em;}
+dl dt code{display:block;font-size:1.1em;margin:0.3em 0;}
+dl dt.rubric{margin-top:1em;}
+dl dt.def-head{font-size:1.2em;font-weight:bold;line-height:150%;margin-left:-1em;margin-right:-1em;padding:0 1em 0;}
+dl dd.def-rubric{border-bottom:2px solid #fff;line-height:150%;font-style:italic;margin-left:-1em;margin-right:-1em;padding:0 1em 0.5em;}
 /*]]>*/
 </style>
 <style type="text/css" media="all">
@@ -38,15 +37,19 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 body blockquote strong{text-transform:uppercase;}
 body div.readme p#friends span.family-name{display:none;}
 body ol#toc{list-style:lower-roman;}
+body ul li{list-style:square;}
+body ul li ul li{list-style:circle;}
+body ol.item-examples li{list-style:lower-alpha;}
+dl{margin:1em 0 2em;}
 div#theme-meta span{display:block;margin:0.2em 0;}
 dl#emphasis dd em{font-style:normal;font-weight:700;}
 dl#emphasis dd strong{font-size:0.9em;letter-spacing:0.4px;text-transform:uppercase;}
-dl#file dd a.doc{background:url(images/doc.png) no-repeat center right;padding-right:20px;}
-dl#file dd a.pdf{background:url(images/pdf.png) no-repeat center right;padding-right:20px;}
-dl#misc dd span.caps{font-variant:small-caps;}
-dl#xfn dd a.xfn-friend{background:url(images/xfn-friend.png) no-repeat center right;padding-right:20px;}
-dl#xfn dd a.xfn-me{background:url(images/xfn-me.png) no-repeat center right;padding-right:20px;}
-dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
+dl dd a.download{background:url(images/file-download.png) no-repeat center left;padding-left:19px;}
+dl dd p.html{background:url(images/file-html.png) no-repeat center left;padding-left:19px;margin:0;}
+dl dd span.pdf{background:url(images/file-pdf.png) no-repeat center left;padding-left:19px;margin:0;}
+dl dd a.zip{background:url(images/file-zip.png) no-repeat center left;padding-left:19px;margin:0;}
+dl dd p.important{background:#f5f5dc url(images/important.png) no-repeat 0.5em center;border-bottom:1px solid #d0d0bb;border-top:1px solid #d0d0bb;padding:0.2em 0.5em 0.2em 2.2em;margin:0;}
+dl dd span.caps{font-variant:small-caps;}
 /*]]>*/
 </style>
 </head>
@@ -55,7 +58,7 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 	<h2 id="readme-title">plaintxtBlog</h2>
 	<div class="readme-meta">
 		<div class="readme-version">Version 3.0</div>
-		<div class="readme-subtitle">Your blog, but simplified.</div>
+		<div class="readme-subtitle">Your blog, but simplified</div>
 	</div>
 	<ol id="toc">
 		<li>
@@ -77,8 +80,8 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 	<ol id="readme-content">
 		<li id="about">
 			<h3>About plaintxtBlog</h3>
-			<p><a href="http://www.plaintxt.org/themes/plaintxtBlog/" title="plaintxtBlog for WordPress">plaintxtBlog</a> is an exceptionally clean, content-centered theme for <a href="http://wordpress.org/" title="WordPress">WordPress</a>. While it is simple in appearence, it is robust in its functionality, offering many features alongside a thoughtful design.</p>
-			<p>PlaintxtBlog v3.0 is fully compatible with WordPress versions 2.0.x and 2.1.</p>
+			<p><a href="http://www.plaintxt.org/themes/plaintxtBlog/" title="plaintxtBlog for WordPress">PlaintxtBlog</a> is an exceptionally clean, content-centered theme for <a href="http://wordpress.org/" title="WordPress">WordPress</a>. While it is simple in appearence, it is robust in its functionality, offering many features alongside a thoughtful design.</p>
+			<p>PlaintxtBlog v3.0 is fully compatible with WordPress 2.0.x and 2.1.</p>
 			<p class="rubric">The plaintxtBlog theme features:</p>
 			<ul id="features">
 				<li>a theme options menu, which allows
@@ -100,8 +103,7 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 				<li>highly <a href="http://en.wikipedia.org/wiki/Semantic_web" title="Semantic web on Wikipedia">semantic markup</a></li>
 				<li><a href="http://automattic.com/code/widgets/" title="Widgets plugin for WordPress">Widgets plugin</a> ready</li>
 			</ul>
-			<p>PlaintxtBlog 3.0 is completely reworked from version 2, building on my experiences developing the <a href="htt://www.plaintxt.org/themes/sandbox/" title="Sandbox theme for WordPress">Sandbox</a>.</p>
-			<p>Version 3.0 of plaintxtBlog allows for translation. If you have translated plaintxtBlog into another language, please let me know. Thanks.</p>
+			<p>PlaintxtBlog 3.0 is completely reworked from version 3, building on my experiences developing the <a href="htt://www.plaintxt.org/themes/sandbox/" title="Sandbox theme for WordPress">Sandbox</a>. This version also allows for translation. If you have translated plaintxtBlog, please let me know. Thanks.</p>
 		</li>
 		<li id="installing">
 			<h3>Installing the theme files</h3>
@@ -119,7 +121,8 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 		</li>
 		<li id="enabling">
 			<h3>Enabling comments on pages</h3>
-			<p><a href="http://codex.wordpress.org/Pages" title="Pages - WordPress Codex">Pages</a> are usually considered static in blogging and different from posts, which are what make a blog a blog. Comments are not displayed on pages by default; however, you can enable this features with this theme. You can enabled comments on a per page basis by adding a key/value with the text "comments."</p>
+			<p><a href="http://codex.wordpress.org/Pages" title="Pages - WordPress Codex">Pages</a> are usually considered static in blogging and different from posts, which are what make a blog a blog. Comments are not displayed on pages by default; however, you can enable this feature with this theme.</p>
+			<p>Comments are not displayed on pages by default, but are displayed on posts per convention. You can enabled comments on a per page basis by adding a key/value with the text "comments."</p>
 			<p class="rubric">To enable comments on a page:</p>
 			<ol>
 				<li>In the <i>Write &rsaquo; Page</i> menu, expand the <a href="http://codex.wordpress.org/Using_Custom_Fields" title="Custom Fields - WordPress Codex">Custom Fields</a> box</li>
@@ -132,7 +135,7 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 		</li>
 		<li id="using">
 			<h3>Using page templates</h3>
-			<p>There are two <a href="http://codex.wordpress.org/Pages#Page_Templates" title="Page templates - WordPress Codex">page templates</a> included with the plaintxtBlog theme: Links Page (links.php) and Archives Page (archives.php). You can add a title, text, and enable comments (see above) with both of these page templates. The text will appear above the actual template contents.</p>
+			<p>There are two <a href="http://codex.wordpress.org/Pages#Page_Templates" title="Page templates - WordPress Codex">page templates</a> included with the plaintxtBlog theme: Links Page (links.php) and Archives Page (archives.php). You can add a title, text, and enable comments on both of these page templates (see above). The text will appear above the actual template contents.</p>
 			<p class="rubric">To use the page templates:</p>
 			<ol>
 				<li>In the <i>Write &rsaquo; Page</i> menu, expand the Page Templates box</li>
@@ -175,6 +178,7 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 			<p>Below are examples of how the <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code> and <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code> elements have been styled for plaintxtBlog:</p>
 			<dl id="emphasis">
 				<dt class="def-head">Emphasis</dt>
+				<dd class="def-rubric">Used to add meaning and context to text</dd>
 				<dt><code>em</code></dt>
 				<dd>Used to indicate emphasis</dd>
 				<dd class="example">You <code>&lt;em&gt;</code><em>should not</em><code>&lt;/em&gt;</code> be late.</dd>
@@ -184,6 +188,7 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 			</dl>
 			<dl id="presentation">
 				<dt class="def-head">Presentation</dt>
+				<dd class="def-rubric">Used to style text (not to add meaning)</dd>
 				<dt><code>b</code></dt>
 				<dd>Used to bold text</dd>
 				<dd class="example">Find the word <code>&lt;b&gt;</code><b>happy</b><code>&lt;/b&gt;</code> in the glossary.</dd>
@@ -200,55 +205,92 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 			<p>Headings for the content area have been styled to display correctly: with more space above than below as content must logically follow headings. Headings help create an outline of the content on your page. They guide the reader and also help machines understand the structure of content.</p>
 			<p>While there are no hard-and-fast rules regarding this, I believe the headings should follow a logical progression, e.g., <i>h1 &rsaquo; h2 &rsaquo; h3 &rsaquo; h4 &rsaquo; h3 &rsaquo; h3 &rsaquo; h4 &hellip; </i>. There should not be two h1-level headings on a single page. Therefore, since post and page titles are h2-level, the only headings that should be used in the content area are h3&ndash;h6.</p>
 			<h4>Special classes</h4>
-			<p>There are certain conventions amongst many WordPress themes for special classes. Notably common are the image classes. Some new ones (e.g., the XFN link classes) have also been included with plaintxtBlog.</p>
-			<p>Again, these won't work correctly if entered directly into the visual rich editor. You should have a basic understanding of HTML before using these classes. I won't be able to help you <em>learn</em> HTML. I can, however, help you <em>use</em> HTML.</p>
-			<dl id="images">
-				<dt class="def-head">Images classes</dt>
-				<dt><code>&lt;img class=&quot;<b>alignleft</b>&quot; &hellip; /&gt;</code></dt>
-				<dd>Floats images to the left</dd>
-				<dd><pre>	XXXXXXX
+			<p>There are certain conventions amongst many WordPress themes for special classes. Notably common are the image classes.Again, these won't work correctly if entered directly into the visual rich editor. You should have a basic understanding of HTML before using these classes. I won't be able to help you <em>learn</em> HTML. I can, however, help you <em>use</em> HTML.</p>
+			<dl id="alignment">
+				<dt class="def-head">Alignment classes</dt>
+				<dd class="def-rubric">Used to align elements, notably images</dd>
+				<dt class="rubric"><b>alignleft</b> - Floats element to the left, e.g.,</dt>
+				<dt class="classes">
+					<code>&lt;img class=&quot;<b>alignleft</b>&quot; &hellip; /&gt;</code>
+					<code>&lt;p class=&quot;<b>alignleft</b>&quot; &hellip; /&gt;</code>
+				</dt>				
+				<dd class="example-code"><pre>	XXXXXXX
 	&#8968;&#175;&#8969; XXX
 	&#8970;_&#8971; XXX
 	XXXXXXX</pre></dd>
 				<dd class="example"><code>&lt;img <b>class=&quot;alignleft&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
-				<dt><code>alignright</code></dt>
-				<dd>Floats images to the right</dd>
-				<dd><pre>	XXXXXXX
+				<dd class="rubric"><b>alignright</b> - Floats element to the right, e.g.,</dd>
+				<dt class="classes">
+					<code>&lt;img class=&quot;<b>alignright</b>&quot; &hellip; /&gt;</code>
+					<code>&lt;div class=&quot;<b>alignright</b>&quot; &hellip; /&gt;</code>
+				</dt>
+				<dd class="example-code"><pre>	XXXXXXX
 	XXX &#8968;&#175;&#8969;
 	XXX &#8970;_&#8971;
 	XXXXXXX</pre></dd>
 				<dd class="example"><code>&lt;img <b>class=&quot;alignright&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
-				<dt><code>center</code></dt>
-				<dd>Centers images as a block</dd>
+				<dt class="rubric"><b>center</b> - Centers element as a block, e.g.,</dt>
+				<dt class="classes">
+					<code>&lt;img class=&quot;<b>center</b>&quot; &hellip; /&gt;</code>
+					<code>&lt;span class=&quot;<b>center</b>&quot; &hellip; /&gt;</code>
+				</dt>
 				<dd><pre>	XXXXXXX
 	  &#8968;&#175;&#8969;  
 	  &#8970;_&#8971;  
 	XXXXXXX</pre></dd>
 				<dd class="example"><code>&lt;img <b>class=&quot;center&quot;</b> src=&quot;http://www.example.com/example.jpg&quot; alt=&quot;Example&quot; /&gt;</code></dd>
+				<dt class="rubric"><b>content-column</b> - Sets element in column (Should be used with one of the elements above), e.g.,</dt>
+				<dt class="classes">
+					<code>&lt;p class=&quot;<b>content-column alignleft</b>&quot; &hellip; /&gt;</code>
+					<code>&lt;div class=&quot;<b>content-column alignright</b>&quot; &hellip; /&gt;</code>
+				</dt>
+				<dd class="example"><code>&lt;div <b>class=&quot;content-column alignright&quot;</b>&gt; &hellip; &lt;/div&gt;</code></dd>
 			</dl>
 			<dl id="file">
-				<dt class="def-head">File link classes</dt>
-				<dt class="classes"><code>&lt;a class="<b>doc</b>" &hellip; &gt;</code> <code>html</code> <code>pdf</code> <code>zip</code></dt>
-				<dd>Adds a appropriate <a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icons by Fam Fam Fam">Silk icon</a> to link; to be used when linking to one of the above file types</dd>
-				<dd><a class="doc" href="http://www.example.com/example.doc" title="example.doc">example.doc</a></dd>
-				<dd class="example"><code>&lt;a <b>class=&quot;doc&quot;</b> href=&quot;http://www.example.com/example.doc&quot; title=&quot;Example&quot;&gt;example.doc&lt;/a&gt;</code></dd>
-				<dd><a class="pdf" href="http://www.example.com/example.pdf" title="example.pdf">example.pdf</a></dd>
-				<dd class="example"><code>&lt;a <b>class=&quot;pdf&quot;</b> href=&quot;http://www.example.com/example.pdf&quot; title=&quot;Example&quot;&gt;example.pdf&lt;/a&gt;</code></dd>
+				<dt class="def-head">Icon element classes</dt>
+				<dd class="def-rubric">Used to add a <a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icons by Fam Fam Fam">Silk icon</a> to <strong>any</strong> element</dd>
+				<dt class="rubric"><b>download</b> - Adds a download icon, e.g.,</dt>
+				<dt class="classes">
+					<code>class="<b>download</b>"</code>
+				</dt>
+				<dd><a class="download" href="http://example.com/example-file">Download this file</a></dd>
+				<dd class="example"><code>&lt;a <b>class=&quot;download&quot;</b> href=&quot;http://example.com/example-file&quot;&gt;Download this file&lt;/a&gt;</code></dd>
+				<dt class="rubric"><b>html</b> - Adds an html (web) icon, e.g.,</dt>
+				<dt class="classes">
+					<code>class="<b>html</b>"</code>
+				</dt>
+				<dd><p class="html">This webpage is great!</p></dd>
+				<dd class="example"><code>&lt;p <b>class=&quot;html&quot;</b>&gt;This webpage is great!&lt;/p&gt;</code></dd>
+				<dt class="rubric"><b>pdf</b> - Adds a pdf icon, e.g.,</dt>
+				<dt class="classes">
+					<code>class="<b>pdf</b>"</code>
+				</dt>
+				<dd>The <span class="pdf">Adobe pdf</span> is a &hellip;</dd>
+				<dd class="example"><code>The &lt;span <b>class=&quot;pdf&quot;</b>&gt;Adobe pdf&lt;/span&gt; is a &amp;hellip;</code></dd>
+				<dt class="rubric"><b>zip</b> - Adds a zip (compressed archive) icon, e.g.,</dt>
+				<dt class="classes">
+					<code>class="<b>zip</b>"</code>
+				</dt>
+				<dd><a class="zip" href="http://example.com/example-zip">Get the zip</a></dd>
+				<dd class="example"><code>&lt;a <b>class=&quot;zip&quot;</b> href=&quot;http://example.com/example-zip&quot;&gt;Get the zip&lt;/a&gt;</code></dd>
 			</dl>
-			<dl id="xfn">
-				<dt class="def-head"><a href="http://gmpg.org/xfn/" title="eXtensible Friend Networks">XFN</a> link classes</dt>
-				<dt class="classes"><code>&lt;a class="<b>xfn-me</b>" &hellip; &gt;</code> <code>xfn-friend</code> <code>xfn-friend-met</code> <code>xfn-colleague</code> <code>xfn-colleague-met</code> <code>xfn-sweetheart</code> <code>xfn-sweetheart-met</code></dt>
-				<dd>Adds corresponding <a href="http://www.factorycity.net/projects/microformats-icons/" title="XFN icons">XFN icons</a> to links (Note: these classes should only be used with links with appropriate <a href="http://gmpg.org/xfn/11" title="XFN specification 1.1">XFN rel attributes</a>)</dd>
-				<dd><a class="xfn-me" href="http://www.mysite.com/" title="My site" rel="me">My site</a></dd>
-				<dd class="example"><code>&lt;a <b>class=&quot;xfn-me&quot;</b> href=&quot;http://www.mysite.com/&quot; title=&quot;My site&quot; <i>rel=&quot;me&quot;</i>&gt;My site&lt;/a&gt;</code></dd>
-				<dd><a class="xfn-friend" href="http://www.myfriend.com/" title="My friend" rel="friend">My friend</a></dd>
-				<dd class="example"><code>&lt;a <b>class=&quot;xfn-friend&quot;</b> href=&quot;http://www.myfriend.com/&quot; title=&quot;My friend&quot; <i>rel=&quot;friend&quot;</i>&gt;My friend&lt;/a&gt;</code></dd>
-			</dl>
+
+			
 			<dl id="misc">
 				<dt class="def-head">Micellaneous classes</dt>
-				<dt><code>&lt;span class="<b>caps</b>"&gt;</code></dt>
-				<dd>Used to format text in small-caps (Used with <code>&lt;span&gt;</code>)</dd>
-				<dd class="example">He works at <code>&lt;span class=&quot;caps&quot;&gt;</code><span class="caps">Ini-Tech</span><code>&lt;/span&gt;</code> in Dallas.</dd>
+				<dd class="def-rubric">Other presentational classes that can be applied to elements</dd>
+				<dt class="rubric"><b>important</b> - Adds an info icon and other styles, e.g.,</dt>
+				<dt class="classes">
+					<code>class="<b>important</b>"</code>
+				</dt>
+				<dd><p class="important">Lorem ipsum importanto habeo inciderint mei at &hellip;</p></dd>
+				<dd class="example"><code>&lt;p <b>class=&quot;important&quot;</b>&gt;Lorem ipsum importanto habeo inciderint mei at &amp;hellip;&lt;/p&gt;</code></dd>
+				<dt class="rubric"><b>caps</b> - Used to style text in small-caps, e.g.,</dt>
+				<dt class="classes">
+					<code>class="<b>caps</b>"</code>
+				</dt>
+				<dd>I work at <span class="caps">Ini-Tech</span> &hellip;</dd>
+				<dd class="example"><code>I work at &lt;span <b>class=&quot;caps&quot;</b>&gt;Ini-Tech&lt;/span&gt; &amp;hellip;</code></dd>
 			</dl>
 		</li>
 		<li id="standards">
@@ -264,7 +306,7 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 			<p>For a thorough discussion of the significance of hAtom in blogging, read the <a href="http://wordpress.com/forums/topic.php?id=3329" title="Challenge to geeks: Explain hAtom">WordPress.com hAtom support thread</a>.</p>
 			<h4>hCard microformat</h4>
 			<p><a href="http://microformats.org/wiki/hcard" title="hCard - Microformats">hCard</a> is a microformat that expresses basic contact information much like a <a href="http://en.wikipedia.org/wiki/VCard" title="vCard - Wikipedia">vCard</a>, except within your blog itself. Basically this is done by using <code>&lt;span&gt;</code>'s with certain class attributes.</p>
-			<p>The first name, last name, and website information for the <i>admin</i> user (as set in the <i>Users &rsaquo; Your Profile</i> submenu) is automatically used to create an hCard that is placed in the footer following the copyright information (with the function <code>plaintxtblog_admin_hCard() </code>).</p>
+			<p>The first name, last name, and website information for the <i>admin</i> user (as set in the <i>Users &rsaquo; Your Profile</i> submenu) is automatically used to create an hCard that is placed in the footer following the copyright information (with the function <code>plaintxtBlog_admin_hCard() </code>).</p>
 			<p>The hCard microformat is used throughout the theme, actually, for author links, bylines, and comment authors. You don't need to do anything, as basically hAtom and hCard are ways of making your blog <a href="http://kitchen.technorati.com/search/" title="Technorati Microformats Search">more accessible</a>.</p>
 		</li>
 		<li id="license">
@@ -286,7 +328,6 @@ dl#xfn dt.classes,dl#file dt.classes{margin-bottom:0.5em;}
 			<h3>Credits and thanks</h3>
 			<p id="friends">A special thanks goes to <span class="vcard"><a class="url fn n" href="http://andy.wordpress.com/" rel="colleague friend"><span class="given-name">Andy</span><span class="family-name"> Skelton</span></a></span>, who taught me heaps. Andy I collaborated to create the <a href="http://www.plaintxt.org/themes/sandbox/" title="Sandbox theme for WordPress">Sandbox</a>. Thanks to <span class="vcard"><a class="url fn n" href="http://www.mackrick.co.uk/" rel="colleague friend"><span class="given-name">Rick</span><span class="family-name"> Lee</span></a></span> for his thoughtful feedback. And to <span class="vcard"><a class="url fn n" href="http://archgfx.net/" rel="colleague friend"><span class="given-name">Adam</span><span class="family-name"> Freetly</span></a></span> for helping me see 20 things I had to fix.</p>
 			<h4>Icons</h4>
-			<p>The XFN icons are from the <a href="http://www.factorycity.net/projects/microformats-icons/" title="Microformats Icons -- Wolfgang Bartelme">Microformats Icons</a> collection, designed by <span class="vcard"><a class="url fn n" href="http://bartelme.at/"><span class="given-name">Wolfgang</span> <span class="family-name">Bartelme</span></a></span> and based on an idea by <span class="vcard"><a class="url fn n" href="http://factoryjoe.com/blog/"><span class="given-name">Chris</span> <span class="family-name">Messina</span></a></span>.</p>
 			<p>The file icons are from the <a href="http://www.famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> collection by <span class="vcard"><a class="url fn n" href="http://www.famfamfam.com/"><span class="given-name">Mark</span> <span class="family-name">James</span></a></span>. The feed icon is from the <a href="http://www.feedicons.com/">Feed Icons</a> collection by <span class="vcard"><a class="url fn n" href="http://mattbrett.com/"><span class="given-name">Matt</span> <span class="family-name">Brett</span></a></span>.</p>
 		</li>
 	</ol>
