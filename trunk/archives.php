@@ -21,7 +21,9 @@ Template Name: Archives Page
 						<li class="category-archives">
 							<h3>Category Archives</h3>
 							<ul>
-								<?php wp_list_cats('sort_column=name&optioncount=1&feed=(RSS)&feed_image='.get_bloginfo('template_url').'/images/feed.png&hierarchical=1'); ?>
+							<?php if ( function_exists('wp_list_categories') ) : 
+								wp_list_categories('title_li=&orderby=name&show_count=1&use_desc_for_title=1&feed_image='.get_bloginfo('template_url').'/images/feed.png'); else :
+								wp_list_cats('sort_column=name&optioncount=1&feed=(RSS)&feed_image='.get_bloginfo('template_url').'/images/feed.png&hierarchical=1'); endif; ?>
 							</ul>
 						</li>
 					</ul>

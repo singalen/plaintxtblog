@@ -52,8 +52,9 @@
 <?php } ?>
 				<li id="categories">
 					<h3><?php _e('Categories', 'plaintxtblog'); ?></h3>
-					<ul>
-<?php wp_list_cats('sort_column=name&hierarchical=1') ?>
+					<ul><?php if ( function_exists('wp_list_categories') ) : 
+wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1'); else :
+wp_list_cats('sort_column=name&hierarchical=1'); endif; ?>
 
 					</ul>
 				</li>
