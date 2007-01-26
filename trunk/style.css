@@ -62,7 +62,7 @@ div.comments form#commentform div.form-input input{border:1px inset #111;}
 div.comments form#commentform div.form-input input,div.comments form#commentform div.form-textarea textarea{clear:left;float:left;max-width:35em;width:66%;}
 div.comments form#commentform div.form-input input,div.comments form#commentform div.form-textarea textarea,body.page div.contactform input#wpcf_your_name,body.page div.contactform input#wpcf_email,body.page div.contactform input#wpcf_website,body.page div.contactform textarea#wpcf_msg{background:#f6f6f6;border:1px inset #999;font:1em/133% verdana, geneva, sans-serif;padding:0.3em;}
 div.comments form#commentform div.form-input,div.comments form#commentform div.form-textarea{margin:1em 0 0;}
-div.comments form#commentform div.form-label label,body.page div.contactform div.contactleft{color:#666;font-weight:700;line-height:200%;margin:0 0 0 0.3em;}
+div.comments form#commentform div.form-label label,body.page div.contactform div.contactleft{color:#666;font-weight:700;line-height:225%;margin:0 0 0 0.3em;}
 div.comments form#commentform div.form-submit input,body.page div.contactform input#contactsubmit{background:#ccc;border:1px outset #999;color:#333;font:bold 1em/133% verdana, geneva, sans-serif;padding:0.4em;}
 div.comments form#commentform div.form-textarea textarea{margin-bottom:1em;overflow:auto;}
 div.comments h3{font-size:1em;margin:4em 0 1em;}
