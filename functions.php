@@ -1,7 +1,7 @@
 <?php
 function plaintxtblog_globalnav() {
 	echo "<div id=\"globalnav\"><ul id=\"menu\">";
-	if ( !is_home() || is_paged() ) { ?><li class="page_item home_page_item"><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'barthelme') ?></a></li><?php }
+	if ( !is_home() || is_paged() ) { ?><li class="page_item home_page_item"><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'plaintxtblog') ?></a></li><?php }
 	$menu = wp_list_pages('title_li=&amp;sort_column=menu_order&echo=0');
 	echo str_replace(array("\r", "\n", "\t"), '', $menu);
 	echo "</ul></div>\n";
