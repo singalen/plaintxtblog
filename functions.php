@@ -354,7 +354,6 @@ div.wrap table.editform th h3{font:normal 2em/133% georgia,times,serif;margin:1e
 div.wrap table.editform td.important span {background:#f5f5df;padding:0.1em 0.2em;font:85%/175% georgia,times,serif;}
 span.info{color:#555;display:block;font-size:90%;margin:3px 0 9px;}
 span.info span{font-weight:bold;}
-a.xfn-me:hover{background:url(<?php echo get_template_directory_uri(); ?>/images/xfn-me.png) no-repeat top right;padding-right:18px;}
 .arial{font-family:arial,helvetica,sans-serif;}
 .courier{font-family:'courier new',courier,monospace;}
 .georgia{font-family:georgia,times,serif;}
@@ -370,8 +369,11 @@ a.xfn-me:hover{background:url(<?php echo get_template_directory_uri(); ?>/images
 }
 
 function plaintxtblog_admin() {
-	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><strong><?php printf(__('PlaintxtBlog theme options saved. <a href="%s">View site &raquo;</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></strong></p></div><?php }
-	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><strong><?php _e('PlaintxtBlog theme options reset.', 'plaintxtblog'); ?></strong></p></div><?php } ?>
+	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('PlaintxtBlog theme options saved. <a href="%s">View site &raquo;</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></p></div><?php }
+	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('PlaintxtBlog theme options reset.', 'plaintxtblog'); ?></p></div><?php } ?>
+	
+<?php $installedVersion = "3.0"; ?>
+<script src="http://www.plaintxt.org/themes/plaintxtblog-ver-check.php?version=<?php echo $installedVersion; ?>" type="text/javascript"></script>
 
 <div class="wrap">
 
@@ -497,7 +499,7 @@ function plaintxtblog_admin() {
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<p class="submit">
-			<input name="reset" type="submit" value="<?php _e('Reset', 'plaintxtblog'); ?>" onclick="return confirm('<?php _e('Click OK to reset. Any changes to these theme options will be lost!', 'verylaintxt'); ?>');" tabindex="28" accesskey="R" />
+			<input name="reset" type="submit" value="<?php _e('Reset', 'plaintxtblog'); ?>" onclick="return confirm('<?php _e('Click OK to reset. Any changes to these theme options will be lost!', 'plaintxtblog'); ?>');" tabindex="28" accesskey="R" />
 			<input name="action" type="hidden" value="reset" />
 		</p>
 	</form>
@@ -508,7 +510,7 @@ function plaintxtblog_admin() {
 
 	<h2 id="info"><?php _e('Theme Information'); ?></h2>
 
-	<p><?php _e('You are currently using the <a href="http://www.plaintxt.org/themes/plaintxtblog/" title="plaintxtBlog for WordPress"><span class="theme-title">plaintxtBlog</span></a> theme, version 3.0, by <span class="vcard"><a class="url xfn-me" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="n"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></span></a></span>.', 'plaintxtblog'); ?></p>
+	<p><?php _e('You are currently using the <a href="http://www.plaintxt.org/themes/plaintxtblog/" title="plaintxtBlog for WordPress"><span class="theme-title">plaintxtBlog</span></a> theme, version ' . $installedVersion . ', by <span class="vcard"><a class="url xfn-me" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="n"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></span></a></span>.', 'plaintxtblog'); ?></p>
 
 	<p><?php printf(__('Please read the included <a href="%1$s" title="Open the readme.html" rel="enclosure"  tabindex="29">documentation</a> for more information about the <span class="theme-title">plaintxtBlog</span> theme and its advanced features.', 'plaintxtblog'), get_template_directory_uri() . '/readme.html'); ?></p>
 
