@@ -20,7 +20,6 @@ div.sidebar ul li a:hover,div.sidebar ul li.current_page_item li.page_item a:hov
 div.sidebar ul li a:active{background:#80abcd;color:#fff;}
 body{background:#fff;border:1px solid #000;color:#111;font-family:verdana,geneva,sans-serif;line-height:150%;margin:20px;padding:20px;}
 body div#container{width:100%;}
-div#wrapper{overflow:hidden;}
 body div#footer{clear:both;color:#aaa;font-size:0.9em;padding:5em 0 0;width:100%;}
 body div.sidebar{overflow:hidden;width:120px;}
 body div.access,body div#globalnav,span#theme-link span.additional-name,span#theme-link span.family-name{display:none;}
