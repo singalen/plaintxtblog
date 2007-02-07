@@ -295,10 +295,10 @@ function plaintxtblog_widgets_init() {
 	unregister_widget_control('meta');
 	register_sidebar_widget(__('Links', 'plaintxtblog'), 'widget_plaintxtblog_links', null, 'links');
 	unregister_widget_control('links');
-	register_sidebar_widget(array('Home Link', 'widgets'), 'widget_plaintxtblog_homelink');
-	register_widget_control(array('Home Link', 'widgets'), 'widget_plaintxtblog_homelink_control', 300, 125);
-	register_sidebar_widget(array('RSS Links', 'widgets'), 'widget_plaintxtblog_rsslinks');
-	register_widget_control(array('RSS Links', 'widgets'), 'widget_plaintxtblog_rsslinks_control', 300, 90);
+	register_sidebar_widget(array('Home Link', 'widgets'), 'widget_plaintxtblog_homelink', null, 'homelink');
+	register_widget_control(array('Home Link', 'widgets'), 'widget_plaintxtblog_homelink_control', 300, 125, 'homelink');
+	register_sidebar_widget(array('RSS Links', 'widgets'), 'widget_plaintxtblog_rsslinks', null, 'rsslinks');
+	register_widget_control(array('RSS Links', 'widgets'), 'widget_plaintxtblog_rsslinks_control', 300, 90, 'rsslinks');
 }
 
 function plaintxtblog_add_admin() {
@@ -349,6 +349,7 @@ function plaintxtblog_admin_head() {
 /*<![CDATA[*/
 div.wrap table.editform tr td input.radio{background:#fff;border:none;margin-right:3px;}
 div.wrap table.editform tr td input.text{text-align:center;width:5em;}
+div.wrap table.editform tr td label{font-size:1.2em;line-height:140%;}
 div.wrap table.editform tr td select.dropdown option{margin-right:10px;}
 div.wrap table.editform th h3{font:normal 2em/133% georgia,times,serif;margin:1em 0 0.3em;color#222;}
 div.wrap table.editform td.important span {background:#f5f5df;padding:0.1em 0.2em;font:85%/175% georgia,times,serif;}
@@ -373,7 +374,7 @@ function plaintxtblog_admin() {
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('PlaintxtBlog theme options reset.', 'plaintxtblog'); ?></p></div><?php } ?>
 	
 <?php $installedVersion = "3.0"; ?>
-<script src="http://www.plaintxt.org/themes/plaintxtblog-ver-check.php?version=<?php echo $installedVersion; ?>" type="text/javascript"></script>
+<script src="http://www.plaintxt.org/ver-check/plaintxtblog-ver-check.php?version=<?php echo $installedVersion; ?>" type="text/javascript"></script>
 
 <div class="wrap">
 
