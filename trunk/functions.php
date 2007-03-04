@@ -1,4 +1,5 @@
 <?php
+// Produces links for every page just below the header
 function plaintxtblog_globalnav() {
 	echo "<div id=\"globalnav\"><ul id=\"menu\">";
 	if ( !is_home() || is_paged() ) { ?><li class="page_item home_page_item"><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'plaintxtblog') ?></a></li><?php }
@@ -7,17 +8,20 @@ function plaintxtblog_globalnav() {
 	echo "</ul></div>\n";
 }
 
+// Produces an hCard for the "admin" user
 function plaintxtblog_admin_hCard() {
 	global $wpdb, $user_info;
 	$user_info = get_userdata(1);
 	echo '<span class="vcard"><a class="url fn n" href="' . $user_info->user_url . '"><span class="given-name">' . $user_info->first_name . '</span> <span class="family-name">' . $user_info->last_name . '</span></a></span>';
 }
 
+// Produces an hCard for post authors
 function plaintxtblog_author_hCard() {
 	global $wpdb, $authordata;
 	echo '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 }
 
+// Produces semantic classes for the body element; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function plaintxtblog_body_class( $print = true ) {
 	global $wp_query, $current_user;
 
@@ -71,6 +75,7 @@ function plaintxtblog_body_class( $print = true ) {
 	return $print ? print($c) : $c;
 }
 
+// Produces semantic classes for the each individual post div; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function plaintxtblog_post_class( $print = true ) {
 	global $post, $plaintxtblog_post_alt;
 
@@ -95,6 +100,7 @@ function plaintxtblog_post_class( $print = true ) {
 }
 $plaintxtblog_post_alt = 1;
 
+// Produces semantic classes for the each individual comment li; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function plaintxtblog_comment_class( $print = true ) {
 	global $comment, $post, $plaintxtblog_comment_alt;
 
@@ -124,6 +130,7 @@ function plaintxtblog_comment_class( $print = true ) {
 	return $print ? print($c) : $c;
 }
 
+// Produces date-based classes for the three functions above; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function plaintxtblog_date_classes($t, &$c, $p = '') {
 	$t = $t + (get_settings('gmt_offset') * 3600);
 	$c[] = $p . 'y' . gmdate('Y', $t);
@@ -132,6 +139,7 @@ function plaintxtblog_date_classes($t, &$c, $p = '') {
 	$c[] = $p . 'h' . gmdate('h', $t);
 }
 
+// Produces links to categories other than the current one; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function plaintxtblog_other_cats($glue) {
 	$current_cat = single_cat_title('', false);
 	$separator = "\n";
@@ -150,6 +158,7 @@ function plaintxtblog_other_cats($glue) {
 	return trim(join($glue, $cats));
 }
 
+// Loads a Barthelme-style Search widget
 function widget_plaintxtblog_search($args) {
 	extract($args);
 ?>
@@ -165,6 +174,7 @@ function widget_plaintxtblog_search($args) {
 <?php
 }
 
+// Loads a Barthelme-style Meta widget
 function widget_plaintxtblog_meta($args) {
 	extract($args);
 	$options = get_option('widget_meta');
@@ -181,6 +191,7 @@ function widget_plaintxtblog_meta($args) {
 <?php
 }
 
+// Loads the Home Link widget; Allows a link to always point back to the home page
 function widget_plaintxtblog_homelink($args) {
 	extract($args);
 	$options = get_option('widget_plaintxtblog_homelink');
@@ -194,6 +205,7 @@ function widget_plaintxtblog_homelink($args) {
 <?php
 }
 
+// Loads the control functions for the Home Link, allowing control of its text
 function widget_plaintxtblog_homelink_control() {
 	$options = $newoptions = get_option('widget_plaintxtblog_homelink');
 	if ( $_POST["homelink-submit"] ) {
@@ -211,6 +223,7 @@ function widget_plaintxtblog_homelink_control() {
 <?php
 }
 
+// Loads Barthelme-style RSS Links (separate from Meta) widget
 function widget_plaintxtblog_rsslinks($args) {
 	extract($args);
 	$options = get_option('widget_plaintxtblog_rsslinks');
@@ -226,6 +239,7 @@ function widget_plaintxtblog_rsslinks($args) {
 <?php
 }
 
+// Loads the control functions for the RSS Links, allowing control of its text
 function widget_plaintxtblog_rsslinks_control() {
 	$options = $newoptions = get_option('widget_plaintxtblog_rsslinks');
 	if ( $_POST["rsslinks-submit"] ) {
@@ -242,6 +256,7 @@ function widget_plaintxtblog_rsslinks_control() {
 <?php
 }
 
+// Produces blogroll links for both WordPress 2.0.x or 2.1.x compliance
 function widget_plaintxtblog_links() {
 	if ( function_exists('wp_list_bookmarks') ) {
 		wp_list_bookmarks(array('title_before'=>'<h3>', 'title_after'=>'</h3>', 'show_images'=>true));
@@ -279,6 +294,7 @@ function widget_plaintxtblog_links() {
 	}
 }
 
+// Loads, checks that Widgets are loaded and working
 function plaintxtblog_widgets_init() {
 	if ( !function_exists('register_sidebars') )
 		return;
@@ -301,6 +317,7 @@ function plaintxtblog_widgets_init() {
 	register_widget_control(array('RSS Links', 'widgets'), 'widget_plaintxtblog_rsslinks_control', 300, 90, 'rsslinks');
 }
 
+// Loads the admin menu; sets default settings for each
 function plaintxtblog_add_admin() {
 	if ( $_GET['page'] == basename(__FILE__) ) {
 	
@@ -343,6 +360,7 @@ function plaintxtblog_add_admin() {
 }
 
 function plaintxtblog_admin_head() {
+// Additional CSS styles for the theme options menu
 ?>
 <meta name="author" content="Scott Allan Wallick" />
 <style type="text/css" media="all">
@@ -369,11 +387,11 @@ span.info span{font-weight:bold;}
 <?php
 }
 
-function plaintxtblog_admin() {
+function plaintxtblog_admin() { // Theme options menu 
 	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('PlaintxtBlog theme options saved. <a href="%s">View site &raquo;</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></p></div><?php }
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('PlaintxtBlog theme options reset.', 'plaintxtblog'); ?></p></div><?php } ?>
 	
-<?php $installedVersion = "3.0"; ?>
+<?php $installedVersion = "3.0.1"; // Checks that the latest version is running; if not, loads the external script below ?>
 <script src="http://www.plaintxt.org/ver-check/plaintxtblog-ver-check.php?version=<?php echo $installedVersion; ?>" type="text/javascript"></script>
 
 <div class="wrap">
@@ -524,6 +542,7 @@ function plaintxtblog_admin() {
 <?php
 }
 
+// Loads settings for the theme options to use
 function plaintxtblog_wp_head() {
 	if ( get_settings('plaintxtblog_basefontsize') == "" ) {
 		$basefontsize = '70%';
@@ -592,7 +611,7 @@ body div.sidebar{text-align:<?php echo $sidebartextalignment; ?>;}
 
 /*]]>*/
 </style>
-<?php
+<?php // Checks that everything has loaded properly
 }
 add_action('admin_menu', 'plaintxtblog_add_admin');
 add_action('wp_head', 'plaintxtblog_wp_head');
