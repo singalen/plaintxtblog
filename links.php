@@ -16,7 +16,7 @@ Template Name: Links Page
 <?php the_content() ?>
 
 					<ul id="linkcats" class="page-list">
-<?php if ( function_exists('wp_list_bookmarks') ) : wp_list_bookmarks('categorize=true&title_before=<h3>&title_after=</h3>'); else : ?>
+<?php if ( function_exists('wp_list_bookmarks') ) : wp_list_bookmarks('categorize=true&title_before=<h3>&title_after=</h3>'); else : // Produces links for both WordPress 2.0.x or 2.1.x, depending on the version installed ?>
 <?php $link_cats = $wpdb->get_results("SELECT cat_id, cat_name FROM $wpdb->linkcategories");
 	foreach ($link_cats as $link_cat) : ?>
 						<li id="linkcat-<?php echo $link_cat->cat_id; ?>">
@@ -31,12 +31,12 @@ Template Name: Links Page
 <?php edit_post_link(__('Edit this entry.', 'plaintxtblog'),'<p class="entry-edit">','</p>') ?>
 
 				</div>
-			</div>
+			</div><!-- .post -->
 
-<?php if ( get_post_custom_values('comments') ) comments_template() ?>
+<?php if ( get_post_custom_values('comments') ) comments_template() // Add a key/value of "comments" to load comments on a page ?>
 
-		</div>
-	</div>
+		</div><!-- #content .hfeed -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

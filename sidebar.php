@@ -1,11 +1,11 @@
 		<div id="primary" class="sidebar">
 			<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) :  ?>
-		<?php if ( !is_home() || is_paged() ) { ?>
+<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
+<?php if ( is_home() || is_category() ) { // Displays category archives on the home and category pages?>
 				<li id="home-link">
 					<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'plaintxtblog') ?></a></h3>
 				</li>
-		<?php } ?>
+<?php } ?>
 <?php wp_list_pages('title_li=<h3>'.__('Pages').'</h3>&sort_column=post_title' ) ?>
 
 		<?php if ( is_home() || is_paged() ) { ?>
@@ -14,7 +14,7 @@
 					<ul>
 						<?php wp_register() ?>
 						<li><?php wp_loginout() ?></li>
-						<?php wp_meta() ?>
+						<?php wp_meta() // Do not remove; helps plugins work ?>
 					</ul>
 				</li>
 		<?php } ?>
@@ -34,14 +34,15 @@
 						</div>
 					</form>
 				</li>
-<?php endif;  ?>
+<?php endif; // End Widgets ?>
+
 			</ul>
-		</div>
+	</div><!-- #primary .sidebar -->
 
 		<div id="secondary" class="sidebar">
 			<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : ?>
-<?php if ( wp_list_pages("child_of=".$post->ID."&echo=0") ) { ?>
+<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
+<?php if ( wp_list_pages("child_of=".$post->ID."&echo=0") ) { // Shows subpages when subpages for the current page exist ?>
 				<li id="subpagenav">
 					<h3><?php _e('Subpages', 'plaintxtblog') ?></h3>
 					<ul>
@@ -65,6 +66,7 @@ wp_list_cats('sort_column=name&hierarchical=1'); endif; ?>
 
 					</ul>
 				</li>
-<?php endif;  ?>
+<?php endif; // End Widgets ?>
+
 			</ul>
-		</div>
+	</div><!-- #secondary .sidebar -->

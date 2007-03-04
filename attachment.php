@@ -45,12 +45,12 @@
 							'<span class="vcard"><span class="fn n">' . $authordata->display_name . '</span></span>',
 							get_the_category_list(', ') ) ?> <?php edit_post_link(__('Edit this entry', 'plaintxtblog')); ?></span>
 				</div>
-			</div>
+			</div><!-- .post -->
 
 <?php comments_template() ?>
 
-		</div>
-	</div>
+		</div><!-- #content .hfeed -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

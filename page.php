@@ -15,12 +15,12 @@
 <?php edit_post_link(__('Edit this entry.', 'plaintxtblog'),'<p class="entry-edit">','</p>') ?>
 
 				</div>
-			</div>
+			</div><!-- .post -->
 
-<?php if ( get_post_custom_values('comments') ) comments_template() ?>
+<?php if ( get_post_custom_values('comments') ) comments_template() // Add a key/value of "comments" to load comments on a page ?>
 
-		</div>
-	</div>
+		</div><!-- #content .hfeed -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>
