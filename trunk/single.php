@@ -38,7 +38,7 @@
 							get_the_category_list(', ') ) ?> <?php edit_post_link(__('Edit this entry', 'plaintxtblog')); ?></span>
 				</div>
 <!-- <?php trackback_rdf(); ?> -->
-			</div>
+			</div><!-- .post -->
 
 <?php comments_template(); ?>
 
@@ -48,8 +48,8 @@
 				<div class="nav-home"><a href="<?php echo get_settings('home') ?>/" title="<?php bloginfo('name') ?>"><?php _e('Home', 'plaintxtblog'); ?></a></div>
 			</div>
 
-		</div>
-	</div>
+		</div><!-- #content .hfeed -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

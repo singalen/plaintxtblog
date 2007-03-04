@@ -13,7 +13,7 @@
 	endif;
 ?>
 <?php if ( $comments ) : ?>
-<?php global $plaintxtblog_comment_alt ?>
+<?php global $plaintxtblog_comment_alt // Gives .alt class for every-other comment/pingback ?>
 
 <?php
 $ping_count = $comment_count = 0;
@@ -22,7 +22,7 @@ foreach ( $comments as $comment )
 ?>
 
 <?php if ( $comment_count ) : ?>
-<?php $plaintxtblog_comment_alt = 0 ?>
+<?php $plaintxtblog_comment_alt = 0 // Resets comment count for .alt classes ?>
 
 	<h3 class="comment-header" id="numcomments"><?php printf(__($comment_count > 1 ? '%d Comments' : 'One Comment', 'plaintxtblog'), $comment_count) ?></h3>
 	<ol id="comments" class="commentlist">
@@ -45,12 +45,12 @@ foreach ( $comments as $comment )
 <?php endif; ?>
 <?php endforeach; ?>
 
-	</ol>
+	</ol><!-- end #comments .commentlist -->
 
 <?php endif; ?>
 
 <?php if ( $ping_count ) : ?>
-<?php $plaintxtblog_comment_alt = 0 ?>
+<?php $plaintxtblog_comment_alt = 0 // Resets comment count for .alt classes ?>
 
 	<h3 class="comment-header" id="numpingbacks"><?php printf(__($ping_count > 1 ? '%d Trackbacks/Pingbacks' : 'One Trackback/Pingback', 'plaintxtblog'), $ping_count) ?></h3>
 	<ol id="pingbacks" class="commentlist">
@@ -73,7 +73,7 @@ foreach ( $comments as $comment )
 <?php endif ?>
 <?php endforeach; ?>
 
-	</ol>
+	</ol><!-- end #pingbacks .commentlist -->
 
 <?php endif ?>
 <?php endif ?>
@@ -120,10 +120,10 @@ foreach ( $comments as $comment )
 
 <?php do_action('comment_form', $post->ID); ?>
 
-		</form>
-	</div>
+		</form><!-- #commentform -->
+	</div><!-- .formcontainer -->
 
 <?php endif ?>
 <?php endif ?>
 
-</div>
+</div><!-- .comments -->
