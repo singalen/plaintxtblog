@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" <?php if ( !function_exists('language_attributes') || language_attributes() ) _e('xml:lang="en-us" lang="en-us"', 'plaintxtblog'); ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" <?php plaintxtblog_blog_lang() ?>>
 <head profile="http://gmpg.org/xfn/11">
 	<title><?php bloginfo('name') ?><?php if ( is_404() ) : ?> / <?php _e('Page not found', 'plaintxtblog') ?><?php elseif ( is_home() ) : ?> / <?php bloginfo('description') ?><?php elseif ( is_category() ) : ?> / <?php echo single_cat_title(); ?><?php elseif ( is_date() ) : ?> / <?php _e('Blog Archives', 'plaintxtblog') ?><?php elseif ( is_search() ) : ?> / <?php _e('Search Results', 'plaintxtblog') ?><?php else : ?> / <?php the_title() ?><?php endif ?></title>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
