@@ -27,7 +27,7 @@
 							comments_rss(),
 							wp_specialchars(get_the_title(), 'double') ) ?></span>
 
-					<span class="entry-metainfo"><?php printf(__('This entry (<a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>) was posted on <abbr class="published" title="%3$sT%4$s">%5$s at %6$s</abbr>by %7$s and categorized in %8$s.', 'plaintxtblog'),
+					<span class="entry-metainfo"><?php printf(__('This entry (<a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>) was posted on <abbr class="published" title="%3$sT%4$s">%5$s at %6$s</abbr> by %7$s and categorized in %8$s.', 'plaintxtblog'),
 							get_permalink(),
 							wp_specialchars(get_the_title(), 'double'),
 							get_the_time('Y-m-d'),
