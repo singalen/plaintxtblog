@@ -1,0 +1,342 @@
+/*
+Theme Name: plaintxtBlog
+Theme URI: http://www.plaintxt.org/themes/plaintxtblog/
+Description: Your blog, simplified. A basic, clutter-free 3-column theme for WordPress
+Version: 1.3
+Author: Scott Allan Wallick
+Author URI: http://scottwallick.com/
+*/
+/*
+The "plaintxtCMS" theme copyright (C) 2006 Scott Allan Wallick, http://scottwallick.com/
+Distributed under the terms of the GNU General Public License v2
+*/
+body {
+	background: #fff;
+	border: 1px solid #555;
+	color: #111;
+	font: 70%/150% verdana, arial, sans-serif;
+	margin: 20px;
+	padding: 20px;
+}
+#header {
+	margin: 0 0 25px 0;
+	color: #444;
+	background: #fff;
+}
+#header h1#title, #header p#description {
+	margin: 0;
+}
+#header h1#title {
+	font-size: 1.25em;
+}
+#header p#description {
+	font-size: 1em;
+	font-weight: bold;
+}
+.sidebar {
+	float: left;
+	margin: 0 0 10px 0;
+	text-align: right;
+	width: 15%;
+}
+.sidebar ul, .sidebar ul li ul li,  .sidebar ul li ul li ul, .sidebar ul li ul li ul li   {
+	margin: 0;
+	padding: 0;
+}
+.sidebar ul {
+	border-right: 4px solid #e2e2e2;
+}
+.sidebar ul li {
+	list-style: none;
+	padding: 0;
+	margin: 10px 10px 0 0;
+}
+.sidebar ul li h2 {
+	font-size: 1em;
+	margin: 0;
+	color: #444;
+}
+.sidebar ul li ul {
+	border-right: none;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+.sidebar ul li ul li ul {
+	margin: 0 0 5px 0;
+}
+.sidebar ul li ul li ul li {
+	font-size: 0.9em;
+	font-style: italic;
+	padding: 0;
+}
+#col2 {
+	margin-left: 2%;
+}
+#container {
+	float: left;
+	margin-left: 5%;
+	margin-top: 10px;
+	width: 60%;
+}
+#content {
+	padding: 0;
+}
+.content-column {
+	float: left;
+	margin: 0 2% 0 0;
+	width: 45%;
+}
+.post-header, .navigation {
+	background: #e5e5e5;
+	color: #444;
+	height: 1.5em;
+	width: 100%;
+}
+.navigation {
+	font-size: 0.9em;
+	text-align: center;
+	padding: 0 3px 1px 3px;
+}
+.post-header h2, .post-header h3 {
+	margin: 0 3px 1px 3px;
+	font-size: 0.94em;
+}
+.post-header {
+	text-transform: uppercase;
+}
+.post-header h2 {
+	float: left;
+}
+.post-header h3 {
+	float: right;
+	font-weight: normal;
+}
+.post p {
+	font-size: 1em;
+	margin: 0.85em 0;
+	text-align: justify;
+}
+.post blockquote {
+	background: #f6f6f6;
+	border-left: 3px solid #eee;
+	padding: 1px 10px;
+}
+.post code, .post pre {
+	font-size: 1.2em;
+}
+.post abbr {
+	border-bottom: 1px dotted #c30;
+	cursor: help;
+} 
+.post ul.list, .post ul.list li, .post ul.list li ul  {
+	margin: 0;
+	padding: 0;
+}
+.post ul.list li {
+	font-size: 1em;
+	list-style: none;
+}
+.post ul.list li h2 {
+	font-size: 1em;
+	margin: 10px 0 0 0;
+}
+.post .excerpt, .post-footer, #metadata p, #comments .comment-metadata  {
+	font-style: italic;
+}
+.post .excerpt  {
+	color: #444;
+	background: #fff;
+}
+.post-footer {
+	margin: 0 0 15px 0;
+}
+.post-footer p {
+	font-size: 0.95em;
+	text-align: right;
+}
+#metadata {
+	background: #f3f3f3;
+	color: #111;
+	margin: 15px 20px 25px 20px;
+	padding: 5px;
+}
+#metadata p {
+	font-size: 0.9em;
+	margin: 0;
+}
+#comments {
+	margin: 0 0 25px 0;
+}
+#comments h3 {
+	margin: 25px 0 0 0;
+	font-size: 1em;
+}
+#comments ol li {
+	background: #f6f6f6;
+	color: #111;
+	margin-bottom: 15px;
+	padding: 5px;
+}
+#comments ol li p {
+	margin: 0.75em 0;
+}
+#footer {
+	clear: both;
+	background: #fff;
+	color: #aaa;
+}
+#footer p  {
+	margin: 0;
+	font-size: 0.9em;
+	padding: 25px 0 0 0;
+}
+/* LINKS */
+a {
+	outline: none;
+}
+#header a, #header a:active, #header a:link, #header a:visited {
+	text-decoration: none;
+	border-bottom: 1px solid #ddd;
+	color: #059;
+	background: #fff;
+}
+#header a:hover {
+	border-bottom: 1px solid #999;
+	color: #c30;
+	background: #fff;
+}
+.sidebar a, .sidebar a:active, .sidebar a:link, .sidebar a:visited {
+	background: #fff;
+	color: #059;
+	text-decoration: none;
+	padding: 1px 2px;
+}
+.sidebar a:hover {
+	background: #059;
+	color: #fff;
+}
+.current-cat a, .current-cat a:active, .current-cat a:link, .current-cat a:visited, .current-cat a:hover, .current_page_item a, .current_page_item a:active, .current_page_item a:link, .current_page_item a:visited, .current_page_item a:hover {
+	background: #80abcd;
+	color: #fff;
+}
+.post-header a, .post-header a:active, .post-header a:link, .post-header a:visited, .navigation a, .navigation a:active, .navigation a:link, .navigation a:visited  {
+	background: #eee;
+	color: #059;
+	text-decoration: none;
+}
+.post-header a:hover, .navigation a:hover {
+	background: #eee;
+	color: #c30;
+}
+#content a, #content a:active, #content a:link, #content a:visited {
+	background: transparent;
+	color: #059;
+}
+#content a:hover {
+	background: transparent;
+	color: #c30;
+	text-decoration: none;
+}
+#footer a, #footer a:active, #footer a:link, #footer a:visited {
+	color: #aaa;
+	background: #fff;
+}
+#footer a:hover {
+	color: #c30;
+	background: #fff;
+	text-decoration: none;
+}
+/* IMAGE ELEMENTS, INCLUDING LINKS */
+#content img.center, #content img.alignright, #content img.alignleft {
+	border: 1px solid #222;
+}
+#content img.center {
+	display: block;
+	margin: 5px auto;
+}
+#content img.alignright {
+	margin: 5px 0 5px 10px
+}
+#content img.alignleft {
+	margin: 5px 10px 5px 0;
+}
+#content a:hover img.center, #content a:hover img.alignright, #content a:hover img.alignleft {
+	border: 1px solid #c30;
+}
+li img, li a img {
+	border: none !important;
+}
+/* MULTI-PURPOSE STRUCTURAL DIVS */
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+.center {
+	text-align: center;
+}
+.clearer {
+	clear: both;
+	height: 1px;
+}
+/* FORMS FOR COMMENTS AND SEARCH / INCLUDES STYLES FOR THE WP-CONTACTFORM PLUGIN */
+#blog-search form {
+	margin: 0;
+	padding: 0;
+}
+#s {
+	width: 50px;
+}
+#searchsubmit, #submit {
+	background: #ddd;
+	margin: 3px 0 0 0;
+	padding: 0;
+}
+.formcontainer {
+	font-size: 1em;
+	overflow: hidden;
+	position: static;
+	width: 99%;
+}
+.formright, .formleft {
+	display: inline;
+	float: left;
+	margin: 3px 0;
+	padding: 2px;
+}
+.formright {
+	text-align: left;
+	width: 75%;
+}
+.formleft {
+	clear: both;
+	text-align: right;
+	width: 60px;
+}
+.formcontainer textarea {
+	overflow: auto;
+}
+.formcontainer textarea, input {
+	padding: 1px;
+}
+#comment, #wpcf_msg {
+	height: 125px;
+	width: 250px;
+}
+#author, #email, #url, #wpcf_your_name, #wpcf_email, #wpcf_website {
+	width: 125px;
+}
+#author, #email, #url, #comment, #s, #wpcf_your_name, #wpcf_email, #wpcf_website, #wpcf_msg, #searchsubmit, #submit {
+	border: 1px solid #666;
+	color: #111;
+	font: 1em/normal verdana, arial, sans-serif;
+}
+#author, #email, #url, #comment, #s, #wpcf_your_name, #wpcf_email, #wpcf_website, #wpcf_msg {
+	background: #fff;
+	margin: 0;
+	padding: 1px;
+}
+#author:focus, #email:focus, #url:focus, #comment:focus, #s:focus, #wpcf_your_name:focus, #wpcf_email:focus, #wpcf_website:focus, #wpcf_msg:focus {
+	border: 1px solid #c30;
+}

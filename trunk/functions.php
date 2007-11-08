@@ -15,16 +15,10 @@ function plaintxtblog_homelink() {
 	$plaintxtblog_is_front = get_option('page_on_front');
 
 	if ( $plaintxtblog_frontpage == 'page' ) {
-		if ( !is_page($plaintxtblog_is_front) || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'sandbox') ?></a></li><?php }
+		if ( !is_page($plaintxtblog_is_front) || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'plaintxtblog') ?></a></li><?php }
 	} else {
-		if ( !is_home() || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'sandbox') ?></a></li><?php }
+		if ( !is_home() || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'plaintxtblog') ?></a></li><?php }
 	}
-}
-
-// Checks for WP 2.1.x language_attributes() function
-function plaintxtblog_blog_lang() {
-	if ( function_exists('language_attributes') )
-		return language_attributes();
 }
 
 // Produces an hCard for the "admin" user
@@ -158,7 +152,7 @@ function plaintxtblog_date_classes($t, &$c, $p = '') {
 	$c[] = $p . 'h' . gmdate('h', $t);
 }
 
-// Produces links to categories other than the current one; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
+// Returns other categories except the current one (redundant); Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function plaintxtblog_other_cats($glue) {
 	$current_cat = single_cat_title('', false);
 	$separator = "\n";
@@ -175,6 +169,25 @@ function plaintxtblog_other_cats($glue) {
 		return false;
 
 	return trim(join($glue, $cats));
+}
+
+// Returns other tags except the current one (redundant); Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
+function plaintxtblog_other_tags($glue) {
+	$current_tag = single_tag_title('', '',  false);
+	$separator = "\n";
+	$tags = explode($separator, get_the_tag_list("", "$separator", ""));
+
+	foreach ( $tags as $i => $str ) {
+		if ( strstr($str, ">$current_tag<") ) {
+			unset($tags[$i]);
+			break;
+		}
+	}
+
+	if ( empty($tags) )
+		return false;
+
+	return trim(join($glue, $tags));
 }
 
 // Loads a plaintxtblog-style Search widget
@@ -208,22 +221,6 @@ function widget_plaintxtblog_meta($args) {
 			</ul>
 		<?php echo $after_widget; ?>
 <?php
-}
-
-// Loads the Home Link widget; Allows a link to always point back to the home page
-function widget_plaintxtblog_homelink($args) {
-	extract($args);
-	global $wp_db_version;
-	$options = get_option('widget_plaintxtblog_homelink');
-	$title = empty($options['title']) ? __('Home', 'plaintxtblog') : $options['title'];
-	$plaintxtblog_frontpage = get_option('show_on_front');
-	$plaintxtblog_is_front = get_option('page_on_front');
-?>
-<?php if ( $plaintxtblog_frontpage == 'page' ) {
-		if ( !is_page($plaintxtblog_is_front) || is_paged() ) { ?><?php echo $before_widget; ?><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php echo $title ?></a><?php echo $after_widget; ?><?php }
-	} else {
-		if ( !is_home() || is_paged() ) { ?><?php echo $before_widget; ?><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php echo $title ?></a><?php echo $after_widget; ?><?php }
-	}
 }
 
 // Loads the control functions for the Home Link, allowing control of its text
@@ -277,44 +274,6 @@ function widget_plaintxtblog_rsslinks_control() {
 <?php
 }
 
-// Produces blogroll links for both WordPress 2.0.x or 2.1.x compliance
-function widget_plaintxtblog_links() {
-	if ( function_exists('wp_list_bookmarks') ) {
-		wp_list_bookmarks(array('title_before'=>'<h3>', 'title_after'=>'</h3>', 'show_images'=>true));
-	} else {
-		global $wpdb;
-
-		$cats = $wpdb->get_results("
-			SELECT DISTINCT link_category, cat_name, show_images, 
-				show_description, show_rating, show_updated, sort_order, 
-				sort_desc, list_limit
-			FROM `$wpdb->links` 
-			LEFT JOIN `$wpdb->linkcategories` ON (link_category = cat_id)
-			WHERE link_visible =  'Y'
-				AND list_limit <> 0
-			ORDER BY cat_name ASC", ARRAY_A);
-	
-		if ($cats) {
-			foreach ($cats as $cat) {
-				$orderby = $cat['sort_order'];
-				$orderby = (bool_from_yn($cat['sort_desc'])?'_':'') . $orderby;
-
-				echo '	<li id="linkcat-' . $cat['link_category'] . '" class="linkcat"><h3>' . $cat['cat_name'] . "</h3>\n\t<ul>\n";
-				get_links($cat['link_category'],
-					'<li>',"</li>","\n",
-					bool_from_yn($cat['show_images']),
-					$orderby,
-					bool_from_yn($cat['show_description']),
-					bool_from_yn($cat['show_rating']),
-					$cat['list_limit'],
-					bool_from_yn($cat['show_updated']));
-
-				echo "\n\t</ul>\n</li>\n";
-			}
-		}
-	}
-}
-
 // Loads, checks that Widgets are loaded and working
 function plaintxtblog_widgets_init() {
 	if ( !function_exists('register_sidebars') )
@@ -324,14 +283,13 @@ function plaintxtblog_widgets_init() {
 		'before_title' => "<h3 class='widgettitle'>",
 		'after_title' => "</h3>\n",
 	);
+	// We have two sidebars. Let's register them.
 	register_sidebars(2, $p);
 
 	register_sidebar_widget(__('Search', 'plaintxtblog'), 'widget_plaintxtblog_search', null, 'search');
 	unregister_widget_control('search');
 	register_sidebar_widget(__('Meta', 'plaintxtblog'), 'widget_plaintxtblog_meta', null, 'meta');
 	unregister_widget_control('meta');
-	register_sidebar_widget(__('Links', 'plaintxtblog'), 'widget_plaintxtblog_links', null, 'links');
-	unregister_widget_control('links');
 	register_sidebar_widget(array('Home Link', 'widgets'), 'widget_plaintxtblog_homelink', null, 'homelink');
 	register_widget_control(array('Home Link', 'widgets'), 'widget_plaintxtblog_homelink_control', 300, 125, 'homelink');
 	register_sidebar_widget(array('RSS Links', 'widgets'), 'widget_plaintxtblog_rsslinks', null, 'rsslinks');
@@ -412,7 +370,7 @@ function plaintxtblog_admin() { // Theme options menu
 	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('PlaintxtBlog theme options saved. <a href="%s">View site &raquo;</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></p></div><?php }
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('PlaintxtBlog theme options reset.', 'plaintxtblog'); ?></p></div><?php } ?>
 	
-<?php $installedVersion = "3.0.1"; // Checks that the latest version is running; if not, loads the external script below ?>
+<?php $installedVersion = "4.0"; // Checks that the latest version is running; if not, loads the external script below ?>
 <script src="http://www.plaintxt.org/ver-check/plaintxtblog-ver-check.php?version=<?php echo $installedVersion; ?>" type="text/javascript"></script>
 
 <div class="wrap">
@@ -433,7 +391,7 @@ function plaintxtblog_admin() { // Theme options menu
 				<th scope="row" width="33%"><label for="ptb_basefontsize"><?php _e('Base font size', 'plaintxtblog'); ?></label></th> 
 				<td>
 					<input id="ptb_basefontsize" name="ptb_basefontsize" type="text" class="text" value="<?php if ( get_settings('plaintxtblog_basefontsize') == "" ) { echo "70%"; } else { echo get_settings('plaintxtblog_basefontsize'); } ?>" tabindex="1" size="10" /><br/>
-					<span class="info"><?php _e('The base font size globally affects the size of text throughout your blog. This can be in any unit (e.g., px, pt, em), but I suggest using a percentage (%). Default is 70%.', 'plaintxtblog'); ?></span>
+					<span class="info"><?php _e('The base font size globally affects the size of text throughout your blog. This can be in any unit (e.g., px, pt, em), but I suggest using a percentage (%). Default is <span>70%</span>.', 'plaintxtblog'); ?></span>
 				</td>
 			</tr>
 
@@ -483,7 +441,7 @@ function plaintxtblog_admin() { // Theme options menu
 						<option value="right" <?php if ( get_settings('plaintxtblog_posttextalignment') == "right" ) { echo 'selected="selected"'; } ?>><?php _e('Right', 'plaintxtblog'); ?> </option>
 					</select>
 					<br/>
-					<span class="info"><?php _e('Choose one of the options for the alignment of the post entry text. Default is left.', 'plaintxtblog'); ?></span>
+					<span class="info"><?php _e('Choose one of the options for the alignment of the post entry text. Default is <span>left</span>.', 'plaintxtblog'); ?></span>
 				</td>
 			</tr>
 
@@ -495,7 +453,7 @@ function plaintxtblog_admin() { // Theme options menu
 						<option value="right" <?php if ( get_settings('plaintxtblog_sidebarposition') == "right" ) { echo 'selected="selected"'; } ?>><?php _e('Right of content', 'plaintxtblog'); ?> </option>
 					</select>
 					<br/>
-					<span class="info"><?php _e('The sidebar can be positioned to the left or the right of the main content column. Default is left of content.', 'plaintxtblog'); ?></span>
+					<span class="info"><?php _e('The sidebar can be positioned to the left or the right of the main content column. Default is <span>left of content</span>.', 'plaintxtblog'); ?></span>
 				</td>
 			</tr>
 
@@ -508,7 +466,7 @@ function plaintxtblog_admin() { // Theme options menu
 						<option value="right" <?php if ( ( get_settings('plaintxtblog_sidebartextalignment') == "") || ( get_settings('plaintxtblog_sidebartextalignment') == "right") ) { echo 'selected="selected"'; } ?>><?php _e('Right', 'plaintxtblog'); ?> </option>
 					</select>
 					<br/>
-					<span class="info"><?php _e('Choose one of the options for the alignment of the sidebar text. Default is right.', 'plaintxtblog'); ?></span>
+					<span class="info"><?php _e('Choose one of the options for the alignment of the sidebar text. Default is <span>right</span>.', 'plaintxtblog'); ?></span>
 				</td>
 			</tr>
 
@@ -520,7 +478,7 @@ function plaintxtblog_admin() { // Theme options menu
 						<option value="singlesingle" <?php if ( get_settings('plaintxtblog_singlelayout') == "singlesingle" ) { echo 'selected="selected"'; } ?>><?php _e('Minimal layout (1 column)', 'plaintxtblog'); ?> </option>
 					</select>
 					<br/>
-					<span class="info"><?php _e('The single <em>post</em> layout can either be three column (normal) or one column (minimal). Default is normal layout (3 columns). ', 'plaintxtblog'); ?></span>
+					<span class="info"><?php _e('The single <em>post</em> layout can either be three column (normal) or one column (minimal). Default is <span>normal layout (3 columns)</span>. ', 'plaintxtblog'); ?></span>
 				</td>
 			</tr>
 
@@ -556,7 +514,7 @@ function plaintxtblog_admin() { // Theme options menu
 
 	<h3 id="license" style="margin-bottom:-8px;"><?php _e('License', 'plaintxtblog'); ?></h3>
 
-	<p><?php printf(__('The <span class="theme-title">plaintxtBlog</span> theme copyright &copy; %1$s by <span class="vcard"><a class="url xfn-me" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="n"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></span></a></span> is distributed with the <cite class="vcard"><a class="fn org url" href="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License" rel="license">GNU General Public License</a></cite>.', 'plaintxtblog'), gmdate('Y') ); ?></p>
+	<p><?php printf(__('The <span class="theme-title">plaintxtBlog</span> theme copyright &copy; 2006&ndash;%1$s by <span class="vcard"><a class="url xfn-me" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="n"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></span></a></span> is distributed with the <cite class="vcard"><a class="fn org url" href="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License" rel="license">GNU General Public License</a></cite>.', 'plaintxtblog'), gmdate('Y') ); ?></p>
 
 </div>
 
@@ -648,4 +606,7 @@ add_filter('archive_meta', 'wptexturize');
 add_filter('archive_meta', 'convert_smilies');
 add_filter('archive_meta', 'convert_chars');
 add_filter('archive_meta', 'wpautop');
+
+// Readies for translation.
+load_theme_textdomain('plaintxtblog')
 ?>
