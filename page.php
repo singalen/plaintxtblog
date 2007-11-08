@@ -1,26 +1,27 @@
-<?php get_header() ?>
+<?php get_header(); ?>
+<?php get_sidebar(); ?>
 
-	<div id="container">
-		<div id="content" class="hfeed">
+<div id="container">
+	<div id="content">
 
-<?php the_post() ?>
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<div id="post-<?php the_ID(); ?>" class="<?php plaintxtblog_post_class() ?>">
-				<h2 class="entry-title"><?php the_title(); ?></h2>
-				<div class="entry-content">
-<?php the_content() ?>
+		<div class="post-header">
+			<h2><?php the_title(); ?></h2>
+		</div><!-- END POST-HEADER  -->
+	
+		<div class="post" id="post-<?php the_ID(); ?>">
+			<div class="post-entry" id="post-entry-<?php the_ID(); ?>">
+				<?php the_content(); ?>
+				<?php link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
+				<?php edit_post_link('Revise this page.', '<p>', '</p>'); ?>
+			</div><!-- END POST-ENTRY -->
+			<!--<?php trackback_rdf(); ?>-->
+		</div><!-- END POST -->
 
-<?php link_pages('<div class="page-link">'.__('Pages: ', 'plaintxtblog'), '</div>', 'number'); ?>
+		<?php endwhile; endif; ?>
 
-<?php edit_post_link(__('Edit this entry.', 'plaintxtblog'),'<p class="entry-edit">','</p>') ?>
+	</div><!-- END CONTENT -->
+</div><!-- END CONTAINER -->
 
-				</div>
-			</div><!-- .post -->
-
-<?php if ( get_post_custom_values('comments') ) comments_template() // Add a key/value of "comments" to load comments on a page ?>
-
-		</div><!-- #content .hfeed -->
-	</div><!-- #container -->
-
-<?php get_sidebar() ?>
-<?php get_footer() ?>
+<?php get_footer(); ?>

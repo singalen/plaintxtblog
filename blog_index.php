@@ -1,11 +1,17 @@
+<?php
+/*
+Template Name: Blog Index
+*/
+?>
 <?php get_header(); ?>
 <?php get_sidebar(); ?>
 
 <div id="container">
 	<div id="content">
 
-		<?php if (have_posts()) : ?>
-		<?php while (have_posts()) : the_post(); ?>
+	<?php if (have_posts()) : ?>
+	<?php query_posts('cat=-0'); ?>
+	<?php while (have_posts()) : the_post(); ?>
 
 		<div class="post-header">
 			<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
