@@ -1,9 +1,13 @@
+<?php
+/*
+Template Name: Single Column Page
+*/
+?>
 <?php 
 	get_header();
-	get_sidebar();
 ?>
 
-<div id="content" class="narrowcolumn">
+<div id="content" class="widecolumn">
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
  
