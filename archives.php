@@ -21,11 +21,14 @@ Template Name: Archives Page
 						<li class="category-archives">
 							<h3>Category Archives</h3>
 							<ul>
-								<?php wp_list_categories('title_li=&orderby=name&show_count=1&use_desc_for_title=1&feed_image='.get_bloginfo('template_url').'/images/feed.png') ?>
+							<?php if ( function_exists('wp_list_categories') ) : 
+								wp_list_categories('title_li=&orderby=name&show_count=1&use_desc_for_title=1&feed_image='.get_bloginfo('template_url').'/images/feed.png'); else :
+								wp_list_cats('sort_column=name&optioncount=1&feed=(RSS)&feed_image='.get_bloginfo('template_url').'/images/feed.png&hierarchical=1'); endif; ?>
 							</ul>
 						</li>
 					</ul>
 				</div>
+
 				<div class="alignleft content-column">
 					<ul class="page-list">
 						<li class="monthly-archives">
@@ -35,6 +38,7 @@ Template Name: Archives Page
 							</ul>
 						</li>
 					</ul>
+
 					<ul class="page-list">
 						<li class="feed-links">
 							<h3>RSS Feeds</h3>
@@ -49,12 +53,11 @@ Template Name: Archives Page
 <?php edit_post_link(__('Edit this entry.', 'plaintxtblog'),'<p class="entry-edit">','</p>') ?>
 
 				</div>
-			</div><!-- .post -->
+			</div>
+<?php if ( get_post_custom_values('comments') ) comments_template() ?>
 
-<?php if ( get_post_custom_values('comments') ) comments_template() // Add a key/value of "comments" to load comments on a page ?>
-
-		</div><!-- #content .hfeed -->
-	</div><!-- #container -->
+		</div>
+	</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

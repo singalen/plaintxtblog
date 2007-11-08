@@ -18,12 +18,12 @@
 				<div class="entry-meta">
 					<span class="entry-category"><?php printf(__('Filed in %s', 'plaintxtblog'), get_the_category_list(', ') ) ?></span>
 					<span class="meta-sep">|</span>
-					<span class="entry-tags"><?php the_tags(__('Tagged ', 'plaintxtblog'), ", ", "") ?></span>
-					<span class="meta-sep">|</span>
 <?php edit_post_link(__('Edit', 'plaintxtblog'), "\t\t\t\t\t<span class='entry-edit'>", "</span>\n\t\t\t\t\t<span class='meta-sep'>|</span>\n"); ?>
-					<span class="entry-comments"><?php comments_popup_link(__('Comments (0) &raquo;', 'plaintxtblog'), __('Comments (1) &raquo;', 'plaintxtblog'), __('Comments (%) &raquo;', 'plaintxtblog'),'',__('Comments Off','plaintxtblog')) ?></span>
+					<span class="entry-comments"><?php comments_popup_link(__('Comments (0) &raquo;', 'plaintxtblog'), __('Comments (1) &raquo;', 'plaintxtblog'), __('Comments (%) &raquo;', 'plaintxtblog')) ?></span>
 				</div>
-			</div><!-- .post -->
+			</div>
+
+<?php comments_template() ?>
 
 <?php endwhile ?>
 
@@ -33,8 +33,8 @@
 				<div class="nav-home"><a href="<?php echo get_settings('home') ?>/" title="<?php bloginfo('name') ?>"><?php _e('Home', 'plaintxtblog'); ?></a></div>
 			</div>
 
-		</div><!-- #content .hfeed -->
-	</div><!-- #container -->
+		</div>
+	</div>
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

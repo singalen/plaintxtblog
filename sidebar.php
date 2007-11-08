@@ -1,11 +1,11 @@
 		<div id="primary" class="sidebar">
 			<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
-<?php if ( !is_home() || is_paged() ) { // Displays a home link everywhere except the home page ?>
+<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) :  ?>
+		<?php if ( !is_home() || is_paged() ) { ?>
 				<li id="home-link">
 					<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'plaintxtblog') ?></a></h3>
 				</li>
-<?php } ?>
+		<?php } ?>
 <?php wp_list_pages('title_li=<h3>'.__('Pages').'</h3>&sort_column=post_title' ) ?>
 
 		<?php if ( is_home() || is_paged() ) { ?>
@@ -14,7 +14,7 @@
 					<ul>
 						<?php wp_register() ?>
 						<li><?php wp_loginout() ?></li>
-						<?php wp_meta() // Do not remove; helps plugins work ?>
+						<?php wp_meta() ?>
 					</ul>
 				</li>
 		<?php } ?>
@@ -34,15 +34,14 @@
 						</div>
 					</form>
 				</li>
-<?php endif; // End Widgets ?>
-
+<?php endif;  ?>
 			</ul>
-	</div><!-- #primary .sidebar -->
+		</div>
 
 		<div id="secondary" class="sidebar">
 			<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
-<?php if ( wp_list_pages("child_of=".$post->ID."&echo=0") ) { // Shows subpages when subpages for the current page exist ?>
+<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : ?>
+<?php if ( wp_list_pages("child_of=".$post->ID."&echo=0") ) { ?>
 				<li id="subpagenav">
 					<h3><?php _e('Subpages', 'plaintxtblog') ?></h3>
 					<ul>
@@ -53,8 +52,9 @@
 <?php } ?>
 				<li id="categories">
 					<h3><?php _e('Categories', 'plaintxtblog'); ?></h3>
-					<ul>
-<?php wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1') ?>
+					<ul><?php if ( function_exists('wp_list_categories') ) : 
+wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1'); else :
+wp_list_cats('sort_column=name&hierarchical=1'); endif; ?>
 
 					</ul>
 				</li>
@@ -65,7 +65,6 @@
 
 					</ul>
 				</li>
-<?php endif; // End Widgets ?>
-
+<?php endif;  ?>
 			</ul>
-	</div><!-- #secondary .sidebar -->
+		</div>

@@ -1,6 +1,5 @@
 <div class="comments">
 <?php
-	$req = get_settings('require_name_email'); // Checks if fields are required
 	if ( 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']) )
 		die ( 'Please do not load this page directly. Thanks!' );
 	if ( ! empty($post->post_password) ) :
@@ -14,7 +13,7 @@
 	endif;
 ?>
 <?php if ( $comments ) : ?>
-<?php global $plaintxtblog_comment_alt // Gives .alt class for every-other comment/pingback ?>
+<?php global $plaintxtblog_comment_alt ?>
 
 <?php
 $ping_count = $comment_count = 0;
@@ -23,7 +22,7 @@ foreach ( $comments as $comment )
 ?>
 
 <?php if ( $comment_count ) : ?>
-<?php $plaintxtblog_comment_alt = 0 // Resets comment count for .alt classes ?>
+<?php $plaintxtblog_comment_alt = 0 ?>
 
 	<h3 class="comment-header" id="numcomments"><?php printf(__($comment_count > 1 ? '%d Comments' : 'One Comment', 'plaintxtblog'), $comment_count) ?></h3>
 	<ol id="comments" class="commentlist">
@@ -38,7 +37,7 @@ foreach ( $comments as $comment )
 						get_comment_date('d-M-y'),
 						get_comment_time(),
 						'#comment-' . get_comment_ID() );
-				?> <?php edit_comment_link(__('Edit', 'plaintxtblog'), '<span class="comment-edit"> | ', '</span>'); ?>
+				?> <?php edit_comment_link(__('Edit', 'simplr'), '<span class="comment-edit"> | ', '</span>'); ?>
 
 			</div>
 		</li>
@@ -46,12 +45,12 @@ foreach ( $comments as $comment )
 <?php endif; ?>
 <?php endforeach; ?>
 
-	</ol><!-- end #comments .commentlist -->
+	</ol>
 
 <?php endif; ?>
 
 <?php if ( $ping_count ) : ?>
-<?php $plaintxtblog_comment_alt = 0 // Resets comment count for .alt classes ?>
+<?php $plaintxtblog_comment_alt = 0 ?>
 
 	<h3 class="comment-header" id="numpingbacks"><?php printf(__($ping_count > 1 ? '%d Trackbacks/Pingbacks' : 'One Trackback/Pingback', 'plaintxtblog'), $ping_count) ?></h3>
 	<ol id="pingbacks" class="commentlist">
@@ -65,7 +64,7 @@ foreach ( $comments as $comment )
 					get_comment_author_link(),
 					get_comment_date('d-M-y'),
 					get_comment_time());
-				?> <?php edit_comment_link(__('Edit', 'plaintxtblog'), '<span class="comment-edit"> | ', '</span>'); ?>
+				?> <?php edit_comment_link(__('Edit', 'simplr'), '<span class="comment-edit"> | ', '</span>'); ?>
 			</div>
 			<?php if ($comment->comment_approved == '0') : ?><span class="unapproved"><?php _e('Your trackback/pingback is awaiting moderation.', 'plaintxtblog') ?></span><?php endif; ?>
 			<?php comment_text() ?>
@@ -74,7 +73,7 @@ foreach ( $comments as $comment )
 <?php endif ?>
 <?php endforeach; ?>
 
-	</ol><!-- end #pingbacks .commentlist -->
+	</ol>
 
 <?php endif ?>
 <?php endif ?>
@@ -121,10 +120,10 @@ foreach ( $comments as $comment )
 
 <?php do_action('comment_form', $post->ID); ?>
 
-		</form><!-- #commentform -->
-	</div><!-- .formcontainer -->
+		</form>
+	</div>
 
 <?php endif ?>
 <?php endif ?>
 
-</div><!-- .comments -->
+</div>
