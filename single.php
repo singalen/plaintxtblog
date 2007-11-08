@@ -1,55 +1,43 @@
-<?php get_header(); ?>
+<?php plaintxtblog_singlepagelayout() ?>
 
-	<div id="container">
-		<div id="content" class="hfeed">
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<?php the_post(); ?>
-
-			<div id="post-<?php the_ID(); ?>" class="<?php plaintxtblog_post_class(); ?>">
-				<h2 class="entry-title"><?php the_title(); ?></h2>
-				<div class="entry-content">
-<?php the_content('<span class="more-link">'.__('More&hellip;', 'plaintxtblog').'</span>') ?>
-
-<?php link_pages('<div class="page-link">'.__('Pages: ', 'plaintxtblog'), "</div>\n", 'number'); ?>
-				</div>
-				<div class="entry-meta">
-<?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) : ?>
-					<?php printf(__('<span class="entry-comments"><a href="#respond" title="Post a comment">Post a comment</a></span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks"><a href="%s" rel="trackback" title="Trackback URI for your post">Trackback URI</a></span>', 'plaintxtblog'), get_trackback_url()) ?>
-<?php elseif (!('open' == $post-> comment_status) && ('open' == $post->ping_status)) : ?>
-					<?php printf(__('<span class="entry-comments">Comments closed</span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks"><a href="%s" rel="trackback" title="Trackback URL for your post">Trackback URI</a></span>', 'plaintxtblog'), get_trackback_url()) ?>
-<?php elseif (('open' == $post-> comment_status) && !('open' == $post->ping_status)) : ?>
-					<?php printf(__('<span class="entry-comments"><a href="#respond" title="Post a comment">Post a comment</a></span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks">Trackbacks closed</span>', 'plaintxtblog')) ?>
-<?php elseif (!('open' == $post-> comment_status) && !('open' == $post->ping_status)) : ?>
-					<?php _e('<span class="entry-comments">Comments closed</span> <span class="meta-sep">&mdash;</span> <span class="entry-trackbacks">Trackbacks closed</span>', 'plaintxtblog') ?>
-<?php endif; ?>
-
-					<span class="entry-commentslink"><?php printf(__('<a href="%1$s" title="%2$s comments RSS feed" rel="alternate" type="application/rss+xml">RSS 2.0 feed</a> for these comments', 'plaintxtblog'),
-							comments_rss(),
-							wp_specialchars(get_the_title(), 'double') ) ?></span>
-
-					<span class="entry-metainfo"><?php printf(__('This entry (<a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>) was posted on <abbr class="published" title="%3$sT%4$s">%5$s at %6$s</abbr> by %7$s. Filed in %8$s%9$s.', 'plaintxtblog'),
-							get_permalink(),
-							wp_specialchars(get_the_title(), 'double'),
-							get_the_time('Y-m-d'),
-							get_the_time('H:i:sO'),
-							the_date('l, F j, Y,', '', '', false),
-							get_the_time(),
-							'<span class="vcard"><span class="fn n">' . $authordata->display_name . '</span></span>',
-							get_the_category_list(', '),
-							get_the_tag_list(' and tagged ', ', ') ) ?> <?php edit_post_link(__('Edit this entry', 'plaintxtblog')); ?></span>
-				</div>
-			</div><!-- .post -->
+	<div id="post-<?php the_ID(); ?>" class="post">
+		<div class="post-header">
+			<h2 class="post-title"><?php the_title(); ?></h2>
+		</div><!-- END POST-HEADER  -->
+		<div class="post-entry">
+			<?php the_content(); ?>
+			<?php link_pages('<p style="font-weight:bold;">Pages: ', '</p>', 'number'); ?>
+		</div><!-- END POST-ENTRY --> 
+		<div id="single-post-metadata">
+			<h3 class="post-footer-header">
+				<?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) { ?><img src="<?php bloginfo('stylesheet_directory'); ?>/icons/comment.png" alt="Post a comment" /> <a href="#respond" title="Post a comment">Post a Comment</a> &mdash; <img src="<?php bloginfo('stylesheet_directory'); ?>/icons/trackback.png" alt="Trackback URI" /> <a href="<?php trackback_url(true); ?>" title="Trackback URI" rel="trackback">Trackback URI</a>
+				<?php } elseif (!('open' == $post-> comment_status) && ('open' == $post->ping_status)) { ?><img src="<?php bloginfo('stylesheet_directory'); ?>/icons/trackback.png" alt="Trackback URI" /> <a href="<?php trackback_url(true); ?> " title="Trackback URI" rel="trackback">Trackback URI</a> &mdash; Comments are closed
+				<?php } elseif (('open' == $post-> comment_status) && !('open' == $post->ping_status)) { ?><img src="<?php bloginfo('stylesheet_directory'); ?>/icons/comment.png" alt="Post a comment" /> <a href="#respond" title="Post a comment">Post a Comment</a> &mdash; Trackbacks are closed
+				<?php } elseif (!('open' == $post-> comment_status) && !('open' == $post->ping_status)) { ?>Comments and trackbacks are both currently closed
+				<?php } ?>
+				</h3>
+			<h3 class="post-footer-header">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/icons/feed.png" alt="XML" /> <?php comments_rss_link('RSS 2.0 feed'); ?> for these comments
+			</h3>
+			<p  class="post-footer">This entry (<a href="<?php the_permalink() ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">permalink</a>) was posted on <?php the_time('l, F jS, Y') ?> at <?php the_time('g:i A') ?> by <?php the_author(); ?> and categorized in <?php the_category(', ') ?>. <?php edit_post_link('Revise', ' [', ']'); ?></p>
+		</div><!-- END SINGLE-METADATA -->
+		<!-- <?php trackback_rdf(); ?> -->
+	</div><!-- END POST -->
 
 <?php comments_template(); ?>
 
-			<div id="nav-below" class="navigation">
-				<div class="nav-previous"><?php previous_post_link(__('&laquo; %link', 'plaintxtblog')) ?></div>
-				<div class="nav-next"><?php next_post_link(__('%link &raquo;', 'plaintxtblog')) ?></div>
-				<div class="nav-home"><a href="<?php echo get_settings('home') ?>/" title="<?php bloginfo('name') ?>"><?php _e('Home', 'plaintxtblog'); ?></a></div>
-			</div>
+	<div class="navigation">
+		<div class="alignleft"><?php previous_post_link('&laquo; %link') ?></div>
+		<div class="alignright"><?php next_post_link('%link &raquo;') ?></div>
+		<div class="middle"><a href="<?php echo get_settings('home'); ?>/" title="Home: <?php bloginfo('name'); ?>">Home</a></div>
+	</div><!-- END NAVIGATION -->
 
-		</div><!-- #content .hfeed -->
-	</div><!-- #container -->
+<?php endwhile; else: ?>
+<?php /* INCLUDE FOR ERROR TEXT */ include (TEMPLATEPATH . '/errortext.php'); ?>
+<?php endif; ?>
 
-<?php get_sidebar() ?>
-<?php get_footer() ?>
+</div><!-- END CONTENT -->
+
+<?php get_footer(); ?>
