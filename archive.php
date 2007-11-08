@@ -17,8 +17,6 @@
 <?php elseif ( is_category() ) : ?>
 			<h2 class="page-title"><?php _e('Category Archives:', 'plaintxtblog') ?> <span class="page-cat"><?php echo single_cat_title(); ?></span></h2>
 			<div class="archive-meta"><?php if ( !(''== category_description()) ) : echo apply_filters('archive_meta', category_description()); endif; ?></div>
-<?php elseif ( is_tag() ) : ?>
-			<h2 class="page-title"><?php _e('Tag Archives:', 'barthelme') ?> <span class="tag-cat"><?php single_tag_title(); ?></span></h2>
 <?php elseif ( isset($_GET['paged']) && !empty($_GET['paged']) ) : ?>
 			<h2 class="page-title"><?php _e('Blog Archives', 'plaintxtblog') ?></h2>
 <?php endif; ?>
@@ -37,9 +35,7 @@
 
 				</div>
 				<div class="entry-meta">
-					<span class="entry-category"><?php if ( !is_category() ) { printf(__('Filed in %s', 'plaintxtblog'), get_the_category_list(', ') ); } else { $other_cats = plaintxtblog_other_cats(', '); printf(__('Also filed in %s', 'plaintxtblog'), $other_cats ); } ?></span>
-					<span class="meta-sep">|</span>
-					<span class="entry-tags"><?php if ( !is_tag() ) { echo the_tags(__('Tagged ', 'plaintxtblog'), ", "); } else { $other_tags = plaintxtblog_other_tags(', '); printf(__('Also tagged %s', 'plaintxtblog'), $other_tags); } ?></span>
+					<span class="entry-category"><?php printf(__('Filed in %s', 'plaintxtblog'), get_the_category_list(', ')) ?></span>
 					<span class="meta-sep">|</span>
 <?php edit_post_link(__('Edit', 'plaintxtblog'), "\t\t\t\t\t<span class='entry-edit'>", "</span>\n\t\t\t\t\t<span class='meta-sep'>|</span>\n"); ?>
 					<span class="entry-comments"><?php comments_popup_link(__('Comments (0) &raquo;', 'plaintxtblog'), __('Comments (1) &raquo;', 'plaintxtblog'), __('Comments (%) &raquo;', 'plaintxtblog'),'',__('Comments Off','plaintxtblog')) ?></span>
