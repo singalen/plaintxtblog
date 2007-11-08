@@ -38,7 +38,7 @@ foreach ( $comments as $comment )
 						get_comment_date('d-M-y'),
 						get_comment_time(),
 						'#comment-' . get_comment_ID() );
-				?> <?php edit_comment_link(__('Edit', 'simplr'), '<span class="comment-edit"> | ', '</span>'); ?>
+				?> <?php edit_comment_link(__('Edit', 'plaintxtblog'), '<span class="comment-edit"> | ', '</span>'); ?>
 
 			</div>
 		</li>
@@ -65,7 +65,7 @@ foreach ( $comments as $comment )
 					get_comment_author_link(),
 					get_comment_date('d-M-y'),
 					get_comment_time());
-				?> <?php edit_comment_link(__('Edit', 'simplr'), '<span class="comment-edit"> | ', '</span>'); ?>
+				?> <?php edit_comment_link(__('Edit', 'plaintxtblog'), '<span class="comment-edit"> | ', '</span>'); ?>
 			</div>
 			<?php if ($comment->comment_approved == '0') : ?><span class="unapproved"><?php _e('Your trackback/pingback is awaiting moderation.', 'plaintxtblog') ?></span><?php endif; ?>
 			<?php comment_text() ?>

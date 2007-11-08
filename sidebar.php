@@ -1,7 +1,7 @@
 		<div id="primary" class="sidebar">
 			<ul>
 <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
-<?php if ( is_home() || is_category() ) { // Displays category archives on the home and category pages?>
+<?php if ( !is_home() || is_paged() ) { // Displays a home link everywhere except the home page ?>
 				<li id="home-link">
 					<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'plaintxtblog') ?></a></h3>
 				</li>
@@ -53,9 +53,8 @@
 <?php } ?>
 				<li id="categories">
 					<h3><?php _e('Categories', 'plaintxtblog'); ?></h3>
-					<ul><?php if ( function_exists('wp_list_categories') ) : 
-wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1'); else :
-wp_list_cats('sort_column=name&hierarchical=1'); endif; ?>
+					<ul>
+<?php wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1') ?>
 
 					</ul>
 				</li>
