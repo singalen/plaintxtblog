@@ -1,60 +1,62 @@
-<?php get_header() ?>
+<?php 
+	get_header();
+	get_sidebar();
+?>
 
-	<div id="container">
-		<div id="content" class="hfeed">
+<div id="content" class="narrowcolumn">
 
 <?php if (have_posts()) : ?>
-
-		<h2 class="page-title"><?php _e('Search Results:', 'plaintxtblog') ?> <span><?php echo wp_specialchars(stripslashes($_GET['s']), true); ?></span></h2>
-
+ 
+	<div id="post-searchresults" class="post">
+		<div class="post-header">
+			<h2 class="post-title">Search Results</h2>
+		</div><!-- END POST-HEADER  -->
+		<div class="post-entry">
+			<p>Search complete for &#8220;<strong><?php echo wp_specialchars($s); ?></strong>&#8221;. Results are below.</p>
+			<ol>
 <?php while (have_posts()) : the_post(); ?>
-
-			<div id="post-<?php the_ID() ?>" class="<?php plaintxtblog_post_class() ?>">
-				<div class="entry-header">
-					<h3 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php printf(__('Permalink to %s', 'plaintxtblog'), wp_specialchars(get_the_title(), 1)) ?>" rel="bookmark"><?php the_title() ?></a></h3>
-					<abbr class="published" title="<?php the_time('Y-m-d\TH:i:sO'); ?>"><?php unset($previousday); printf(__('%1$s', 'plaintxtblog'), the_date('d-M-y', false)) ?></abbr>
-				</div>
-				<div class="entry-content">
-<?php the_excerpt('<span class="more-link">'.__('More&hellip;', 'plaintxtblog').'</span>') ?>
-
-				</div>
-				<div class="entry-meta">
-					<span class="entry-category"><?php printf(__('Filed in %s', 'plaintxtblog'), get_the_category_list(', ') ) ?></span>
-					<span class="meta-sep">|</span>
-					<span class="entry-tags"><?php the_tags(__('Tagged ', 'plaintxtblog'), ", ", "") ?></span>
-					<span class="meta-sep">|</span>
-<?php edit_post_link(__('Edit', 'plaintxtblog'), "\t\t\t\t\t<span class='entry-edit'>", "</span>\n\t\t\t\t\t<span class='meta-sep'>|</span>\n"); ?>
-					<span class="entry-comments"><?php comments_popup_link(__('Comments (0) &raquo;', 'plaintxtblog'), __('Comments (1) &raquo;', 'plaintxtblog'), __('Comments (%) &raquo;', 'plaintxtblog'),'',__('Comments Off','plaintxtblog')) ?></span>
-				</div>
-			</div><!-- .post -->
-
+				<li id="post-<?php the_ID(); ?>" style="margin-bottom:10px;">
+					<strong><a href="<?php the_permalink() ?>" rel="bookmark" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></strong>
+					<br/>
+					<span class="excerpt"><?php the_excerpt_rss(); ?></span>
+					<br />
+					<em>Filed in <?php the_category(', ') ?> | <?php the_time('d-M-y') ?> | <?php comments_popup_link('no comments', 'one comment', '% comments'); ?></em>
+				</li>
 <?php endwhile; ?>
+			</ol>
+			<p>Want to search again for something else?</p>
+			<form id="searchform" method="get" action="<?php bloginfo('home'); ?>/">
+				<label for="s"><strong>Search Again</strong></label> <br/>
+				<input type="text" name="s" id="s" size="5" tabindex="1" style="border:1px inset #666;font-size:1.125em;font-family:verdana, helvetica, sans-serif;margin: 0;padding: 2px;width:7em;" />
+				<input type="submit" name="searchsubmit" id="searchsubmit" value="Find" tabindex="2" /></div>
+			</form>
+		</div><!-- END POST-ENTRY -->
+	</div><!-- END POST -->
 
-			<div id="nav-below" class="navigation">
-				<div class="nav-previous"><?php next_posts_link(__('&laquo; Older posts', 'plaintxtblog')) ?></div>
-				<div class="nav-next"><?php previous_posts_link(__('Newer posts &raquo;', 'plaintxtblog')) ?></div>
-				<div class="nav-home"><a href="<?php echo get_settings('home') ?>/" title="<?php bloginfo('name') ?>"><?php _e('Home', 'plaintxtblog'); ?></a></div>
-			</div>
+	<div class="navigation">
+		<div class="alignleft"><?php next_posts_link('&laquo; Older posts') ?></div>
+		<div class="alignright"><?php previous_posts_link('Newer posts &raquo;') ?></div>
+		<div class="middle"><a href="<?php echo get_settings('home'); ?>/" title="Home: <?php bloginfo('name'); ?>">Home</a></div>
+	</div><!-- END NAVIGATION -->
 
 <?php else : ?>
 
-			<div id="post-0" class="post">
-				<h2 class="entry-title"><?php _e('Nothing Found', 'plaintxtblog') ?></h2>
-				<div class="entry-content">
-					<p><?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'plaintxtblog') ?></p>
-				</div>
-			</div><!-- #post-0 .post -->
-			<form id="noresults-searchform" method="get" action="<?php bloginfo('home') ?>">
-				<div>
-					<input id="noresults-s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true) ?>" size="40" />
-					<input id="noresults-searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'barthelme') ?>" />
-				</div>
-			</form>
+	<div id="post-searchresults" class="post">
+		<div class="post-header">
+			<h2 class="post-title">Search Results</h2>
+		</div><!-- END POST-HEADER  -->
+		<div class="post-entry">
+			<p>Nothing was found with &#8220;<strong><?php echo wp_specialchars($s); ?></strong>&#8221;. Please change your keyword(s) and try your search again.</p>
+				<form id="searchform" method="get" action="<?php bloginfo('home'); ?>/">
+					<label for="s"><strong>Search Again</strong></label> <br/>
+					<input type="text" name="s" id="s" size="5" tabindex="1" style="border:1px inset #666;font-size:1.125em;font-family:verdana, helvetica, sans-serif;margin: 0;padding: 2px;width:7em;" />
+					<input type="submit" name="searchsubmit" id="searchsubmit" value="Find" tabindex="2" /></div>
+				</form>
+		</div><!-- END POST-ENTRY -->
+	</div><!-- END POST -->
 
 <?php endif; ?>
 
-		</div><!-- #content .hfeed -->
-	</div><!-- #container -->
+</div><!-- END CONTENT -->
 
-<?php get_sidebar() ?>
-<?php get_footer() ?>
+<?php get_footer(); ?>

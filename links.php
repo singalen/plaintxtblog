@@ -1,32 +1,43 @@
 <?php
 /*
-Template Name: Links Page
+Template Name: Links
 */
 ?>
-<?php get_header() ?>
-	
-	<div id="container">
-		<div id="content" class="hfeed">
+<?php 
+	get_header();
+	get_sidebar();
+?>
+ 
+<div id="content" class="narrowcolumn">
 
-<?php the_post() ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<div id="post-<?php the_ID(); ?>" class="<?php plaintxtblog_post_class() ?>">
-				<h2 class="entry-title"><?php the_title() ?></h2>
-				<div class="entry-content">
-<?php the_content() ?>
-
-					<ul id="linkcats" class="page-list">
-						<?php wp_list_bookmarks('title_before=<h3>&title_after=</h3>') ?>
+	<div id="post-<?php the_ID(); ?>" class="post">
+		<div class="post-header">
+			<h2 class="post-title"><?php the_title(); ?></h2>
+		</div><!-- END POST-HEADER  -->
+		<div class="post-entry">
+			<?php the_content(); ?>
+			<ul class="list">
+<?php
+	$link_cats = $wpdb->get_results("SELECT cat_id, cat_name FROM $wpdb->linkcategories");
+	foreach ($link_cats as $link_cat) {
+?>
+				<li id="page-linkcat-<?php echo $link_cat->cat_id; ?>">
+					<h2><?php echo $link_cat->cat_name; ?></h2>
+					<ul>
+						<?php get_links($link_cat->cat_id, '<li>', '</li>', ' &mdash; ', FALSE, '', TRUE, FALSE, -1, TRUE); ?>
 					</ul>
-<?php edit_post_link(__('Edit this entry.', 'plaintxtblog'),'<p class="entry-edit">','</p>') ?>
+				</li>
+<?php } ?>
+			</ul>
+			<?php edit_post_link('Edit this page', '<p>[', ']</p>'); ?>
+		</div><!-- END POST-ENTRY -->
+		<!-- <?php trackback_rdf(); ?> -->
+	</div><!-- END POST -->
 
-				</div>
-			</div><!-- .post -->
+<?php endwhile; endif; ?>
 
-<?php if ( get_post_custom_values('comments') ) comments_template() // Add a key/value of "comments" to load comments on a page ?>
+</div><!-- END CONTENT -->
 
-		</div><!-- #content .hfeed -->
-	</div><!-- #container -->
-
-<?php get_sidebar() ?>
-<?php get_footer() ?>
+<?php get_footer(); ?>
