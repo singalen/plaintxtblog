@@ -1,71 +1,71 @@
-		<div id="primary" class="sidebar">
+<div id="col1" class="sidebar">
+	<ul>
+	<?php /* IF THIS IS THE HOME PAGE, DISPLAYS ALL PAGES. IF NOT, THEN JUST THE PARENT PAGES  */ if(is_home()) {
+		wp_list_pages('depth=0&sort_column=menu_order&title_li=<h2>Contents</h2>' );
+		echo '<li id="meta"><h2>Meta</h2><ul>';
+		wp_register();
+		echo '<li>';
+		wp_loginout();
+		echo '</li></ul></li>';
+		wp_meta();
+	} else {
+		wp_list_pages('depth=1&sort_column=menu_order&title_li=<h2>Contents</h2>' );
+	} ?>
+		<li id="xml-feeds">
+			<h2>XML Feeds</h2>
 			<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
-<?php if ( !is_home() || is_paged() ) { // Displays a home link everywhere except the home page ?>
-				<li id="home-link">
-					<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'plaintxtblog') ?></a></h3>
-				</li>
-<?php } ?>
-<?php wp_list_pages('title_li=<h3>'.__('Pages').'</h3>&sort_column=post_title' ) ?>
-
-		<?php if ( is_home() || is_paged() ) { ?>
-				<li id="meta">
-					<h3><?php _e('Meta', 'plaintxtblog') ?></h3>
-					<ul>
-						<?php wp_register() ?>
-						<li><?php wp_loginout() ?></li>
-						<?php wp_meta() // Do not remove; helps plugins work ?>
-					</ul>
-				</li>
-		<?php } ?>
-				<li id="rss-links">
-					<h3><?php _e('RSS Feeds', 'plaintxtblog') ?></h3>
-					<ul>
-						<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'plaintxtblog') ?></a></li>
-						<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo wp_specialchars(bloginfo('name'), 1) ?> Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All comments', 'plaintxtblog') ?></a></li>
-					</ul>
-				</li>
-				<li id="search">
-					<h3><label for="s"><?php _e('Search', 'plaintxtblog') ?></label></h3>
-					<form id="searchform" method="get" action="<?php bloginfo('home') ?>">
-						<div>
-							<input id="s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true) ?>" size="10" />
-							<input id="searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Find', 'plaintxtblog') ?>" />
-						</div>
-					</form>
-				</li>
-<?php endif; // End Widgets ?>
-
+				<li>Posts RSS <a href="<?php bloginfo('rss2_url'); ?>" title="<?php bloginfo('name'); ?> RSS 2.0 (XML) Feed" rel="alternate" type="application/rss+xml"><img src="<?php bloginfo('stylesheet_directory'); ?>/feed.png" alt="RSS 2.0 XML Feed" /></a></li>
+				<li>Comments RSS <a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php bloginfo('name'); ?> Comments RSS 2.0 (XML) Feed" rel="alternate" type="application/rss+xml"><img src="<?php bloginfo('stylesheet_directory'); ?>/feed.png" alt="Comments RSS 2.0 XML Feed" /></a></li>
 			</ul>
-	</div><!-- #primary .sidebar -->
+		</li>
+		<li id="blog-search">
+			<h2><label for="s">Search</label></h2>
+			<?php include (TEMPLATEPATH . '/searchform.php'); ?>
+		</li>
+	</ul>
+</div><!-- END COL1 SIDEBAR -->
 
-		<div id="secondary" class="sidebar">
+<div id="col2" class="sidebar">
+	<ul>
+	<?php /* IF THIS USER JUST SEARCHED THE BLOG */ if ( is_search() ) { ?>
+		<li>You just search the contents:</li>
+		<li><strong><?php echo wp_specialchars($s); ?></strong></li>
+	<?php } ?>
+	<?php /* IF THIS IS A PAGE */ if (is_page()) {
+		$current_page = $post->ID;
+	while($current_page) {
+		$page_query = $wpdb->get_row("SELECT ID, post_name, post_parent FROM $wpdb->posts WHERE ID = '$current_page'");
+		$current_page = $page_query->post_parent;
+	}
+		$parent_id = $page_query->ID;
+		$parent_name = $page_query->post_name;
+		$test_for_child = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = '$parent_id'");
+	if($test_for_child) 
+	{ ?>
+		<li>
+			<h2 style="text-transform:capitalize;"><?php echo $parent_name; ?></h2>
 			<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
-<?php if ( wp_list_pages("child_of=".$post->ID."&echo=0") ) { // Shows subpages when subpages for the current page exist ?>
-				<li id="subpagenav">
-					<h3><?php _e('Subpages', 'plaintxtblog') ?></h3>
-					<ul>
-<?php wp_list_pages("title_li=&child_of=".$post->ID."&sort_column=menu_order&show_date=modified&date_format=$date_format"); ?>
-
-					</ul>
-				</li>
-<?php } ?>
-				<li id="categories">
-					<h3><?php _e('Categories', 'plaintxtblog'); ?></h3>
-					<ul>
-<?php wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1') ?>
-
-					</ul>
-				</li>
-				<li id="archives">
-					<h3><?php _e('Archives', 'plaintxtblog') ?></h3>
-					<ul>
-<?php wp_get_archives('type=monthly') ?>
-
-					</ul>
-				</li>
-<?php endif; // End Widgets ?>
-
+				<?php wp_list_pages('sort_column=post_name&title_li=&child_of='. $parent_id); ?> 
 			</ul>
-	</div><!-- #secondary .sidebar -->
+		</li>
+	<?php } } ?>
+		<li id="categories">
+			<h2>Categories</h2>
+			<ul>
+				<?php wp_list_cats('sort_column=name&hierarchical=0'); ?>
+			</ul>
+		</li>
+	<?php if ( is_home() ) { ?>
+	<?php
+		$link_cats = $wpdb->get_results("SELECT cat_id, cat_name FROM $wpdb->linkcategories");
+		foreach ($link_cats as $link_cat) {
+	?>
+	<li id="linkcat-<?php echo $link_cat->cat_id; ?>"><h2><?php echo $link_cat->cat_name; ?></h2>
+		<ul>
+			<?php get_links($link_cat->cat_id, '<li>', '</li>', '', FALSE, 'id', FALSE, FALSE); ?>
+		</ul>
+	</li>
+	<?php } ?>
+	<?php } ?>
+	</ul>
+</div><!-- END COL2 SIDEBAR -->
