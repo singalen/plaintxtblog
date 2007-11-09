@@ -19,17 +19,23 @@ Template Name: Archives Page
 				<div class="alignleft content-column">
 					<ul class="page-list">
 						<li class="category-archives">
-							<h3>Category Archives</h3>
+							<h3><?php _e('Category Archives', 'plaintxtblog') ?></h3>
 							<ul>
 								<?php wp_list_categories('title_li=&orderby=name&show_count=1&use_desc_for_title=1&feed_image='.get_bloginfo('template_url').'/images/feed.png') ?>
 							</ul>
+						</li>
+					</ul>
+					<ul class="page-list">
+						<li class="tag-archives">
+							<h3><?php _e('Tag Archives', 'plaintxtblog') ?></h3>
+							<p><?php wp_tag_cloud() ?></p>
 						</li>
 					</ul>
 				</div>
 				<div class="alignleft content-column">
 					<ul class="page-list">
 						<li class="monthly-archives">
-							<h3>Monthly Archives</h3>
+							<h3><?php _e('Monthly Archives', 'plaintxtblog') ?></h3>
 							<ul>
 								<?php wp_get_archives('type=monthly&show_post_count=1'); ?>
 							</ul>
@@ -37,7 +43,7 @@ Template Name: Archives Page
 					</ul>
 					<ul class="page-list">
 						<li class="feed-links">
-							<h3>RSS Feeds</h3>
+							<h3><?php _e('RSS Feeds', 'plaintxtblog') ?></h3>
 							<ul>
 								<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'plaintxtblog') ?></a></li>
 								<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo wp_specialchars(bloginfo('name'), 1) ?> Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All comments', 'plaintxtblog') ?></a></li>							
