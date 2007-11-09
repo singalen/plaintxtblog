@@ -58,6 +58,10 @@
 
 					</ul>
 				</li>
+				<li id="tag-cloud">
+					<h3><?php _e('Tags', 'plaintxtblog'); ?></h3>
+					<p><?php wp_tag_cloud() ?></p>
+				</li>
 				<li id="archives">
 					<h3><?php _e('Archives', 'plaintxtblog') ?></h3>
 					<ul>
