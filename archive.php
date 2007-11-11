@@ -18,7 +18,7 @@
 			<h2 class="page-title"><?php _e('Category Archives:', 'plaintxtblog') ?> <span class="page-cat"><?php echo single_cat_title(); ?></span></h2>
 			<div class="archive-meta"><?php if ( !(''== category_description()) ) : echo apply_filters('archive_meta', category_description()); endif; ?></div>
 <?php elseif ( is_tag() ) : ?>
-			<h2 class="page-title"><?php _e('Tag Archives:', 'barthelme') ?> <span class="tag-cat"><?php single_tag_title(); ?></span></h2>
+			<h2 class="page-title"><?php _e('Tag Archives:', 'plaintxtblog') ?> <span class="tag-cat"><?php single_tag_title(); ?></span></h2>
 <?php elseif ( isset($_GET['paged']) && !empty($_GET['paged']) ) : ?>
 			<h2 class="page-title"><?php _e('Blog Archives', 'plaintxtblog') ?></h2>
 <?php endif; ?>
