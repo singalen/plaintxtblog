@@ -15,33 +15,23 @@ Template Name: Archives Page
 				<div class="entry-content">
 <?php the_content(); ?>
 
-				<div class="clearer"></div>
-				<div class="alignleft content-column">
-					<ul class="page-list">
-						<li class="category-archives">
-							<h3><?php _e('Category Archives', 'plaintxtblog') ?></h3>
-							<ul>
-								<?php wp_list_categories('title_li=&orderby=name&show_count=1&use_desc_for_title=1&feed_image='.get_bloginfo('template_url').'/images/feed.png') ?>
-							</ul>
-						</li>
-					</ul>
-					<ul class="page-list">
-						<li class="tag-archives">
-							<h3><?php _e('Tag Archives', 'plaintxtblog') ?></h3>
-							<p><?php wp_tag_cloud() ?></p>
-						</li>
-					</ul>
-				</div>
-				<div class="alignleft content-column">
-					<ul class="page-list">
+					<ul id="archives-page" class="xoxo">
 						<li class="monthly-archives">
 							<h3><?php _e('Monthly Archives', 'plaintxtblog') ?></h3>
 							<ul>
 								<?php wp_get_archives('type=monthly&show_post_count=1'); ?>
 							</ul>
 						</li>
-					</ul>
-					<ul class="page-list">
+						<li class="category-archives">
+							<h3><?php _e('Category Archives', 'plaintxtblog') ?></h3>
+							<ul>
+								<?php wp_list_categories('title_li=&orderby=name&show_count=1&use_desc_for_title=1&feed_image='.get_bloginfo('template_url').'/images/feed.png') ?>
+							</ul>
+						</li>
+						<li class="tag-archives">
+							<h3><?php _e('Tag Archives', 'plaintxtblog') ?></h3>
+							<p><?php wp_tag_cloud() ?></p>
+						</li>
 						<li class="feed-links">
 							<h3><?php _e('RSS Feeds', 'plaintxtblog') ?></h3>
 							<ul>
@@ -50,8 +40,7 @@ Template Name: Archives Page
 							</ul>
 						</li>
 					</ul>
-				</div>
-				<div class="clearer"></div>
+
 <?php edit_post_link(__('Edit this entry.', 'plaintxtblog'),'<p class="entry-edit">','</p>') ?>
 
 				</div>

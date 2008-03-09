@@ -4,7 +4,7 @@ Template Name: Links Page
 */
 ?>
 <?php get_header() ?>
-	
+
 	<div id="container">
 		<div id="content" class="hfeed">
 
@@ -15,8 +15,9 @@ Template Name: Links Page
 				<div class="entry-content">
 <?php the_content() ?>
 
-					<ul id="linkcats" class="page-list">
-						<?php wp_list_bookmarks('title_before=<h3>&title_after=</h3>') ?>
+					<ul id="linkcats" class="xoxo">
+<?php wp_list_bookmarks('title_before=<h3>&title_after=</h3>&category_before=<li id="page-%id" class="%class">&after=</p></li>&between=<p>&show_description=1') ?>
+
 					</ul>
 <?php edit_post_link(__('Edit this entry.', 'plaintxtblog'),'<p class="entry-edit">','</p>') ?>
 
