@@ -304,7 +304,6 @@ function widget_plaintxtblog_rsslinks_control() {
 <?php
 }
 
-
 // Loads, checks that Widgets are loaded and working
 function plaintxtblog_widgets_init() {
 	if ( !function_exists('register_sidebars') )
@@ -418,12 +417,12 @@ function plaintxtblog_admin_head() {
 }
 
 function plaintxtblog_admin() { // Theme options menu 
-	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('PlaintxtBlog theme options saved. <a href="%s">View site</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></p></div><?php }
+	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('PlaintxtBlog theme options saved. <a href="%s">View site.</a>', 'plaintxtblog'), get_bloginfo('home') . '/'); ?></p></div><?php }
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('PlaintxtBlog theme options reset.', 'plaintxtblog'); ?></p></div><?php } ?>
 
 <div class="wrap">
 	<h2><?php _e('PlaintxtBlog Theme Options', 'plaintxtblog'); ?></h2>
-	<?php printf( __('%1$s<p>Thanks for selecting the <a href="http://www.plaintxt.org/themes/plaintxtblog/" title="PlaintxtBlog theme for WordPress">plaintxtBlog</a> theme by <span class="vcard"><a class="url fn n" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></a></span>. Please read the included <a href="%2$s" title="Open the readme.html" rel="enclosure" id="readme">documentation</a> for more information about the blog.txt and its advanced features. <strong>If you find this theme useful, please consider <label for="paypal">donating</label>.</strong> You can customize blog.txt by modifying the options below. You must click on <i><u>S</u>ave Options</i> to save any changes. You can also discard your changes and reload the default settings by clicking on <i><u>R</u>eset</i>.</p>', 'plaintxtblog'), plaintxtblog_donate(), get_template_directory_uri() . '/readme.html' ); ?>
+	<?php printf( __('%1$s<p>Thanks for selecting the <a href="http://www.plaintxt.org/themes/plaintxtblog/" title="PlaintxtBlog theme for WordPress">plaintxtBlog</a> theme by <span class="vcard"><a class="url fn n" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></a></span>. Please read the included <a href="%2$s" title="Open the readme.html" rel="enclosure" id="readme">documentation</a> for more information about the blog.txt and its advanced features. <strong>If you find this theme useful, please consider <label for="paypal">donating</label>.</strong> You must click on <i><u>S</u>ave Options</i> to save any changes. You can also discard your changes and reload the default settings by clicking on <i><u>R</u>eset</i>.</p>', 'plaintxtblog'), plaintxtblog_donate(), get_template_directory_uri() . '/readme.html' ); ?>
 
 	<form action="<?php echo wp_specialchars( $_SERVER['REQUEST_URI'] ) ?>" method="post">
 		<?php wp_nonce_field('plaintxtblog_save_options'); echo "\n"; ?>
@@ -616,5 +615,5 @@ add_filter('archive_meta', 'convert_chars');
 add_filter('archive_meta', 'wpautop');
 
 // Readies for translation.
-load_theme_textdomain('plaintxtblog')
+load_theme_textdomain('plaintxtblog');
 ?>

@@ -4,16 +4,16 @@ Template Name: Sitemap Page
 */
 ?>
 <?php get_header() ?>
-
+	
 	<div id="container">
 		<div id="content" class="hfeed">
 
 <?php the_post() ?>
 
-			<div id="post-<?php the_ID(); ?>" class="<?php plaintxtblog_post_class() ?>">
+			<div id="post-<?php the_ID() ?>" class="<?php plaintxtblog_post_class() ?>">
 				<h2 class="entry-title"><?php the_title() ?></h2>
 				<div class="entry-content">
-<?php the_content() ?>
+<?php the_content(); ?>
 
 					<ul id="sitemap-page" class="xoxo">
 						<li id="all-pages">
