@@ -187,7 +187,7 @@ function plaintxtblog_commenter_link() {
 	}
 	$email = get_comment_author_email();
 	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "64" ) );
-	echo $avatar . '<span class="fn n">' . $commenter . '</span>';
+	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
 }
 
 // Loads a plaintxtblog-style Search widget
