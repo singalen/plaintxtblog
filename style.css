@@ -2,10 +2,10 @@
 THEME NAME: plaintxtBlog
 THEME URI: http://www.plaintxt.org/themes/plaintxtblog/
 DESCRIPTION: Your blog, but simplified. Clutter-free, fluid 3-column layout with Widgets support.  For WordPress 2.5.x.
-VERSION: 4.5.1
+TAGS: variable width, fixed width, three columns, widgets, theme options, white, blue, typography, gray
+VERSION: 4.5.2
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
-TAGS:  variable width, fixed width, three columns, widgets, theme options, white, blue, typography, gray
 */
 a,a:link{color:#059;outline:none;}
 div#header h1 a,div#header h1 a:link,div#header h1 a:visited{border-bottom:1px solid #ccc;text-decoration:none;}
@@ -101,6 +101,19 @@ div.entry-content ul.xoxo,div.entry-content ul.xoxo li{list-style:none;margin:0;
 div.entry-content ul li.tag-archives p{line-height:225%;}
 div#wrapper div#content .clearer{clear:both;width:99%;}
 div.entry-content .content-column{width:40%;}
+div.entry-content div.gallery{clear:both;float:left;margin:0 0 1em 0;width:100%;}
+div.entry-content div.gallery dl{float:left;text-align:center;}
+div.entry-content div.gallery dl dt{margin:0;}
+div.entry-content div.gallery dl dd{margin-left:0;text-transform:uppercase;font-size:0.9em;}
+div.entry-content div.entry-caption{text-transform:uppercase;font-size:0.9em;margin:1em 0 2em 0;}
+div.entry-content div.entry-attachment{margin-top:1em;}
+div.entry-content div.entry-attachment,div.entry-content div.entry-caption{text-align:center;}
+div.entry-attachment img,div#nav-images div img{overflow:hidden;}
+body.attachment div#wrapper div#content div#nav-images{background:#fff;clear:both;margin:0;width:100%;}
+body.attachment div#nav-images div{margin:0;padding:1em 2% 3em 2%;width:46%;}
+body.attachment div#nav-images div.nav-previous{text-align:left;}
+body.attachment div#nav-images div.nav-next{text-align:right;}
+div#content div.post div.entry-meta,body.attachment div#content div.entry-meta{clear:both;}
 div.entry-content p{margin:1em 0;}
 div.entry-header{background:#eee;clear:both;padding:1px 4px;text-align:right;text-transform:uppercase;}
 div.entry-header abbr.published{font-size:0.9em;}
