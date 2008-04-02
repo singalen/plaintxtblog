@@ -5,16 +5,23 @@
 
 <?php the_post() ?>
 
+<?php $attachment_link = get_the_attachment_link($post->ID, true, array(450, 800)); ?>
+<?php $_post = &get_post($post->ID); $classname = ($_post->iconsize[0] <= 128 ? 'small' : '') . 'attachment'; ?>
+
 			<div id="post-<?php the_ID(); ?>" class="<?php plaintxtblog_post_class() ?>">
 				<div class="entry-header">
 					<h2 class="entry-title"><?php the_title(); ?></h2>
 					<div id="nav-above" class="post-parent"><a href="<?php echo get_permalink($post->post_parent) ?>" rev="attachment">&laquo; <?php echo get_the_title($post->post_parent) ?></a></div>
 				</div>
 				<div class="entry-content">
-					<div class="entry-attachment"><a href="<?php echo wp_get_attachment_url($post->ID); ?>" title="<?php echo wp_specialchars( get_the_title($post->ID), 1 ) ?>" rel="attachment"><?php echo basename($post->guid) ?></a></div>
+					<div class="entry-attachment"><a href="<?php echo wp_get_attachment_url($post->ID); ?>" title="<?php echo wp_specialchars( get_the_title($post->ID), 1 ) ?>" rel="attachment"><?php echo wp_get_attachment_image( $post->ID, 'large' ); ?></a></div>
 					<div class="entry-caption"><?php if ( !empty($post->post_excerpt) ) the_excerpt(); ?></div>
 <?php the_content('<span class="more-link">'.__('More&hellip;', 'plaintxtblog').'</span>') ?>
 
+				</div>
+				<div id="nav-images" class="navigation">
+					<div class="nav-previous"><?php previous_image_link() ?></div>
+					<div class="nav-next"><?php next_image_link() ?></div>
 				</div>
 				<div class="entry-meta">
 <?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) : // COMMENTS & PINGS OPEN ?>
@@ -31,7 +38,7 @@
 							comments_rss(),
 							wp_specialchars(get_the_title(), 'double') ) ?></span>
 
-					<span class="entry-metainfo"><?php printf(__('This attachment (<a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>) was posted on <abbr class="published" title="%3$sT%4$s">%5$s at %6$s</abbr> by %7$s. Filed in %8$s%9$s.', 'plaintxtblog'),
+					<span class="entry-metainfo"><?php printf(__('This image (<a href="%1$s" title="Permalink to %2$s" rel="bookmark">permalink</a>) was posted on <abbr class="published" title="%3$sT%4$s">%5$s at %6$s</abbr> by %7$s. Filed in %8$s%9$s.', 'plaintxtblog'),
 							get_permalink(),
 							wp_specialchars(get_the_title(), 'double'),
 							get_the_time('Y-m-d'),
