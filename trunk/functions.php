@@ -597,12 +597,12 @@ function plaintxtblog_wp_head() {
 	if ( get_settings('plaintxtblog_basefontfamily') == "" ) {
 		$basefontfamily = 'verdana, geneva, sans-serif';
 		} else {
-			$basefontfamily = attribute_escape( stripslashes( get_settings('plaintxtblog_basefontfamily') ) ); 
+			$basefontfamily = wp_specialchars( stripslashes( get_settings('plaintxtblog_basefontfamily') ) ); 
 	};
 	if ( get_settings('plaintxtblog_headingfontfamily') == "" ) {
 		$headingfontfamily = 'verdana, geneva, sans-serif';
 		} else {
-			$headingfontfamily = attribute_escape( stripslashes( get_settings('plaintxtblog_headingfontfamily') ) ); 
+			$headingfontfamily = wp_specialchars( stripslashes( get_settings('plaintxtblog_headingfontfamily') ) ); 
 	};
 	if ( get_settings('plaintxtblog_posttextalignment') == "" ) {
 		$posttextalignment = 'left';

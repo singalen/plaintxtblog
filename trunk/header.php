@@ -3,12 +3,11 @@
 <head profile="http://gmpg.org/xfn/11">
 	<title><?php bloginfo('name') ?><?php if ( is_404() ) : ?> / <?php _e('Page not found', 'plaintxtblog') ?><?php elseif ( is_home() ) : ?> / <?php bloginfo('description') ?><?php elseif ( is_category() ) : ?> / <?php echo single_cat_title(); ?><?php elseif ( is_date() ) : ?> / <?php _e('Blog Archives', 'plaintxtblog') ?><?php elseif ( is_search() ) : ?> / <?php _e('Search Results', 'plaintxtblog') ?><?php else : ?> / <?php the_title() ?><?php endif ?></title>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
-	<meta name="generator" content="WordPress <?php bloginfo('version') ?>" /><!-- Please leave for stats -->
+	<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('stylesheet_url'); ?>" title="plaintxtBlog" />
+	<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css" />
 	<link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url') ?>" title="<?php bloginfo('name') ?> RSS feed" />
 	<link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php bloginfo('name') ?> comments RSS feed" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
-	<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('stylesheet_url'); ?>" title="plaintxtBlog" />
-	<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css" />
 
 <?php wp_head() // Do not remove; helps plugins work ?>
 
