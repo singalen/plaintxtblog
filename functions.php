@@ -132,7 +132,7 @@ function plaintxtblog_comment_class( $print = true ) {
 
 // Produces date-based classes for the three functions above; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function plaintxtblog_date_classes($t, &$c, $p = '') {
-	$t = $t + (get_settings('gmt_offset') * 3600);
+	$t = $t + (get_option('gmt_offset') * 3600);
 	$c[] = $p . 'y' . gmdate('Y', $t);
 	$c[] = $p . 'm' . gmdate('m', $t);
 	$c[] = $p . 'd' . gmdate('d', $t);
@@ -186,7 +186,9 @@ function plaintxtblog_commenter_link() {
 		$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
 	}
 	$email = get_comment_author_email();
-	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "24" ) );
+	$avatar_size = get_option('plaintxtblog_avatarsize');
+	if ( empty($avatar_size) ) $avatar_size = '24';
+	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "$avatar_size" ) );
 	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
 }
 
@@ -417,6 +419,7 @@ function plaintxtblog_add_admin() {
 			update_option( 'plaintxtblog_sidebarposition', strip_tags( stripslashes( $_REQUEST['ptb_sidebarposition'] ) ) );
 			update_option( 'plaintxtblog_sidebartextalignment', strip_tags( stripslashes( $_REQUEST['ptb_sidebartextalignment'] ) ) );
 			update_option( 'plaintxtblog_singlelayout', strip_tags( stripslashes( $_REQUEST['ptb_singlelayout'] ) ) );
+			update_option( 'plaintxtblog_avatarsize', strip_tags( stripslashes( $_REQUEST['ptb_avatarsize'] ) ) );
 			header("Location: themes.php?page=functions.php&saved=true");
 			die;
 		} else if( 'reset' == $_REQUEST['action'] ) {
@@ -428,6 +431,7 @@ function plaintxtblog_add_admin() {
 			delete_option('plaintxtblog_sidebarposition');
 			delete_option('plaintxtblog_sidebartextalignment');
 			delete_option('plaintxtblog_singlelayout');
+			delete_option('plaintxtblog_avatarsize');
 			header("Location: themes.php?page=functions.php&reset=true");
 			die;
 		}
@@ -485,37 +489,37 @@ function plaintxtblog_admin() { // Theme options menu
 			<tr valign="top">
 				<th scope="row"><label for="ptb_basefontsize"><?php _e('Base font size', 'plaintxtblog'); ?></label></th> 
 				<td>
-					<input id="ptb_basefontsize" name="ptb_basefontsize" type="text" class="text" value="<?php if ( get_settings('plaintxtblog_basefontsize') == "" ) { echo "70%"; } else { echo attribute_escape( get_settings('plaintxtblog_basefontsize') ); } ?>" tabindex="1" size="10" />
+					<input id="ptb_basefontsize" name="ptb_basefontsize" type="text" class="text" value="<?php if ( get_option('plaintxtblog_basefontsize') == "" ) { echo "70%"; } else { echo attribute_escape( get_option('plaintxtblog_basefontsize') ); } ?>" tabindex="1" size="10" />
 					<p class="info"><?php _e('The base font size globally affects the size of text throughout your blog. This can be in any unit (e.g., px, pt, em), but I suggest using a percentage (%). Default is <span>70%</span>.', 'plaintxtblog'); ?></p>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><?php _e('Base font family', 'plaintxtblog'); ?></th> 
 				<td>
-					<input id="ptb_basefontArial" name="ptb_basefontfamily" type="radio" class="radio" value="arial, helvetica, sans-serif" <?php if ( get_settings('plaintxtblog_basefontfamily') == "arial, helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="2" /> <label for="ptb_basefontArial" class="arial">Arial</label><br />
-					<input id="ptb_basefontCourier" name="ptb_basefontfamily" type="radio" class="radio" value="'courier new', courier, monospace" <?php if ( get_settings('plaintxtblog_basefontfamily') == "'courier new', courier, monospace" ) { echo 'checked="checked"'; } ?> tabindex="3" /> <label for="ptb_basefontCourier" class="courier">Courier</label><br />
-					<input id="ptb_basefontGeorgia" name="ptb_basefontfamily" type="radio" class="radio" value="georgia, times, serif" <?php if ( get_settings('plaintxtblog_basefontfamily') == "georgia, times, serif" ) { echo 'checked="checked"'; } ?> tabindex="4" /> <label for="ptb_basefontGeorgia" class="georgia">Georgia</label><br />
-					<input id="ptb_basefontLucidaConsole" name="ptb_basefontfamily" type="radio" class="radio" value="'lucida console', monaco, monospace" <?php if ( get_settings('plaintxtblog_basefontfamily') == "'lucida console', monaco, monospace" ) { echo 'checked="checked"'; } ?> tabindex="5" /> <label for="ptb_basefontLucidaConsole" class="lucida-console">Lucida Console</label><br />
-					<input id="ptb_basefontLucidaUnicode" name="ptb_basefontfamily" type="radio" class="radio" value="'lucida sans unicode', 'lucida grande', sans-serif" <?php if ( get_settings('plaintxtblog_basefontfamily') == "'lucida sans unicode', 'lucida grande', sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="6" /> <label for="ptb_basefontLucidaUnicode" class="lucida-unicode">Lucida Sans Unicode</label><br />
-					<input id="ptb_basefontTahoma" name="ptb_basefontfamily" type="radio" class="radio" value="tahoma, geneva, sans-serif" <?php if ( get_settings('plaintxtblog_basefontfamily') == "tahoma, geneva, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="7" /> <label for="ptb_basefontTahoma" class="tahoma">Tahoma</label><br />
-					<input id="ptb_basefontTimes" name="ptb_basefontfamily" type="radio" class="radio" value="'times new roman', times, serif" <?php if ( get_settings('plaintxtblog_basefontfamilyfamily') == "'times new roman', times, serif" ) { echo 'checked="checked"'; } ?> tabindex="8" /> <label for="ptb_basefontTimes" class="times">Times</label><br />
-					<input id="ptb_basefontTrebuchetMS" name="ptb_basefontfamily" type="radio" class="radio" value="'trebuchet ms', helvetica, sans-serif" <?php if ( get_settings('plaintxtblog_basefontfamily') == "'trebuchet ms', helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="9" /> <label for="ptb_basefontTrebuchetMS" class="trebuchet">Trebuchet MS</label><br />
-					<input id="ptb_basefontVerdana" name="ptb_basefontfamily" type="radio" class="radio" value="verdana, geneva, sans-serif" <?php if ( ( get_settings('plaintxtblog_basefontfamily') == "") || ( get_settings('plaintxtblog_basefontfamily') == "verdana, geneva, sans-serif") ) { echo 'checked="checked"'; } ?> tabindex="10" /> <label for="ptb_basefontVerdana" class="verdana">Verdana</label><br />
+					<input id="ptb_basefontArial" name="ptb_basefontfamily" type="radio" class="radio" value="arial, helvetica, sans-serif" <?php if ( get_option('plaintxtblog_basefontfamily') == "arial, helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="2" /> <label for="ptb_basefontArial" class="arial">Arial</label><br />
+					<input id="ptb_basefontCourier" name="ptb_basefontfamily" type="radio" class="radio" value="'courier new', courier, monospace" <?php if ( get_option('plaintxtblog_basefontfamily') == "'courier new', courier, monospace" ) { echo 'checked="checked"'; } ?> tabindex="3" /> <label for="ptb_basefontCourier" class="courier">Courier</label><br />
+					<input id="ptb_basefontGeorgia" name="ptb_basefontfamily" type="radio" class="radio" value="georgia, times, serif" <?php if ( get_option('plaintxtblog_basefontfamily') == "georgia, times, serif" ) { echo 'checked="checked"'; } ?> tabindex="4" /> <label for="ptb_basefontGeorgia" class="georgia">Georgia</label><br />
+					<input id="ptb_basefontLucidaConsole" name="ptb_basefontfamily" type="radio" class="radio" value="'lucida console', monaco, monospace" <?php if ( get_option('plaintxtblog_basefontfamily') == "'lucida console', monaco, monospace" ) { echo 'checked="checked"'; } ?> tabindex="5" /> <label for="ptb_basefontLucidaConsole" class="lucida-console">Lucida Console</label><br />
+					<input id="ptb_basefontLucidaUnicode" name="ptb_basefontfamily" type="radio" class="radio" value="'lucida sans unicode', 'lucida grande', sans-serif" <?php if ( get_option('plaintxtblog_basefontfamily') == "'lucida sans unicode', 'lucida grande', sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="6" /> <label for="ptb_basefontLucidaUnicode" class="lucida-unicode">Lucida Sans Unicode</label><br />
+					<input id="ptb_basefontTahoma" name="ptb_basefontfamily" type="radio" class="radio" value="tahoma, geneva, sans-serif" <?php if ( get_option('plaintxtblog_basefontfamily') == "tahoma, geneva, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="7" /> <label for="ptb_basefontTahoma" class="tahoma">Tahoma</label><br />
+					<input id="ptb_basefontTimes" name="ptb_basefontfamily" type="radio" class="radio" value="'times new roman', times, serif" <?php if ( get_option('plaintxtblog_basefontfamilyfamily') == "'times new roman', times, serif" ) { echo 'checked="checked"'; } ?> tabindex="8" /> <label for="ptb_basefontTimes" class="times">Times</label><br />
+					<input id="ptb_basefontTrebuchetMS" name="ptb_basefontfamily" type="radio" class="radio" value="'trebuchet ms', helvetica, sans-serif" <?php if ( get_option('plaintxtblog_basefontfamily') == "'trebuchet ms', helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="9" /> <label for="ptb_basefontTrebuchetMS" class="trebuchet">Trebuchet MS</label><br />
+					<input id="ptb_basefontVerdana" name="ptb_basefontfamily" type="radio" class="radio" value="verdana, geneva, sans-serif" <?php if ( ( get_option('plaintxtblog_basefontfamily') == "") || ( get_option('plaintxtblog_basefontfamily') == "verdana, geneva, sans-serif") ) { echo 'checked="checked"'; } ?> tabindex="10" /> <label for="ptb_basefontVerdana" class="verdana">Verdana</label><br />
 					<p class="info"><?php printf(__('The base font family sets the font for everything except content headings. The selection is limited to %1$s fonts, as they will display correctly. Default is <span class="verdana">Verdana</span>.', 'plaintxtblog'), '<cite><a href="http://en.wikipedia.org/wiki/Web_safe_fonts" title="Web safe fonts - Wikipedia">web safe</a></cite>'); ?></p>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><?php _e('Heading font family', 'plaintxtblog'); ?></th> 
 				<td>
-					<input id="ptb_headingfontArial" name="ptb_headingfontfamily" type="radio" class="radio" value="arial, helvetica, sans-serif" <?php if ( get_settings('plaintxtblog_headingfontfamilyfamily') == "arial, helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="11" /> <label for="ptb_headingfontArial" class="arial">Arial</label><br />
-					<input id="ptb_headingfontCourier" name="ptb_headingfontfamily" type="radio" class="radio" value="'courier new', courier, monospace" <?php if ( get_settings('plaintxtblog_headingfontfamily') == "'courier new', courier, monospace" ) { echo 'checked="checked"'; } ?> tabindex="12" /> <label for="ptb_headingfontCourier" class="courier">Courier</label><br />
-					<input id="ptb_headingfontGeorgia" name="ptb_headingfontfamily" type="radio" class="radio" value="georgia, times, serif" <?php if ( get_settings('plaintxtblog_headingfontfamily') == "georgia, times, serif" ) { echo 'checked="checked"'; } ?> tabindex="13" /> <label for="ptb_headingfontGeorgia" class="georgia">Georgia</label><br />
-					<input id="ptb_headingfontLucidaConsole" name="ptb_headingfontfamily" type="radio" class="radio" value="'lucida console', monaco, monospace" <?php if ( get_settings('plaintxtblog_headingfontfamily') == "'lucida console', monaco, monospace" ) { echo 'checked="checked"'; } ?> tabindex="14" /> <label for="ptb_headingfontLucidaConsole" class="lucida-console">Lucida Console</label><br />
-					<input id="ptb_headingfontLucidaUnicode" name="ptb_headingfontfamily" type="radio" class="radio" value="'lucida sans unicode', 'lucida grande', sans-serif" <?php if ( get_settings('plaintxtblog_headingfontfamily') == "'lucida sans unicode', 'lucida grande', sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="15" /> <label for="ptb_headingfontLucidaUnicode" class="lucida-unicode">Lucida Sans Unicode</label><br />
-					<input id="ptb_headingfontTahoma" name="ptb_headingfontfamily" type="radio" class="radio" value="tahoma, geneva, sans-serif" <?php if ( get_settings('plaintxtblog_headingfontfamily') == "tahoma, geneva, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="16" /> <label for="ptb_headingfontTahoma" class="tahoma">Tahoma</label><br />
-					<input id="ptb_headingfontTimes" name="ptb_headingfontfamily" type="radio" class="radio" value="'times new roman', times, serif" <?php if ( get_settings('plaintxtblog_headingfontfamily') == "'times new roman', times, serif" ) { echo 'checked="checked"'; } ?> tabindex="17" /> <label for="ptb_headingfontTimes" class="times">Times</label><br />
-					<input id="ptb_headingfontTrebuchetMS" name="ptb_headingfontfamily" type="radio" class="radio" value="'trebuchet ms', helvetica, sans-serif" <?php if ( get_settings('plaintxtblog_headingfontfamily') == "'trebuchet ms', helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="18" /> <label for="ptb_headingfontTrebuchetMS" class="trebuchet">Trebuchet MS</label><br />
-					<input id="ptb_headingfontVerdana" name="ptb_headingfontfamily" type="radio" class="radio" value="verdana, geneva, sans-serif" <?php if ( ( get_settings('plaintxtblog_headingfontfamily') == "verdana, geneva, sans-serif") || ( get_settings('plaintxtblog_headingfontfamily') == "") ) { echo 'checked="checked"'; } ?> tabindex="19" /> <label for="ptb_headingfontVerdana" class="verdana">Verdana</label><br />
+					<input id="ptb_headingfontArial" name="ptb_headingfontfamily" type="radio" class="radio" value="arial, helvetica, sans-serif" <?php if ( get_option('plaintxtblog_headingfontfamilyfamily') == "arial, helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="11" /> <label for="ptb_headingfontArial" class="arial">Arial</label><br />
+					<input id="ptb_headingfontCourier" name="ptb_headingfontfamily" type="radio" class="radio" value="'courier new', courier, monospace" <?php if ( get_option('plaintxtblog_headingfontfamily') == "'courier new', courier, monospace" ) { echo 'checked="checked"'; } ?> tabindex="12" /> <label for="ptb_headingfontCourier" class="courier">Courier</label><br />
+					<input id="ptb_headingfontGeorgia" name="ptb_headingfontfamily" type="radio" class="radio" value="georgia, times, serif" <?php if ( get_option('plaintxtblog_headingfontfamily') == "georgia, times, serif" ) { echo 'checked="checked"'; } ?> tabindex="13" /> <label for="ptb_headingfontGeorgia" class="georgia">Georgia</label><br />
+					<input id="ptb_headingfontLucidaConsole" name="ptb_headingfontfamily" type="radio" class="radio" value="'lucida console', monaco, monospace" <?php if ( get_option('plaintxtblog_headingfontfamily') == "'lucida console', monaco, monospace" ) { echo 'checked="checked"'; } ?> tabindex="14" /> <label for="ptb_headingfontLucidaConsole" class="lucida-console">Lucida Console</label><br />
+					<input id="ptb_headingfontLucidaUnicode" name="ptb_headingfontfamily" type="radio" class="radio" value="'lucida sans unicode', 'lucida grande', sans-serif" <?php if ( get_option('plaintxtblog_headingfontfamily') == "'lucida sans unicode', 'lucida grande', sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="15" /> <label for="ptb_headingfontLucidaUnicode" class="lucida-unicode">Lucida Sans Unicode</label><br />
+					<input id="ptb_headingfontTahoma" name="ptb_headingfontfamily" type="radio" class="radio" value="tahoma, geneva, sans-serif" <?php if ( get_option('plaintxtblog_headingfontfamily') == "tahoma, geneva, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="16" /> <label for="ptb_headingfontTahoma" class="tahoma">Tahoma</label><br />
+					<input id="ptb_headingfontTimes" name="ptb_headingfontfamily" type="radio" class="radio" value="'times new roman', times, serif" <?php if ( get_option('plaintxtblog_headingfontfamily') == "'times new roman', times, serif" ) { echo 'checked="checked"'; } ?> tabindex="17" /> <label for="ptb_headingfontTimes" class="times">Times</label><br />
+					<input id="ptb_headingfontTrebuchetMS" name="ptb_headingfontfamily" type="radio" class="radio" value="'trebuchet ms', helvetica, sans-serif" <?php if ( get_option('plaintxtblog_headingfontfamily') == "'trebuchet ms', helvetica, sans-serif" ) { echo 'checked="checked"'; } ?> tabindex="18" /> <label for="ptb_headingfontTrebuchetMS" class="trebuchet">Trebuchet MS</label><br />
+					<input id="ptb_headingfontVerdana" name="ptb_headingfontfamily" type="radio" class="radio" value="verdana, geneva, sans-serif" <?php if ( ( get_option('plaintxtblog_headingfontfamily') == "verdana, geneva, sans-serif") || ( get_option('plaintxtblog_headingfontfamily') == "") ) { echo 'checked="checked"'; } ?> tabindex="19" /> <label for="ptb_headingfontVerdana" class="verdana">Verdana</label><br />
 					<p class="info"><?php printf(__('The heading font family sets the font for all content headings. The selection is limited to %1$s fonts, as they will display correctly. Default is <span class="verdana">Verdana</span>. ', 'plaintxtblog'), '<cite><a href="http://en.wikipedia.org/wiki/Web_safe_fonts" title="Web safe fonts - Wikipedia">web safe</a></cite>'); ?></p>
 				</td>
 			</tr>
@@ -526,10 +530,10 @@ function plaintxtblog_admin() { // Theme options menu
 				<th scope="row"><label for="ptb_posttextalignment"><?php _e('Post text alignment', 'plaintxtblog'); ?></label></th> 
 				<td>
 					<select id="ptb_posttextalignment" name="ptb_posttextalignment" tabindex="23" class="dropdown">
-						<option value="center" <?php if ( get_settings('plaintxtblog_posttextalignment') == "center" ) { echo 'selected="selected"'; } ?>><?php _e('Centered', 'plaintxtblog'); ?> </option>
-						<option value="justify" <?php if ( get_settings('plaintxtblog_posttextalignment') == "justify" ) { echo 'selected="selected"'; } ?>><?php _e('Justified', 'plaintxtblog'); ?> </option>
-						<option value="left" <?php if ( ( get_settings('plaintxtblog_posttextalignment') == "") || ( get_settings('plaintxtblog_posttextalignment') == "left") ) { echo 'selected="selected"'; } ?>><?php _e('Left', 'plaintxtblog'); ?> </option>
-						<option value="right" <?php if ( get_settings('plaintxtblog_posttextalignment') == "right" ) { echo 'selected="selected"'; } ?>><?php _e('Right', 'plaintxtblog'); ?> </option>
+						<option value="center" <?php if ( get_option('plaintxtblog_posttextalignment') == "center" ) { echo 'selected="selected"'; } ?>><?php _e('Centered', 'plaintxtblog'); ?> </option>
+						<option value="justify" <?php if ( get_option('plaintxtblog_posttextalignment') == "justify" ) { echo 'selected="selected"'; } ?>><?php _e('Justified', 'plaintxtblog'); ?> </option>
+						<option value="left" <?php if ( ( get_option('plaintxtblog_posttextalignment') == "") || ( get_option('plaintxtblog_posttextalignment') == "left") ) { echo 'selected="selected"'; } ?>><?php _e('Left', 'plaintxtblog'); ?> </option>
+						<option value="right" <?php if ( get_option('plaintxtblog_posttextalignment') == "right" ) { echo 'selected="selected"'; } ?>><?php _e('Right', 'plaintxtblog'); ?> </option>
 					</select>
 					<p class="info"><?php _e('Choose one of the options for the alignment of the post entry text. Default is <span>left</span>.', 'plaintxtblog'); ?></p>
 				</td>
@@ -538,8 +542,8 @@ function plaintxtblog_admin() { // Theme options menu
 				<th scope="row"><label for="ptb_sidebarposition"><?php _e('Sidebar position', 'plaintxtblog'); ?></label></th> 
 				<td>
 					<select id="ptb_sidebarposition" name="ptb_sidebarposition" tabindex="24" class="dropdown">
-						<option value="left" <?php if ( ( get_settings('plaintxtblog_sidebarposition') == "") || ( get_settings('plaintxtblog_sidebarposition') == "left") ) { echo 'selected="selected"'; } ?>><?php _e('Left of content', 'plaintxtblog'); ?> </option>
-						<option value="right" <?php if ( get_settings('plaintxtblog_sidebarposition') == "right" ) { echo 'selected="selected"'; } ?>><?php _e('Right of content', 'plaintxtblog'); ?> </option>
+						<option value="left" <?php if ( ( get_option('plaintxtblog_sidebarposition') == "") || ( get_option('plaintxtblog_sidebarposition') == "left") ) { echo 'selected="selected"'; } ?>><?php _e('Left of content', 'plaintxtblog'); ?> </option>
+						<option value="right" <?php if ( get_option('plaintxtblog_sidebarposition') == "right" ) { echo 'selected="selected"'; } ?>><?php _e('Right of content', 'plaintxtblog'); ?> </option>
 					</select>
 					<p class="info"><?php _e('The sidebar can be positioned to the left or the right of the main content column. Default is <span>left of content</span>.', 'plaintxtblog'); ?></p>
 				</td>
@@ -548,9 +552,9 @@ function plaintxtblog_admin() { // Theme options menu
 				<th scope="row"><label for="ptb_sidebartextalignment" class="dropdown"><?php _e('Sidebar text alignment', 'plaintxtblog'); ?></label></th> 
 				<td>
 					<select id="ptb_sidebartextalignment" name="ptb_sidebartextalignment" tabindex="25" class="dropdown">
-						<option value="center" <?php if ( get_settings('plaintxtblog_sidebartextalignment') == "center" ) { echo 'selected="selected"'; } ?>><?php _e('Centered', 'plaintxtblog'); ?> </option>
-						<option value="left" <?php if ( get_settings('plaintxtblog_sidebartextalignment') == "left" ) { echo 'selected="selected"'; } ?>><?php _e('Left', 'plaintxtblog'); ?> </option>
-						<option value="right" <?php if ( ( get_settings('plaintxtblog_sidebartextalignment') == "") || ( get_settings('plaintxtblog_sidebartextalignment') == "right") ) { echo 'selected="selected"'; } ?>><?php _e('Right', 'plaintxtblog'); ?> </option>
+						<option value="center" <?php if ( get_option('plaintxtblog_sidebartextalignment') == "center" ) { echo 'selected="selected"'; } ?>><?php _e('Centered', 'plaintxtblog'); ?> </option>
+						<option value="left" <?php if ( get_option('plaintxtblog_sidebartextalignment') == "left" ) { echo 'selected="selected"'; } ?>><?php _e('Left', 'plaintxtblog'); ?> </option>
+						<option value="right" <?php if ( ( get_option('plaintxtblog_sidebartextalignment') == "") || ( get_option('plaintxtblog_sidebartextalignment') == "right") ) { echo 'selected="selected"'; } ?>><?php _e('Right', 'plaintxtblog'); ?> </option>
 					</select>
 					<p class="info"><?php _e('Choose one of the options for the alignment of the sidebar text. Default is <span>right</span>.', 'plaintxtblog'); ?></p>
 				</td>
@@ -559,17 +563,27 @@ function plaintxtblog_admin() { // Theme options menu
 				<th scope="row"><label for="ptb_singlelayout"><?php _e('Single post layout', 'plaintxtblog'); ?></label></th> 
 				<td>
 					<select id="ptb_singlelayout" name="ptb_singlelayout" tabindex="26" class="dropdown">
-						<option value="normalsingle" <?php if ( ( get_settings('plaintxtblog_singlelayout') == "") || ( get_settings('plaintxtblog_singlelayout') == "normalsingle") ) { echo 'selected="selected"'; } ?>><?php _e('Normal layout (3 columns)', 'plaintxtblog'); ?> </option>
-						<option value="singlesingle" <?php if ( get_settings('plaintxtblog_singlelayout') == "singlesingle" ) { echo 'selected="selected"'; } ?>><?php _e('Minimal layout (1 column)', 'plaintxtblog'); ?> </option>
+						<option value="normalsingle" <?php if ( ( get_option('plaintxtblog_singlelayout') == "") || ( get_option('plaintxtblog_singlelayout') == "normalsingle") ) { echo 'selected="selected"'; } ?>><?php _e('Normal layout (3 columns)', 'plaintxtblog'); ?> </option>
+						<option value="singlesingle" <?php if ( get_option('plaintxtblog_singlelayout') == "singlesingle" ) { echo 'selected="selected"'; } ?>><?php _e('Minimal layout (1 column)', 'plaintxtblog'); ?> </option>
 					</select>
 					<p class="info"><?php _e('The single <em>post</em> layout can either be three column (normal) or one column (minimal). Default is <span>normal layout (3 columns)</span>. ', 'plaintxtblog'); ?></p>
+				</td>
+			</tr>
+		</table>
+		<h3><?php _e('Content', 'plaintxtblog'); ?></h3>
+		<table class="form-table" summary="PlaintxtBlog content options">
+			<tr valign="top">
+				<th scope="row"><label for="ptb_avatarsize"><?php _e('Avatar size', 'plaintxtblog'); ?></label></th> 
+				<td>
+					<input id="ptb_avatarsize" name="ptb_avatarsize" type="text" class="text" value="<?php if ( get_option('plaintxtblog_avatarsize') == "" ) { echo "24"; } else { echo attribute_escape( get_option('plaintxtblog_avatarsize') ); } ?>" size="6" />
+					<p class="info"><?php _e('Sets the avatar size in pixels, if avatars are enabled. Default is <span>24</span>.', 'plaintxtblog'); ?></p>
 				</td>
 			</tr>
 		</table>
 		<p class="submit">
 			<input name="save" type="submit" value="<?php _e('Save Options', 'plaintxtblog'); ?>" tabindex="27" accesskey="S" />  
 			<input name="action" type="hidden" value="save" />
-			<input name="page_options" type="hidden" value="ptb_basefontsize,ptb_basefontfamily,ptb_headingfontfamily,ptb_posttextalignment,ptb_sidebarposition,ptb_sidebartextalignment,ptb_singlelayout" />
+			<input name="page_options" type="hidden" value="ptb_basefontsize,ptb_basefontfamily,ptb_headingfontfamily,ptb_posttextalignment,ptb_sidebarposition,ptb_sidebartextalignment,ptb_singlelayout,ptb_avatarsize" />
 		</p>
 	</form>
 	<h3 id="reset"><?php _e('Reset Options', 'plaintxtblog'); ?></h3>
@@ -579,65 +593,64 @@ function plaintxtblog_admin() { // Theme options menu
 		<p class="submit">
 			<input name="reset" type="submit" value="<?php _e('Reset Options', 'plaintxtblog'); ?>" onclick="return confirm('<?php _e('Click OK to reset. Any changes to these theme options will be lost!', 'plaintxtblog'); ?>');" tabindex="44" accesskey="R" />
 			<input name="action" type="hidden" value="reset" />
-			<input name="page_options" type="hidden" value="ptb_basefontsize,ptb_basefontfamily,ptb_headingfontfamily,ptb_posttextalignment,ptb_sidebarposition,ptb_sidebartextalignment,ptb_singlelayout" />
+			<input name="page_options" type="hidden" value="ptb_basefontsize,ptb_basefontfamily,ptb_headingfontfamily,ptb_posttextalignment,ptb_sidebarposition,ptb_sidebartextalignment,ptb_singlelayout,ptb_avatarsize" />
 		</p>
 	</form>
 </div>
-
 <?php
 }
 
 // Loads settings for the theme options to use
 function plaintxtblog_wp_head() {
-	if ( get_settings('plaintxtblog_basefontsize') == "" ) {
+	if ( get_option('plaintxtblog_basefontsize') == "" ) {
 		$basefontsize = '70%';
 		} else {
-			$basefontsize = attribute_escape( stripslashes( get_settings('plaintxtblog_basefontsize') ) ); 
+			$basefontsize = attribute_escape( stripslashes( get_option('plaintxtblog_basefontsize') ) ); 
 	};
-	if ( get_settings('plaintxtblog_basefontfamily') == "" ) {
+	if ( get_option('plaintxtblog_basefontfamily') == "" ) {
 		$basefontfamily = 'verdana, geneva, sans-serif';
 		} else {
-			$basefontfamily = wp_specialchars( stripslashes( get_settings('plaintxtblog_basefontfamily') ) ); 
+			$basefontfamily = wp_specialchars( stripslashes( get_option('plaintxtblog_basefontfamily') ) ); 
 	};
-	if ( get_settings('plaintxtblog_headingfontfamily') == "" ) {
+	if ( get_option('plaintxtblog_headingfontfamily') == "" ) {
 		$headingfontfamily = 'verdana, geneva, sans-serif';
 		} else {
-			$headingfontfamily = wp_specialchars( stripslashes( get_settings('plaintxtblog_headingfontfamily') ) ); 
+			$headingfontfamily = wp_specialchars( stripslashes( get_option('plaintxtblog_headingfontfamily') ) ); 
 	};
-	if ( get_settings('plaintxtblog_posttextalignment') == "" ) {
+	if ( get_option('plaintxtblog_posttextalignment') == "" ) {
 		$posttextalignment = 'left';
 		} else {
-			$posttextalignment = attribute_escape( stripslashes( get_settings('plaintxtblog_posttextalignment') ) ); 
+			$posttextalignment = attribute_escape( stripslashes( get_option('plaintxtblog_posttextalignment') ) ); 
 	};
-	if ( get_settings('plaintxtblog_sidebarposition') == "" ) {
+	if ( get_option('plaintxtblog_sidebarposition') == "" ) {
 		$sidebarposition = 'body div#container{float:right;margin:0 0 0 -320px;}
 body div#content{margin:0 0 0 320px;}
 body div#primary{float:left;}
 body div#secondary{float:right;margin-right:20px;}
 body div.sidebar{border-right:5px solid #ddd;padding-right:15px;}';
-		} elseif ( get_settings('plaintxtblog_sidebarposition') =="left" ) {
+		} elseif ( get_option('plaintxtblog_sidebarposition') =="left" ) {
 			$sidebarposition = 'body div#container{float:right;margin:0 0 0 -320px;}
 body div#content{margin:0 0 0 320px;}
 body div#primary{float:left;}
 body div#secondary{float:right;margin-right:20px;}
 body div.sidebar{border-right:5px solid #ddd;padding-right:15px;}';
-		} elseif ( get_settings('plaintxtblog_sidebarposition') =="right" ) {
+		} elseif ( get_option('plaintxtblog_sidebarposition') =="right" ) {
 			$sidebarposition = 'body div#container{float:left;margin:0 -320px 0 0;}
 body div#content{margin:0 320px 0 0;}
 body div#primary{float:right;}
 body div#secondary{float:left;margin-left:20px;}
 body div.sidebar{border-left:5px solid #ddd;padding-left:15px;}';
 	};
-	if ( get_settings('plaintxtblog_sidebartextalignment') == "" ) {
+	if ( get_option('plaintxtblog_sidebartextalignment') == "" ) {
 		$sidebartextalignment = 'right';
 		} else {
-			$sidebartextalignment = attribute_escape( stripslashes( get_settings('plaintxtblog_sidebartextalignment') ) ); 
+			$sidebartextalignment = attribute_escape( stripslashes( get_option('plaintxtblog_sidebartextalignment') ) ); 
 	};
-	if ( get_settings('plaintxtblog_singlelayout') == "" ) {
+	if ( get_option('plaintxtblog_singlelayout') == "" ) {
 		$singlelayout = '';
-		} elseif ( get_settings('plaintxtblog_singlelayout') =="normalsingle" ) {
+		} elseif ( get_option('plaintxtblog_singlelayout') =="normalsingle" ) {
 			$singlelayout = '';
-		} elseif ( get_settings('plaintxtblog_singlelayout') =="singlesingle" ) {
+		} elseif ( get_option('plaintxtblog_singlelayout') =="singlesingle" ) {
 			$singlelayout = 'body.single div#container{float:none;margin:0 auto;width:75%}
 body.single div#content{margin:0;}
 body.single div.sidebar{display:none;}
