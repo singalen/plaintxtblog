@@ -20,10 +20,10 @@ div.sidebar a,div.sidebar a:link,div.sidebar a:visited,div.sidebar ul li ul li.c
 div.sidebar ul li ul li.current_page_item a,div.sidebar ul li ul li.current-cat a{background:#80abcd;color:#fff;padding:1px 2px;}
 div.sidebar ul li a:hover,div.sidebar ul li.current_page_item li.page_item a:hover,div.sidebar ul li.current-cat ul.children li a:hover{background:#059;color:#fff;padding:1px 2px;}
 div.sidebar ul li a:active{background:#80abcd;color:#fff;}
-body{background:#fff;border:1px solid #000;color:#111;font-family:verdana,geneva,sans-serif;line-height:150%;margin:20px;padding:20px;}
+body{background:#fff;border:1px solid #000;color:#111;font-family:verdana,geneva,sans-serif;line-height:150%;margin:20px 7% 20px 7%;padding:20px;}
 body div#container{width:100%;}
-body div#footer{clear:both;color:#aaa;font-size:0.9em;padding:5em 0 0;width:100%;}
-body div.sidebar{overflow:hidden;width:120px;}
+body div#footer{clear:both;color:#aaa;font-size:0.9em;padding:2em 0 0;width:100%;}
+body div.sidebar{overflow:hidden;width:260px;}
 body div.access,body div#globalnav,span#theme-link span.additional-name,span#theme-link span.family-name{display:none;}
 body.archive .page-title,body.search .page-title{font-size:1.1em;font-weight:400;margin:0 0 0.3em;}
 body.archive div#content div.p1,body.search div#content div.p1{margin:2em 0 0;}
@@ -37,7 +37,7 @@ body.single span.entry-comments,body.single span.entry-trackbacks,body.single sp
 body.single span.entry-commentslink{display:block;margin:0.2em 0;}
 body.single span.entry-commentslink a{background:url(images/feed.png) no-repeat center left;}
 body.single span.entry-trackbacks a{background:url(images/trackbacks.png) no-repeat center left;}
-div#content .entry-title{background:#eee;font-size:0.9em;margin:0;text-transform:uppercase;}
+div#content .entry-title{background:#eee;font-size:0.9em;margin:0;}
 div.entry-content abbr,div.comments ol.commentlist abbr{border-bottom:1px dotted #006;cursor:help;}
 div.entry-content blockquote,div.comments ol.commentlist blockquote{background:#f6f6f6;border-left:5px solid #eee;margin:0;padding:0;}
 div.entry-content blockquote blockquote,div.comments ol.commentlist blockquote blockquote{background:#eee;border-left:5px solid #fff;margin:0 1em;}
@@ -118,7 +118,7 @@ body.attachment div#nav-images div.nav-previous{text-align:left;}
 body.attachment div#nav-images div.nav-next{text-align:right;}
 div#content div.post div.entry-meta,body.attachment div#content div.entry-meta{clear:both;}
 div.entry-content p{margin:1em 0;}
-div.entry-header{background:#eee;clear:both;padding:1px 4px;text-align:right;text-transform:uppercase;overflow:hidden;}
+div.entry-header{background:#eee;clear:both;padding:1px 4px;text-align:right;overflow:hidden;}
 div.entry-header abbr.published{font-size:0.9em;}
 div.entry-meta{font-style:italic;margin:1em 0 2.5em;text-align:right;width:100%;}
 div.navigation{background:#eee;font-size:0.8em;font-weight:700;padding:1px 5px;text-align:center;width:99%;}

@@ -22,6 +22,6 @@
 		<div id="blog-description"><?php bloginfo('description') ?></div>
 	</div><!-- #header -->
 	
-	<div class="access"><span class="content-access"><a href="#content" title="<?php _e('Skip to content', 'plaintxtblog'); ?>"><?php _e('Skip to content', 'plaintxtblog'); ?></a></span></div>
+	<!--div class="access"><span class="content-access"><a href="#content" title="<?php _e('Skip to content', 'plaintxtblog'); ?>"><?php _e('Skip to content', 'plaintxtblog'); ?></a></span></div-->
 
 <?php plaintxtblog_globalnav() // Adds page links below header, which are hidden by style.css; increases accessibility ?>

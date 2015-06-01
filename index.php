@@ -16,8 +16,8 @@
 <?php link_pages('<div class="page-link">'.__('Pages: ', 'plaintxtblog'), "</div>\n", 'number'); ?>
 				</div>
 				<div class="entry-meta">
-					<span class="entry-category"><?php printf(__('Filed in %s', 'plaintxtblog'), get_the_category_list(', ') ) ?></span>
-					<span class="meta-sep">|</span>
+					<!--span class="entry-category"><?php printf(__('Filed in %s', 'plaintxtblog'), get_the_category_list(', ') ) ?></span>
+					<span class="meta-sep">|</span-->
 					<span class="entry-tags"><?php the_tags(__('Tagged ', 'plaintxtblog'), ", ", "") ?></span>
 					<span class="meta-sep">|</span>
 <?php edit_post_link(__('Edit', 'plaintxtblog'), "\t\t\t\t\t<span class='entry-edit'>", "</span>\n\t\t\t\t\t<span class='meta-sep'>|</span>\n"); ?>
@@ -26,6 +26,20 @@
 			</div><!-- .post -->
 
 <?php endwhile ?>
+
+<div style="margin: 0pt 0pt 40px;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6359787656588143";
+/* 468x60, created 6/20/08 - bottom of page */
+google_ad_slot = "6548897261";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
 
 			<div id="nav-below" class="navigation">
 				<div class="nav-previous"><?php next_posts_link(__('&laquo; Older posts', 'plaintxtblog')) ?></div>

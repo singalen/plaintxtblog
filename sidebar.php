@@ -39,7 +39,7 @@
 			</ul>
 	</div><!-- #primary .sidebar -->
 
-		<div id="secondary" class="sidebar">
+		<!--div id="secondary" class="sidebar">
 			<ul>
 <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
 <?php if ( wp_list_pages("child_of=".$post->ID."&echo=0") ) { // Shows subpages when subpages for the current page exist ?>
@@ -72,4 +72,4 @@
 <?php endif; // End Widgets ?>
 
 			</ul>
-	</div><!-- #secondary .sidebar -->
+	</div--><!-- #secondary .sidebar -->
