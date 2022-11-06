@@ -82,7 +82,7 @@ foreach ( $comments as $comment )
 <?php if ( 'open' == $post->comment_status ) : ?>
 
 	<h3 id="respond"><?php _e('Post a Comment', 'plaintxtblog') ?></h3>
-<?php if ( get_option('comment_registration') && !$user_ID ) : ?>
+<?php if ( get_option('comment_registration') && ! get_current_user_id() ) : ?>
 	<div id="mustlogin"><?php printf(__('You must be <a href="%s" title="Log in">logged in</a> to post a comment.', 'plaintxtblog'),
 			get_option('siteurl') . '/wp-login.php?redirect_to=' . get_permalink() ) ?></div>
 
@@ -92,7 +92,7 @@ foreach ( $comments as $comment )
 
 		<form id="commentform" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post">
 
-<?php if ( $user_ID ) : ?>
+<?php if ( get_current_user_id() ) : ?>
 
 			<div id="loggedin"><?php printf(__('Logged in as <a href="%1$s" title="View your profile" class="fn">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'plaintxtblog'),
 					get_option('siteurl') . '/wp-admin/profile.php',
