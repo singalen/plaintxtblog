@@ -180,10 +180,10 @@ function plaintxtblog_other_tags($glue) {
 // Produces an avatar image with the hCard-compliant photo class
 function plaintxtblog_commenter_link() {
 	$commenter = get_comment_author_link();
-	if ( ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
-		$commenter = ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
+	if ( mb_ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
+		$commenter = mb_ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
 	} else {
-		$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
+		$commenter = mb_ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
 	}
 	$email = get_comment_author_email();
 	$avatar_size = get_option('plaintxtblog_avatarsize');
